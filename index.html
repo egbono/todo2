@@ -2,27 +2,207 @@
 <!--
   ============================================================
    OPPGAVER – Todo-app
-   Versjon:    2.73
-   Oppdatert:  2026-05-27
+   Versjon:    3.07
+   Oppdatert:  2026-05-28
   ============================================================
    Versjonshistorikk:
-     2.73 Ny "På vent"-kategori (separat flagg, grå):
-          - Knapp i kategori-raden i registreringsskjemaet
-            (etter A/B/C) med pause-ikon.
-          - Pause-ikon-knapp i oppgavelinjen (alle visninger)
-            for å toggle waitFlag direkte.
-          - Egen ramme nederst i iPhone X-fanen.
-            Hierarki: Haster > I dag > Pinnet > iPhone > A
-            > B > C > På vent.
-          - Filter-knapp i iPhone X-filter-rad og Alle-fanens
-            underflikker.
-          - Dra-og-slipp i iPhone X støtter På vent-rammen
-            (waitFlag fjernes ved flytting til andre rammer).
-          - Oppgaver med waitFlag vises litt utvasket
-            (opacity 0.75) - signaliserer at de er parkert.
-          - Dagens-fanen ekskluderer waitFlag-oppgaver.
-          - "Velg rammer" er nå 8/8.
-          - JSON og CSV-eksport/import støtter wait_flag.
+     3.07 "Fokus" omdøpt til "Kalender ToDo" (overalt:
+          dropdown, tittel, fane-label, snarvei).
+     3.06 Klikk på "I dag"-fanen åpner nå "Nå"-visningen.
+          - I dag, Fokus og Dagens nås fortsatt via chevron-
+            menyen på fanen.
+     3.05 "Nå" kan legges til som snarvei på Start.
+          - Alle dropdown-undervalg (Fokus, Nå, Dagens,
+            iPhone, Slettede, Alle) er valgbare snarveier
+            når du redigerer Start-siden.
+          - "Nå" var den eneste som manglet - nå med.
+     3.04 Ny "Nå"-fane under I dag.
+          - I dag-dropdown: Fokus, Nå, I dag, Dagens.
+          - "Nå" viser KUN I dag-rammen (oppgaver merket
+            I dag ELLER med forfallsdato i dag), i samme
+            fargede innramming som iPhone X / I dag-listen.
+          - Kompakte rader med checkbox, dra-håndtak, dato
+            og nummer. Kollaps og skille-linjer støttes.
+     3.03 Antall oppgaver per dag i Fokus-dagvelgeren.
+          - Rød tall-badge i hjørnet av hvert dagsfelt viser
+            antall oppgaver med forfallsdato den dagen.
+          - Dager uten oppgaver har ingen badge.
+     3.02 Avbryt/Oppdater flyttet til dato-raden.
+          - Dato-raden har nå en ramme rundt seg.
+          - Inni: dato-velger, "I dag", "I morgen", skille-
+            strek, "Avbryt" og "Oppdater" på samme linje.
+          - Knappene fjernet fra toppen av skjemaet.
+          - Bryter til ny linje på smale skjermer.
+     3.01 Datofelt flyttet opp over tittel i skjemaet.
+          - Gjennomføringsdato vises nå øverst i Tittel-
+            seksjonen, rett over tittelfeltet.
+          - Hurtigknapper "I dag" og "I morgen" ved siden av.
+          - Datoer-seksjonen heter nå "Oppfølging" (kun
+            oppfølgingsdato igjen der).
+     3.00 Fokus: 7-dagers velger lagt til.
+          - Rad med 7 dagsfelt (ukedag + dato) under datoen.
+          - I dag (valgt) viser kategori-kortene som før.
+          - Velger du en annen dag vises oppgaver med
+            FORFALLSDATO den dagen (flat liste, prioritert).
+          - "Ny oppgave" forhåndsutfyller valgt dato.
+     2.99 Fokus: trykk på oppgaven for å åpne den.
+          - Trykk hvor som helst på raden -> åpner/redigerer
+            oppgaven (tar deg tilbake til Fokus etterpå).
+          - Trykk sirkelen -> krysser av som ferdig (som før).
+     2.98 Fokus: "Lukk alle / Åpne alle"-knapp lagt til.
+          Kollapser eller åpner alle kategori-kort samtidig.
+     2.97 Fokus: tydeligere skiller mellom kategoriene:
+          - Hver kategori er nå sitt eget kort med fargestripe
+            til venstre og fargetonet header (som iPhone X).
+          - Klar luft mellom kortene - lettere å skille.
+          - Kollaps og kryss av fungerer som før.
+     2.96 Fokus-forbedringer:
+          - Klikk på kategori-overskriften (Haster, I dag,
+            osv) lukker/åpner den seksjonen. Chevron viser
+            tilstand.
+          - "Fokus" er nå også tilgjengelig i "I dag"-fanens
+            chevron-meny (I dag / Dagens / Fokus).
+     2.95 "Dagens"-kortet flyttet til egen "Fokus"-side.
+          - Kortet er tatt bort fra Start (ble for fullt).
+          - Ny "Fokus"-visning med samme kort (dato, valgte
+            kategorier, kryss av, tannhjul for kategorivalg).
+          - Nås via "Fokus"-snarvei på Start (lagt til først).
+          - "+ X flere" tar deg til iPhone X filtrert på den
+            kategorien.
+     2.94 Nytt "Dagens"-kort øverst på Start-siden.
+          - Samler oppgaver fra valgte kategorier i ett kort.
+          - Standard: Haster, I dag, Kjøp. Trykk tannhjulet
+            for å velge hvilke kategorier som vises (alle 9
+            tilgjengelige: Haster, I dag, Pinnet, iPhone,
+            Kjøp, A, B, C, På vent).
+          - Hver oppgave kan krysses av direkte fra kortet.
+          - Dato øverst + antall i fokus.
+          - Knapper: "Åpne I dag" og "Ny oppgave".
+          - Maks 4 oppgaver per kategori, så "+ X flere".
+     2.93 "Alle" flyttet inn under "Alle linjer" (dropdown).
+          - "Alle linjer" har nå en chevron-meny (som iPhone
+            X har iPhone X/iPhone): "Alle linjer" og "Alle".
+          - Toppfanen "Alle" er fjernet som egen fane.
+          - Velg "Alle" fra menyen for den vanlige Alle-
+            visningen; tittelen bytter til "Alle".
+          - Fane-raden er dermed ryddigere med én fane mindre.
+     2.92 FIKS: Kjøp/På vent/kategori i "I dag" Liste.
+          - Når du velger en spesifikk kategori (Kjøp, På
+            vent, Haster, A, B, C, I dag) vises nå ALLE
+            oppgaver i den kategorien - ikke kun dagens.
+          - Kjøp fungerer dermed som en ekte handleliste.
+          - "Alle"-grenen beholder I dag-filteret (rammer
+            viser kun dagens relevante oppgaver).
+     2.91 "I dag" Liste "Alle" viser nå ALLE kategori-rammene.
+          - Når "Alle" er valgt vises hele hierarkiet som i
+            iPhone X: Haster, I dag, Pinnete, iPhone-merkede,
+            Kjøp, A, B, C, På vent.
+          - Rammene viser kun dagens relevante oppgaver
+            (dato=i dag, pinnet eller iPhone-merket) fordelt
+            på kategori.
+          - "Velg rammer" dekker nå alle 9 rammene.
+          - Erstatter de tidligere 3 seksjonene (Pinnete/
+            iPhone/Dagens øvrige).
+     2.90 "I dag" Liste: kategori-filterrad lagt til.
+          - Knapper øverst: Alle, Haster, I dag, A, B, C,
+            Kjøp, På vent (som filter-raden i iPhone X).
+          - "Alle" viser seksjonene (Pinnete/iPhone/Dagens
+            øvrige). Velger du en kategori vises kun den som
+            en flat liste.
+          - Valgt kategori huskes.
+     2.89 "I dag" Liste-visning fikk kontrollknapper.
+          - "Lukk alle / Åpne alle" - kollapser/åpner alle
+            rammer (Pinnete, iPhone-merkede, Dagens øvrige).
+          - "Velg rammer" - skjul/vis enkeltrammer via modal,
+            samme som i iPhone X.
+     2.88 "I dag" Liste-visning fikk iPhone X-stil:
+          - Liste-modus viser nå samme fargede rammer som
+            iPhone X: Pinnete, iPhone-merkede, Dagens øvrige.
+          - Kompakte rader med sirkel-checkbox, dra-håndtak
+            og nummer (som iPhone X).
+          - Forfallsdato vises på hver oppgave med farge:
+            rød = i dag/forfalt, oransje = snart (innen 2
+            dager), grå = senere.
+          - Det gamle Alt/Pinnet/iPhone-filteret i Liste er
+            erstattet av seksjonene.
+          - Gruppe 1, Gruppe 2 og Prioritet-visningene er
+            uendret.
+     2.87 Sorteringsvalg i "Alle linjer".
+          - Ny rad med fire sorteringsknapper øverst:
+            Nummer (stigende), A-Å (alfabetisk), Prioritet
+            (høy→lav), Nyeste (sist opprettet først).
+          - Valgt sortering huskes til neste gang.
+     2.86 Ny "Kjøp"-kategori (separat flagg, grønn handlekurv):
+          - Egen ramme i iPhone X, plassert under iPhone-
+            merkede. Hierarki: Haster > I dag > Pinnet >
+            iPhone > Kjøp > A > B > C > På vent.
+          - Kjøp samler ALLE oppgaver merket Kjøp (uavhengig
+            av andre flagg) - fungerer som en handleliste.
+          - Knapp i kategori-raden + handlekurv-ikon i hver
+            oppgavelinje for å toggle.
+          - Filter-knapp i iPhone X og Alle-fanen.
+          - Dra-og-slipp støtter Kjøp-rammen.
+          - Med i "Velg rammer" (nå 9/9).
+          - JSON/CSV eksport/import støtter buy_flag.
+     2.85 Topp-fane-raden er nå kompakte piller.
+          - Fanene (I dag, iPhone X, Uke, Alle, Alle linjer,
+            Ferdig, Notat, SMS, Grupper) er tette piller i
+            stedet for spredt utover hele bredden.
+          - Bryter til to rader ved behov (ingen sveiping).
+          - Aktiv fane er FARGEKODET: I dag=oransje, iPhone X
+            =blå, Uke=grønn, Alle/Alle linjer=lilla, Ferdig=
+            grønn, Notat/SMS=cyan, Grupper=oransjerød.
+          - Mye ryddigere og tar mindre plass.
+     2.84 Søk som ikon i topplinjen.
+          - Søk er nå et søk-ikon i topplinjen som folder ut
+            søkefeltet ved trykk (skjult ellers - sparer en
+            hel rad).
+          - Filter-knappene i iPhone X og Alle (Alle/Haster/
+            ...) er skjult bak et filter-ikon i topplinjen.
+            Trykk for å folde dem ut ved behov.
+          - Hus + tittel + teller + søk-ikon + filter-ikon
+            ligger nå på samme kompakte topplinje.
+          - Oppgavene starter mye høyere oppe - mindre
+            bortkastet plass før innholdet.
+     2.83 Ryddigere navigasjon - rent dashbord.
+          - Topp-fanene SKJULES på Start-siden. Dashbordet
+            vises helt rent uten forstyrrende fane-rad.
+          - Fane-raden dukker opp igjen så snart du går inn
+            i en fane (via snarvei eller statistikk-kort).
+          - Nytt hus-ikon (🏠) øverst til venstre tar deg
+            tilbake til Start fra hvilken som helst fane.
+            Hus-ikonet skjules når du allerede er på Start.
+          - Start-fanen fjernet fra fane-raden (erstattet av
+            hus-ikonet).
+     2.82 Nytt DASHBOARD ("Start"-fane, først i fane-raden):
+          - Stor klokke + dato på norsk øverst (oppdateres
+            automatisk).
+          - Tre statistikk-kort: I dag, Haster, Aktive
+            (klikkbare → går til riktig fane).
+          - "Mine snarveier": rutenett av store, fargede kort
+            som peker til topp-faner. Hver fane har fast farge
+            og ikon.
+          - "Legg til"-kort: velg hvilken fane en ny snarvei
+            skal peke til. "Rediger" lar deg fjerne snarveier.
+          - Appen åpner på dashbordet ved oppstart, men du
+            kan navigere fritt via "Start"-fanen.
+     2.81 iPhone X filter-knapper større og touch-vennlige.
+     2.80 "Alle linjer": samme størrelse som kompakt i Alle.
+     2.79 "Alle linjer": mer kompakte linjer.
+     2.78 "Alle linjer" fikk ny, renere layout:
+          - Fargestripe til venstre = prioritet (rød=høy,
+            oransje=medium, grønn=lav).
+          - Sirkel-checkbox: trykk for å markere ferdig
+            (flyttes til Ferdig-fanen som vanlig).
+          - Tittel i fet skrift + oppgavenummer til høyre.
+          - Trykk på selve raden/tittelen → åpner redigering
+            (og du returnerer til Alle linjer etter Oppdater).
+     2.77 Ny topp-fane "Alle linjer".
+     2.76 Responsivt topp-fane-oppsett (to rader på iPhone).
+     2.75 Fane-raden i registreringsskjemaet bryter til to
+          rader på smal skjerm.
+     2.74 To fikser for skillelinjer i iPhone X.
+     2.73 Ny "På vent"-kategori.
      2.72 Ny SMS-fane med maler og iPhone-Meldinger-kobling.
      2.71 WYSIWYG-redigering i notater.
      2.70 Større fane-knapper, popup gruppe-velger.
@@ -138,8 +318,8 @@
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
 <meta name="application-name" content="Oppgaver" />
-<meta name="version" content="2.73" />
-<title>Oppgaver v2.73</title>
+<meta name="version" content="3.07" />
+<title>Oppgaver v3.07</title>
 <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23185FA5'/><g transform='translate(30 30)'><rect x='0' y='6' width='114' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='39' width='90' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='72' width='102' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><path d='M15 16.5 L21 22.5 L33 10.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M15 49.5 L21 55.5 L33 43.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='24' cy='82.5' r='9' fill='none' stroke='white' stroke-width='3.5'/></g></svg>" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23185FA5'/><g transform='translate(30 30)'><rect x='0' y='6' width='114' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='39' width='90' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='72' width='102' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><path d='M15 16.5 L21 22.5 L33 10.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M15 49.5 L21 55.5 L33 43.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='24' cy='82.5' r='9' fill='none' stroke='white' stroke-width='3.5'/></g></svg>" />
 <style>
@@ -181,25 +361,42 @@
 html,body{margin:0;padding:0;height:100%;background:var(--bg-primary);color:var(--text-primary);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif;font-size:13px;line-height:1.4;overscroll-behavior:none}
 body{display:flex;flex-direction:column;height:100vh;height:100dvh;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
 button{font-family:inherit;color:inherit}
-.app-header{padding:8px 14px 4px;display:flex;justify-content:space-between;align-items:baseline;flex-shrink:0}
+.app-header{padding:6px 12px 4px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;gap:6px}
+.home-btn{background:transparent;border:none;color:var(--text-secondary);cursor:pointer;padding:5px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;min-width:32px;min-height:32px}
+.home-btn:active{background:var(--bg-secondary);color:var(--text-primary)}
+.home-btn .icon{width:18px;height:18px}
+.app-header .app-title{flex:1;min-width:0}
+.header-icon-btn{background:transparent;border:none;color:var(--text-secondary);cursor:pointer;padding:5px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;min-width:32px;min-height:32px}
+.header-icon-btn:active{background:var(--bg-secondary)}
+.header-icon-btn.active{color:var(--text-info);background:var(--bg-info)}
+.header-icon-btn .icon{width:18px;height:18px}
 .app-title{font-size:18px;font-weight:600;margin:0;display:flex;align-items:baseline;gap:6px}
 .app-version{font-size:9px;color:var(--text-tertiary);font-weight:500;background:var(--bg-secondary);padding:1px 5px;border-radius:4px;letter-spacing:0.3px}
-.app-counter{font-size:11px;color:var(--text-tertiary)}
-.tabs{display:flex;gap:3px;padding:5px 8px;border-bottom:0.5px solid var(--border-tertiary);overflow-x:auto;scrollbar-width:none;flex-shrink:0}
+.app-counter{font-size:11px;color:var(--text-tertiary);flex-shrink:0;white-space:nowrap}
+@media (max-width:600px){.app-counter{font-size:10px}}
+.tabs{display:flex;gap:5px;padding:6px 10px;border-bottom:0.5px solid var(--border-tertiary);flex-shrink:0;flex-wrap:wrap}
 .tabs::-webkit-scrollbar{display:none}
-.tab{flex:1;min-width:56px;min-height:38px;padding:8px 4px;font-size:12px;text-align:center;border-radius:7px;cursor:pointer;color:var(--text-secondary);border:none;background:transparent;white-space:nowrap;display:flex;align-items:center;justify-content:center;gap:4px}
-.tab.active{background:var(--bg-secondary);color:var(--text-primary);font-weight:600}
-.tab-dropdown{flex:1;min-width:56px;display:flex}
-.tab-with-menu{display:flex;align-items:center;justify-content:center;gap:4px;width:100%}
-.tab-chevron{display:inline-flex;align-items:center;justify-content:center;padding:3px 5px;background:rgba(255,255,255,0.06);border-radius:4px;margin-left:1px;min-width:20px;min-height:20px}
-.tab.active .tab-chevron{background:rgba(255,255,255,0.12)}
+.tab{flex:0 0 auto;min-height:32px;padding:6px 13px;font-size:12px;text-align:center;border-radius:16px;cursor:pointer;color:var(--text-secondary);border:0.5px solid var(--border-tertiary);background:var(--bg-secondary);white-space:nowrap;display:flex;align-items:center;justify-content:center;gap:3px}
+.tab.active{background:var(--bg-tertiary);color:var(--text-primary);font-weight:600;border-color:var(--text-tertiary)}
+.tab-dropdown{flex:0 0 auto;display:flex}
+.tab-with-menu{display:flex;align-items:center;justify-content:center;gap:3px;width:100%}
+.tab-chevron{display:inline-flex;align-items:center;justify-content:center;padding:2px 3px;background:rgba(255,255,255,0.08);border-radius:8px;margin-left:1px;min-width:18px;min-height:18px}
+.tab.active .tab-chevron{background:rgba(255,255,255,0.15)}
 .tab-chevron .icon{width:11px;height:11px}
-.tab-chevron:hover{background:rgba(255,255,255,0.15)}
 .tab-chevron:active{transform:scale(0.92)}
+/* Fargekodet aktiv fane per view */
+.tab.active[data-view="today"]{background:rgba(239,159,39,0.2);border-color:#EF9F27;color:#FAC775}
+.tab.active[data-view="iphonex"]{background:rgba(55,138,221,0.2);border-color:#378ADD;color:#85B7EB}
+.tab.active[data-view="week"]{background:rgba(99,153,34,0.2);border-color:#639922;color:#AED183}
+.tab.active[data-view="all"]{background:rgba(127,119,221,0.2);border-color:#7F77DD;color:#B5AEF0}
+.tab.active[data-view="allelinjer"]{background:rgba(127,119,221,0.2);border-color:#7F77DD;color:#B5AEF0}
+.tab.active[data-view="done"]{background:rgba(93,202,165,0.2);border-color:#5DCAA5;color:#8FE0C4}
+.tab.active[data-view="notes"]{background:rgba(0,180,219,0.2);border-color:#00B4DB;color:#5DDFF1}
+.tab.active[data-view="sms"]{background:rgba(0,180,219,0.2);border-color:#00B4DB;color:#5DDFF1}
+.tab.active[data-view="groups"]{background:rgba(216,90,48,0.2);border-color:#D85A30;color:#F0926B}
 @media (prefers-color-scheme: light){
   .tab-chevron{background:rgba(0,0,0,0.06)}
   .tab.active .tab-chevron{background:rgba(0,0,0,0.1)}
-  .tab-chevron:hover{background:rgba(0,0,0,0.12)}
 }
 .tab-menu{background:var(--bg-primary);border:0.5px solid var(--border-secondary);border-radius:8px;padding:4px;box-shadow:0 6px 16px rgba(0,0,0,0.4);min-width:120px}
 .tab-menu-item{display:block;width:100%;text-align:left;padding:7px 14px;font-size:12px;color:var(--text-primary);background:transparent;border:none;border-radius:5px;cursor:pointer;font-family:inherit}
@@ -400,6 +597,8 @@ button{font-family:inherit;color:inherit}
 .icon-btn.today-active:active{color:#3FBCD4}
 .icon-btn.wait-active{color:#D3D1C7}
 .icon-btn.wait-active:active{color:#A8A69E}
+.icon-btn.buy-active{color:#7FD99F}
+.icon-btn.buy-active:active{color:#5DCAA5}
 .pinned-badge{display:inline-flex;align-items:center;gap:3px;color:#EF9F27;font-size:10px;font-weight:600}
 .task-www{display:inline-flex;align-items:center;gap:3px;font-size:11px;color:var(--text-info);text-decoration:none;margin-top:3px}
 .task-www:hover{text-decoration:underline}
@@ -530,12 +729,21 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .form-iphone-btn:active{opacity:0.7}
 .form-iphone-btn.active{color:#85B7EB;border-color:#378ADD;background:rgba(55,138,221,0.1)}
 .form-task-number{font-size:12px;color:var(--text-tertiary);font-family:ui-monospace,Menlo,monospace;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);padding:6px 9px;border-radius:5px;line-height:1;flex-shrink:0}
+.form-date-row{display:flex;gap:6px;align-items:center}
+.form-date-box{display:flex;gap:6px;align-items:center;flex-wrap:wrap;border:0.5px solid var(--border-secondary);border-radius:10px;padding:8px}
+.form-date-box input[type="date"]{flex:1;min-width:115px}
+.form-date-divider{width:1px;height:22px;background:var(--border-tertiary);flex-shrink:0}
+.form-date-action{font-size:12px;padding:8px 14px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;color:var(--text-secondary);cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0}
+.form-date-action:active{transform:scale(0.96)}
+.form-date-action.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.form-date-quick{font-size:12px;padding:8px 12px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;color:var(--text-secondary);cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0}
+.form-date-quick:active{transform:scale(0.96)}
+.form-date-quick.active{background:var(--bg-info);border-color:var(--border-info);color:var(--text-info);font-weight:600}
 .form-category-row{background:rgba(55,138,221,0.05);padding:6px 11px;border-bottom:0.5px solid rgba(55,138,221,0.3);display:flex;align-items:center;gap:4px;flex-wrap:wrap}
-.form-tabs{display:flex;gap:3px;align-items:center;margin-bottom:10px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.form-tabs::-webkit-scrollbar{display:none}
-.form-tab{flex-shrink:0}
-.form-tab{background:transparent;border:0.5px solid var(--border-tertiary);color:var(--text-tertiary);font-size:10px;padding:5px 9px;border-radius:5px;font-weight:500;cursor:pointer;font-family:inherit;line-height:1;display:flex;align-items:center;gap:3px;flex-shrink:0}
-.form-tab .icon{width:11px;height:11px}
+.form-tabs{display:flex;gap:4px;align-items:center;margin-bottom:10px;flex-wrap:wrap;padding-bottom:2px}
+.form-tab{flex:0 0 auto}
+.form-tab{background:transparent;border:0.5px solid var(--border-tertiary);color:var(--text-tertiary);font-size:11px;padding:7px 10px;border-radius:6px;font-weight:500;cursor:pointer;font-family:inherit;line-height:1;display:flex;align-items:center;gap:4px;min-height:32px}
+.form-tab .icon{width:12px;height:12px}
 .form-tab:active{opacity:0.7}
 .form-tab.active{background:rgba(136,135,128,0.18);border-color:#888780;color:var(--text-secondary);font-weight:600}
 .form-category-label{font-size:10px;color:var(--text-tertiary);margin-right:2px;flex-shrink:0}
@@ -552,6 +760,9 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .cat-btn.cat-wait{display:inline-flex;align-items:center;gap:3px}
 .cat-btn.cat-wait .icon{width:10px;height:10px}
 .cat-btn.cat-wait.active{background:rgba(136,135,128,0.22);border-color:#888780;color:#D3D1C7}
+.cat-btn.cat-buy{display:inline-flex;align-items:center;gap:3px}
+.cat-btn.cat-buy .icon{width:10px;height:10px}
+.cat-btn.cat-buy.active{background:rgba(45,158,117,0.2);border-color:#1D9E75;color:#7FD99F}
 .cat-btn.cat-pinned.active{background:rgba(239,159,39,0.18);border-color:#EF9F27;color:#FAC775}
 .cat-btn.cat-iphone.active{background:rgba(55,138,221,0.18);border-color:#378ADD;color:#85B7EB}
 @media (prefers-color-scheme: light){
@@ -621,6 +832,105 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .group-mgmt-search-clear{background:transparent;border:none;color:var(--text-tertiary);padding:3px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;border-radius:3px}
 .group-mgmt-search-clear:hover{background:var(--bg-secondary)}
 .group-mgmt-search-clear .icon{width:11px;height:11px}
+/* Dashboard */
+.dashboard{padding:16px 14px;max-width:560px;margin:0 auto}
+.dash-clock{text-align:center;margin-bottom:20px;padding:8px 0}
+.dagens-kort{background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:12px;overflow:hidden;margin-bottom:18px}
+.dagens-kort-head{display:flex;align-items:center;gap:10px;padding:12px 14px 11px;border-bottom:0.5px solid var(--border-tertiary)}
+.dagens-kort-cal-icon{display:inline-flex;color:#5DDFF1}
+.dagens-kort-cal-icon .icon{width:20px;height:20px}
+.dagens-kort-date{font-size:15px;font-weight:600;color:var(--text-primary)}
+.dagens-kort-sub{font-size:11px;color:var(--text-secondary)}
+.dagens-kort-settings{background:transparent;border:none;color:var(--text-tertiary);cursor:pointer;padding:6px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;min-width:32px;min-height:32px}
+.dagens-kort-settings:active{background:var(--bg-tertiary)}
+.dagens-kort-settings .icon{width:17px;height:17px}
+.dagens-kort-body{padding:6px 12px 10px}
+.dagens-kort-section{margin-top:10px}
+.dagens-kort-cat-head{display:flex;align-items:center;gap:7px;margin-bottom:5px;cursor:pointer;user-select:none}
+.fokus-chevron{display:inline-flex;align-items:center;transition:transform 0.15s}
+.fokus-chevron .icon{width:12px;height:12px}
+.fokus-chevron.collapsed{transform:rotate(-90deg)}
+.fokus-cards{display:flex;flex-direction:column;gap:10px}
+.fokus-controls{padding:8px 12px 0;display:flex}
+.fokus-day-row{display:flex;gap:4px;padding:12px 12px 4px}
+.fokus-day{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;background:var(--bg-primary);border:0.5px solid var(--border-tertiary);border-radius:8px;padding:6px 2px;cursor:pointer;font-family:inherit;min-width:0}
+.fokus-day-badge{position:absolute;top:-5px;right:-3px;background:#E24B4A;color:#fff;font-size:9px;font-weight:600;min-width:15px;height:15px;line-height:15px;text-align:center;border-radius:8px;padding:0 3px;box-sizing:border-box}
+.fokus-day-badge.on-active{background:#fff;color:var(--text-info)}
+.fokus-day:active{transform:scale(0.95)}
+.fokus-day-name{font-size:9px;color:var(--text-secondary);text-transform:lowercase}
+.fokus-day-num{font-size:14px;font-weight:600;color:var(--text-primary)}
+.fokus-day.active{background:var(--bg-info);border-color:var(--border-info)}
+.fokus-day.active .fokus-day-name{color:var(--text-info)}
+.fokus-day.active .fokus-day-num{color:var(--text-info)}
+.fokus-ctrl-btn{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:6px 12px;background:var(--bg-info);border:0.5px solid var(--border-info);border-radius:7px;color:var(--text-info);cursor:pointer;font-family:inherit;font-weight:600}
+.fokus-ctrl-btn:active{transform:scale(0.97)}
+.fokus-ctrl-btn .icon{width:13px;height:13px}
+.fokus-cat-card{background:var(--bg-primary);border:0.5px solid var(--border-tertiary);border-radius:8px;overflow:hidden}
+.fokus-cat-head{display:flex;align-items:center;gap:7px;padding:8px 11px;cursor:pointer;user-select:none}
+.fokus-cat-head .icon{width:14px;height:14px}
+.fokus-cat-label{flex:1;font-size:12px;font-weight:700;letter-spacing:0.3px;text-transform:uppercase}
+.fokus-cat-count{font-size:10px;padding:1px 7px;border-radius:10px;font-weight:600}
+.fokus-cat-body{padding:6px 11px 8px;display:flex;flex-direction:column;gap:1px}
+.fokus-cat-card.collapsed .fokus-cat-head{border-bottom:none !important}
+.dagens-kort-cat-head .icon{width:14px;height:14px}
+.dagens-kort-cat-label{font-size:12px;font-weight:600;letter-spacing:0.3px}
+.dagens-kort-cat-count{font-size:10px;padding:1px 7px;border-radius:10px;font-weight:600}
+.dagens-kort-list{border-left:3px solid #888;padding-left:10px;display:flex;flex-direction:column;gap:1px}
+.dagens-kort-row{display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer}
+.dagens-kort-row:active{background:rgba(255,255,255,0.04);border-radius:5px}
+.dagens-kort-circle{width:15px;height:15px;border:1.5px solid #888;border-radius:50%;flex-shrink:0}
+.dagens-kort-row:active .dagens-kort-circle{background:rgba(255,255,255,0.15)}
+.dagens-kort-title{font-size:14px;color:var(--text-primary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dagens-kort-more{font-size:12px;color:var(--text-secondary);padding:4px 0 2px 23px}
+.dagens-kort-empty{font-size:12px;color:var(--text-tertiary);padding:2px 0 4px 10px}
+.dagens-kort-actions{display:flex;border-top:0.5px solid var(--border-tertiary)}
+.dagens-kort-action{flex:1;border:none;background:transparent;padding:11px;font-size:13px;color:var(--text-secondary);display:flex;align-items:center;justify-content:center;gap:5px;cursor:pointer;font-family:inherit}
+.dagens-kort-action:first-child{border-right:0.5px solid var(--border-tertiary);color:var(--text-info)}
+.dagens-kort-action:active{background:var(--bg-tertiary)}
+.dagens-kort-action .icon{width:15px;height:15px}
+.dash-time{font-size:46px;font-weight:300;color:var(--text-primary);letter-spacing:1px;line-height:1;font-variant-numeric:tabular-nums}
+.dash-date{font-size:14px;color:var(--text-info);margin-top:8px;text-transform:capitalize}
+.dash-stats{display:flex;gap:8px;margin-bottom:20px}
+.dash-stat{flex:1;border:0.5px solid;border-radius:10px;padding:12px 8px;text-align:center;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;font-family:inherit}
+.dash-stat:active{transform:scale(0.97)}
+.dash-stat-num{font-size:24px;font-weight:700;line-height:1}
+.dash-stat-label{font-size:9px;text-transform:uppercase;letter-spacing:0.3px;font-weight:600}
+.dash-section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.dash-section-title{font-size:11px;color:var(--text-tertiary);font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+.dash-edit-btn{font-size:11px;color:var(--text-info);background:transparent;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;padding:4px 6px;border-radius:5px}
+.dash-edit-btn:active{background:var(--bg-secondary)}
+.dash-edit-btn .icon{width:12px;height:12px}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dash-shortcut{position:relative;border:0.5px solid;border-radius:12px;padding:16px 10px;display:flex;flex-direction:column;align-items:center;gap:7px;min-height:78px;justify-content:center;cursor:pointer;font-family:inherit}
+.dash-shortcut:active{transform:scale(0.97)}
+.dash-shortcut-icon{display:inline-flex;align-items:center;justify-content:center}
+.dash-shortcut-icon .icon{width:24px;height:24px}
+.dash-shortcut-label{font-size:12px;color:var(--text-primary);font-weight:600}
+.dash-shortcut-add{background:var(--bg-secondary);border:0.5px dashed var(--border-secondary)}
+.dash-shortcut-add .icon{width:22px;height:22px;color:var(--text-tertiary)}
+.dash-shortcut-remove{position:absolute;top:-7px;right:-7px;width:22px;height:22px;background:#E24B4A;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid var(--bg-primary);z-index:2}
+.dash-shortcut-remove .icon{width:11px;height:11px;color:#fff}
+.dash-add-list{display:flex;flex-direction:column;gap:5px;max-height:50vh;overflow-y:auto}
+.dash-add-item{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:8px;cursor:pointer;font-family:inherit;font-size:13px;color:var(--text-primary);text-align:left}
+.dash-add-item:active{background:var(--bg-tertiary)}
+.dash-add-item span:nth-child(2){flex:1}
+.dash-add-icon{display:inline-flex}
+.dash-add-icon .icon{width:18px;height:18px}
+.dash-add-item > .icon{width:14px;height:14px;color:var(--text-tertiary)}
+.linje-list{display:flex;flex-direction:column}
+.linje-sort-bar{display:flex;align-items:center;gap:5px;flex-wrap:wrap;padding:8px 10px;border-bottom:0.5px solid var(--border-tertiary)}
+.linje-sort-label{font-size:10px;color:var(--text-tertiary);margin-right:2px}
+.linje-sort-btn{font-size:10px;padding:5px 11px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:14px;color:var(--text-secondary);cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:4px;min-height:30px}
+.linje-sort-btn:active{transform:scale(0.96)}
+.linje-sort-btn.active{background:var(--bg-tertiary);border-color:var(--text-tertiary);color:var(--text-primary);font-weight:600}
+.linje-sort-btn .icon{width:11px;height:11px}
+.linje-row{display:flex;align-items:center;gap:6px;padding:4px 6px 4px 4px;border-bottom:0.5px solid var(--border-tertiary);cursor:pointer}
+.linje-row:last-child{border-bottom:none}
+.linje-row:active{background:var(--bg-secondary)}
+.linje-check{width:15px;height:15px;border:1.5px solid var(--text-tertiary);border-radius:50%;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s}
+.linje-check:active{transform:scale(0.88);border-color:#5DCAA5}
+.linje-title{flex:1;min-width:0;font-size:12px;font-weight:500;color:var(--text-primary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.linje-number{font-size:9px;color:var(--text-tertiary);font-family:ui-monospace,Menlo,monospace;min-width:30px;text-align:right;flex-shrink:0}
 .rich-editor-wrap{margin-bottom:8px}
 .rich-editor{min-height:120px;padding:10px 12px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-top:none;border-radius:0 0 6px 6px;font-size:13px;line-height:1.5;color:var(--text-primary);outline:none;overflow-y:auto;font-family:inherit}
 .rich-editor:focus{border-color:var(--border-info)}
@@ -792,8 +1102,10 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .iphonex-body-pinned .iphonex-row{border-bottom:0.5px solid rgba(239,159,39,0.15)}
 .iphonex-body-pinned .iphonex-row:active{background:rgba(239,159,39,0.08)}
 .iphonex-body-pinned .iphonex-row:hover{background:rgba(239,159,39,0.06)}
-.iphonex-filter-row{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-bottom:12px;padding:0 2px}
-.iphonex-filter-label{font-size:10px;color:var(--text-tertiary);margin-right:3px}
+.iphonex-filter-row{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:12px;padding:0 2px}
+.iphonex-filter-label{font-size:11px;color:var(--text-tertiary);margin-right:3px}
+.iphonex-filter-row .cat-btn{font-size:12px;padding:7px 13px;border-radius:7px;min-height:34px;min-width:38px;display:inline-flex;align-items:center;justify-content:center;gap:4px}
+.iphonex-filter-row .cat-btn .icon{width:12px;height:12px}
 .cat-letter-badge{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;color:#fff;font-size:9px;font-weight:700;flex-shrink:0}
 .cat-a-badge{background:#EF9F27}
 .cat-b-badge{background:#639922}
@@ -812,6 +1124,19 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .iphonex-body-today .iphonex-row:active{background:rgba(0,180,219,0.1)}
 .iphonex-body-today .iphonex-row:hover{background:rgba(0,180,219,0.06)}
 .wait-section{background:rgba(136,135,128,0.06);border:1px solid #888780;border-radius:8px;overflow:hidden;margin-bottom:12px}
+.buy-section{background:rgba(45,158,117,0.06);border:1px solid #1D9E75;border-radius:8px;overflow:hidden;margin-bottom:12px}
+.buy-section-header{background:rgba(45,158,117,0.22);padding:7px 11px;border-bottom:1px solid #1D9E75;display:flex;align-items:center;gap:6px;cursor:pointer}
+.buy-section-header .icon{width:13px;height:13px;color:#7FD99F;flex-shrink:0}
+.buy-section-title{flex:1;font-size:11px;font-weight:700;color:#7FD99F;letter-spacing:0.5px;text-transform:uppercase}
+.buy-section-count{font-size:10px;color:#7FD99F;background:rgba(0,0,0,0.3);padding:1px 6px;border-radius:6px;font-weight:600}
+.buy-section.collapsed .buy-section-header{border-bottom:none}
+.buy-section.collapsed .buy-section-body{display:none}
+.buy-section.collapsed .section-collapse-toggle{transform:rotate(-90deg)}
+.iphonex-body-buy .iphonex-row{border-bottom:0.5px solid rgba(45,158,117,0.15)}
+.iphonex-body-buy .iphonex-row:active{background:rgba(45,158,117,0.1)}
+.iphonex-body-buy .iphonex-row:hover{background:rgba(45,158,117,0.06)}
+.iphonex-body-buy .iphonex-check{color:#7FD99F}
+.idag-due{font-size:9px;padding:2px 6px;border-radius:4px;font-weight:600;flex-shrink:0;white-space:nowrap}
 .wait-section-header{background:rgba(136,135,128,0.22);padding:7px 11px;border-bottom:1px solid #888780;display:flex;align-items:center;gap:6px;cursor:pointer}
 .wait-section-header .icon{width:13px;height:13px;color:#D3D1C7;flex-shrink:0}
 .wait-section-title{flex:1;font-size:11px;font-weight:700;color:#D3D1C7;letter-spacing:0.5px;text-transform:uppercase}
@@ -978,8 +1303,11 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent)}
 <body>
 
 <div class="app-header">
+  <button class="home-btn" id="home-btn" aria-label="Til Start"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></button>
   <h1 class="app-title"><span id="screen-title">I dag</span><span class="app-version" id="screen-version"></span></h1>
   <span class="app-counter" id="screen-counter"></span>
+  <button class="header-icon-btn" id="search-toggle" aria-label="Søk"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  <button class="header-icon-btn" id="filter-toggle" aria-label="Filter"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg></button>
 </div>
 
 <div class="tabs" id="tabs">
@@ -996,7 +1324,12 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent)}
     </button>
   </div>
   <button class="tab" data-view="week">Uke</button>
-  <button class="tab" data-view="all">Alle</button>
+  <div class="tab-dropdown">
+    <button class="tab tab-with-menu" data-view="allelinjer">
+      <span class="tab-label">Alle linjer</span>
+      <span class="tab-chevron" data-tab-menu="allelinjer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+    </button>
+  </div>
   <div class="tab-dropdown">
     <button class="tab tab-with-menu" data-view="done">
       <span class="tab-label">Ferdig</span>
@@ -1025,7 +1358,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent)}
 <script>
 (function(){
 const STORAGE_KEY = 'todoapp_v1';
-const APP_VERSION = '2.73';
+const APP_VERSION = '3.07';
 
 const ICONS = {
   check:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 8"/></svg>',
@@ -1069,8 +1402,13 @@ const ICONS = {
   list:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1" fill="currentColor"/><circle cx="4" cy="12" r="1" fill="currentColor"/><circle cx="4" cy="18" r="1" fill="currentColor"/></svg>',
   message:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>',
   send:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>',
+  home:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
   sun:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="6.93" y2="6.93"/><line x1="17.07" y1="17.07" x2="19.07" y2="19.07"/><line x1="4.93" y1="19.07" x2="6.93" y2="17.07"/><line x1="17.07" y1="6.93" x2="19.07" y2="4.93"/></svg>',
   pause:'<svg class="icon" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>',
+  cart:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>',
+  hash:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>',
+  sortAz:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5h10"/><path d="M11 9h7"/><path d="M11 13h4"/><path d="M3 17l3 3 3-3"/><path d="M6 18V4"/></svg>',
+  clock:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>',
   minus:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>'
 };
 
@@ -1142,7 +1480,7 @@ function formatBytes(b){
 }
 
 const DEFAULT_STATE = {
-  view: 'today',
+  view: 'dashboard',
   todayView: 'group1',
   dagensView: 'group1',
   iphoneView: 'list',
@@ -1175,6 +1513,7 @@ const DEFAULT_STATE = {
   dividersIphoneXUrgent: [],
   dividersIphoneXToday: [],
   dividersIphoneXWait: [],
+  dividersIphoneXBuy: [],
   dividersIphoneXA: [],
   dividersIphoneXB: [],
   dividersIphoneXC: [],
@@ -1198,9 +1537,17 @@ const DEFAULT_STATE = {
     {id:'tpl-onway', name:'⏰ Er på vei', body:'Er på vei, kommer om ca. 10 min.'},
     {id:'tpl-callback', name:'📞 Ring meg', body:'Hei, kan du ringe meg når du har anledning?'}
   ],
-  form: { title:'', notes:'', subtasks:[], priority:'med', date: todayISO(), futureDate:'', group1Id:'', group2Id:'', www:'', contact:'', images:[], pinned:false, iphoneFlag:false, todayFlag:false, waitFlag:false, category:'none', noteId:'', editingId:null, mode:'notes' },
+  form: { title:'', notes:'', subtasks:[], priority:'med', date: todayISO(), futureDate:'', group1Id:'', group2Id:'', www:'', contact:'', images:[], pinned:false, iphoneFlag:false, todayFlag:false, waitFlag:false, buyFlag:false, category:'none', noteId:'', editingId:null, mode:'notes' },
   noteForm: { title:'', description:'', body:'', date: todayISO(), editingId:null },
-  smsForm: { name:'', phone:'', body:'', taskId:'', editingId:null }
+  smsForm: { name:'', phone:'', body:'', taskId:'', editingId:null },
+  dashboardShortcuts: ['fokus','iphonex','today','allelinjer','week','sms'],
+  dashboardTodayCats: ['urgent','today','buy'],
+  fokusDate: '',
+  alleLinjerSort: 'number',
+  todayHidden: [],
+  todayListCat: 'all',
+  searchOpen: false,
+  filterOpen: false
 };
 
 function migrateState(s){
@@ -1215,6 +1562,16 @@ function migrateState(s){
   if(!Array.isArray(s.smsDrafts)) s.smsDrafts = [];
   if(!Array.isArray(s.smsTemplates)) s.smsTemplates = JSON.parse(JSON.stringify(DEFAULT_STATE.smsTemplates));
   if(!s.smsForm) s.smsForm = { name:'', phone:'', body:'', taskId:'', editingId:null };
+  if(!Array.isArray(s.dashboardShortcuts)) s.dashboardShortcuts = ['fokus','iphonex','today','allelinjer','week','sms'];
+  // v2.95: sørg for at Fokus-snarvei finnes for eksisterende brukere
+  if(Array.isArray(s.dashboardShortcuts) && !s.dashboardShortcuts.includes('fokus')) s.dashboardShortcuts.unshift('fokus');
+  if(!Array.isArray(s.dashboardTodayCats)) s.dashboardTodayCats = ['urgent','today','buy'];
+  if(typeof s.fokusDate !== 'string') s.fokusDate = '';
+  if(!['number','alpha','priority','newest'].includes(s.alleLinjerSort)) s.alleLinjerSort = 'number';
+  if(!Array.isArray(s.todayHidden)) s.todayHidden = [];
+  // v2.91: gamle nøkler (today-rest) er erstattet av fullt hierarki – fjern dem
+  s.todayHidden = s.todayHidden.filter(k=>['today-urgent','today-todayflag','today-pinned','today-iphone','today-buy','today-a','today-b','today-c','today-wait'].includes(k));
+  if(!['all','urgent','today','a','b','c','wait','buy'].includes(s.todayListCat)) s.todayListCat = 'all';
   if(s.tasks) s.tasks.forEach(t=>{
     if(t.groupId !== undefined && t.group1Id === undefined){
       t.group1Id = t.groupId;
@@ -1229,6 +1586,7 @@ function migrateState(s){
     if(typeof t.iphoneFlag !== 'boolean') t.iphoneFlag = false;
     if(typeof t.todayFlag !== 'boolean') t.todayFlag = false;
     if(typeof t.waitFlag !== 'boolean') t.waitFlag = false;
+    if(typeof t.buyFlag !== 'boolean') t.buyFlag = false;
     if(typeof t.noteId !== 'string') t.noteId = '';
     if(!['none','urgent','a','b','c'].includes(t.category)) t.category = 'none';
     if(typeof t.order !== 'number') t.order = 0;
@@ -1252,8 +1610,8 @@ function migrateState(s){
   if(s.iphoneOnlyFlagged === true) s.iphoneListFilter = 'iphone';
   if(typeof s.iphoneOnlyFlagged === 'boolean') delete s.iphoneOnlyFlagged;
   if(!['all','pinned','iphone'].includes(s.iphoneListFilter)) s.iphoneListFilter = 'all';
-  if(!['all','urgent','today','a','b','c','pinned','iphone','wait'].includes(s.iphoneXFilter)) s.iphoneXFilter = 'all';
-  if(!['prioritert','linje','group1','group2','urgent','today','a','b','c','pinned','iphone','wait'].includes(s.alleFilter)) s.alleFilter = 'prioritert';
+  if(!['all','urgent','today','a','b','c','pinned','iphone','wait','buy'].includes(s.iphoneXFilter)) s.iphoneXFilter = 'all';
+  if(!['prioritert','linje','group1','group2','urgent','today','a','b','c','pinned','iphone','wait','buy'].includes(s.alleFilter)) s.alleFilter = 'prioritert';
   if(!Array.isArray(s.alleGroup1Hidden)) s.alleGroup1Hidden = [];
   if(!Array.isArray(s.alleGroup2Hidden)) s.alleGroup2Hidden = [];
   if(!Array.isArray(s.iphoneXHidden)) s.iphoneXHidden = [];
@@ -1276,6 +1634,7 @@ function migrateState(s){
   if(!Array.isArray(s.dividersIphoneXUrgent)) s.dividersIphoneXUrgent = [];
   if(!Array.isArray(s.dividersIphoneXToday)) s.dividersIphoneXToday = [];
   if(!Array.isArray(s.dividersIphoneXWait)) s.dividersIphoneXWait = [];
+  if(!Array.isArray(s.dividersIphoneXBuy)) s.dividersIphoneXBuy = [];
   if(!Array.isArray(s.dividersIphoneXA)) s.dividersIphoneXA = [];
   if(!Array.isArray(s.dividersIphoneXB)) s.dividersIphoneXB = [];
   if(!Array.isArray(s.dividersIphoneXC)) s.dividersIphoneXC = [];
@@ -1316,6 +1675,10 @@ try {
     state.expandedNotes = new Set(state.expandedNotes || []);
     state.form = Object.assign({}, DEFAULT_STATE.form, state.form || {});
     state.noteForm = Object.assign({}, DEFAULT_STATE.noteForm, state.noteForm || {});
+    // Alltid åpne på dashboard ved oppstart (men ikke hvis midt i et skjema)
+    if(state.view !== 'form' && state.view !== 'noteForm'){
+      state.view = 'dashboard';
+    }
   } else {
     state = JSON.parse(JSON.stringify(DEFAULT_STATE));
     state.expanded = new Set();
@@ -1469,13 +1832,42 @@ function progress(t){
 
 function render(){
   const titles = {
-    today:'I dag', week:'Uke', all:'Alle', done:'Ferdig', notes:'Notat',
+    dashboard:'Start',
+    today:'I dag', week:'Uke', all:'Alle', allelinjer:'Alle linjer', done:'Ferdig', notes:'Notat', fokus:'Kalender ToDo',
+    dagens:'Dagens', iphone:'iPhone', iphonex:'iPhone X', deleted:'Slettede', groups:'Grupper', sms:'SMS', naa:'Nå',
     form: state.form.editingId?'Rediger':'Ny',
     noteForm: state.noteForm.editingId?'Rediger notat':'Nytt notat'
   };
-  document.getElementById('screen-title').textContent = titles[state.view];
+  document.getElementById('screen-title').textContent = titles[state.view] || '';
   document.getElementById('screen-version').textContent = 'v'+APP_VERSION;
-  if(state.view==='form' || state.view==='noteForm'){
+  // Skjul søkefelt på dashboard og skjemaer; ellers styres av searchOpen
+  const searchBarEl = document.getElementById('search-bar');
+  const hideChrome = (state.view==='dashboard' || state.view==='form' || state.view==='noteForm');
+  if(searchBarEl){
+    const showSearch = !hideChrome && (state.searchOpen || (state.searchQuery||'').trim());
+    searchBarEl.style.display = showSearch ? '' : 'none';
+  }
+  // Skjul fane-raden på dashboard (rent dashbord)
+  const tabsEl = document.getElementById('tabs');
+  if(tabsEl){
+    tabsEl.style.display = (state.view==='dashboard') ? 'none' : '';
+  }
+  // Hus-knapp skjules på dashboard
+  const homeBtnEl = document.getElementById('home-btn');
+  if(homeBtnEl){
+    homeBtnEl.style.display = (state.view==='dashboard') ? 'none' : '';
+  }
+  // Søk- og filter-ikon skjules på dashboard/skjema
+  const searchToggleEl = document.getElementById('search-toggle');
+  const filterToggleEl = document.getElementById('filter-toggle');
+  if(searchToggleEl) searchToggleEl.style.display = hideChrome ? 'none' : '';
+  // Filter-ikonet vises kun på faner som faktisk har et filter (iPhone X og Alle)
+  const hasFilter = (state.view==='iphonex' || state.view==='all');
+  if(filterToggleEl) filterToggleEl.style.display = (hideChrome || !hasFilter) ? 'none' : '';
+  // Marker aktive ikoner
+  if(searchToggleEl) searchToggleEl.classList.toggle('active', !!(state.searchOpen || (state.searchQuery||'').trim()));
+  if(filterToggleEl) filterToggleEl.classList.toggle('active', !!state.filterOpen);
+  if(state.view==='form' || state.view==='noteForm' || state.view==='dashboard'){
     document.getElementById('screen-counter').textContent = '';
   } else if(state.view==='notes'){
     document.getElementById('screen-counter').textContent = `${state.notes.length} notater`;
@@ -1488,17 +1880,19 @@ function render(){
   document.querySelectorAll('.tab').forEach(t=>{
     const v = t.dataset.view;
     let active = false;
-    if(v === 'today') active = state.view==='today' || state.view==='dagens';
+    if(v === 'today') active = state.view==='today' || state.view==='dagens' || state.view==='fokus' || state.view==='naa';
     else if(v === 'iphonex') active = state.view==='iphone' || state.view==='iphonex';
     else if(v === 'done') active = state.view==='done' || state.view==='deleted';
+    else if(v === 'allelinjer') active = state.view==='allelinjer' || state.view==='all';
     else active = v===state.view || (v==='notes' && state.view==='noteForm');
     t.classList.toggle('active', active);
-    // Oppdater label dynamisk for de tre med rullgardin
+    // Oppdater label dynamisk for de med rullgardin
     const labelSpan = t.querySelector('.tab-label');
     if(labelSpan){
-      if(v === 'today') labelSpan.textContent = (state.view==='dagens') ? 'Dagens' : 'I dag';
+      if(v === 'today') labelSpan.textContent = (state.view==='dagens') ? 'Dagens' : (state.view==='fokus' ? 'Kalender ToDo' : (state.view==='naa' ? 'Nå' : 'I dag'));
       else if(v === 'iphonex') labelSpan.textContent = (state.view==='iphone') ? 'iPhone' : 'iPhone X';
       else if(v === 'done') labelSpan.textContent = (state.view==='deleted') ? 'Slettede' : 'Ferdig';
+      else if(v === 'allelinjer') labelSpan.textContent = (state.view==='all') ? 'Alle' : 'Alle linjer';
     }
   });
 
@@ -1588,10 +1982,7 @@ function render(){
     const listFilterDefault = isDagens ? 'pinned' : 'all';
     const listFilterValue = state[listFilterKey] || listFilterDefault;
     const listFilterAttr = isDagens ? 'data-dagens-filter' : 'data-today-filter';
-    const filterToggleHTML = (tv === 'list') ? `<span class="toggle-divider"></span>
-      <button class="toggle-btn ${listFilterValue==='all'?'active':''}" ${listFilterAttr}="all">Alt</button>
-      <button class="toggle-btn ${listFilterValue==='pinned'?'active':''}" ${listFilterAttr}="pinned" style="${listFilterValue==='pinned'?'background:rgba(239,159,39,0.15);color:#FAC775;border-color:#EF9F27':''}">${ICONS.star} Pinnet</button>
-      <button class="toggle-btn ${listFilterValue==='iphone'?'active':''}" ${listFilterAttr}="iphone" style="${listFilterValue==='iphone'?'background:var(--bg-info);color:var(--text-info);border-color:var(--border-info)':''}">${ICONS.phone} iPhone</button>` : '';
+    const filterToggleHTML = '';
     fb.innerHTML = `<div class="view-toggle">
       <span class="view-toggle-label">Vis:</span>
       <button class="toggle-btn ${tv==='list'?'active':''}" data-view-mode="list">Liste</button>
@@ -1765,7 +2156,7 @@ function render(){
     fb.innerHTML = filterStatusHTML;
   } else if(state.view==='all'){
     const af = state.alleFilter || 'prioritert';
-    fb.innerHTML = `<div class="view-toggle">
+    const toggleHTML = state.filterOpen ? `<div class="view-toggle">
       <span class="view-toggle-label">Vis:</span>
       <button class="toggle-btn ${af==='prioritert'?'active':''}" data-alle-filter="prioritert">Alle prioriterte</button>
       <button class="toggle-btn ${af==='linje'?'active':''}" data-alle-filter="linje">Alle (linje)</button>
@@ -1779,9 +2170,10 @@ function render(){
       <button class="toggle-btn ${af==='c'?'active':''}" data-alle-filter="c" style="${af==='c'?'background:rgba(127,119,221,0.18);color:#B5AEF0;border-color:#7F77DD':''}">C</button>
       <button class="toggle-btn ${af==='pinned'?'active':''}" data-alle-filter="pinned" style="${af==='pinned'?'background:rgba(239,159,39,0.18);color:#FAC775;border-color:#EF9F27':''}">${ICONS.star} Pinnet</button>
       <button class="toggle-btn ${af==='iphone'?'active':''}" data-alle-filter="iphone" style="${af==='iphone'?'background:var(--bg-info);color:var(--text-info);border-color:var(--border-info)':''}">${ICONS.phone} iPhone</button>
+      <button class="toggle-btn ${af==='buy'?'active':''}" data-alle-filter="buy" style="${af==='buy'?'background:rgba(45,158,117,0.2);color:#7FD99F;border-color:#1D9E75':''}">${ICONS.cart} Kjøp</button>
       <button class="toggle-btn ${af==='wait'?'active':''}" data-alle-filter="wait" style="${af==='wait'?'background:rgba(136,135,128,0.22);color:#D3D1C7;border-color:#888780':''}">${ICONS.pause} På vent</button>
-    </div>
-    ${filterStatusHTML}`;
+    </div>` : '';
+    fb.innerHTML = toggleHTML + `${filterStatusHTML}`;
     fb.querySelectorAll('[data-alle-filter]').forEach(b=>b.addEventListener('click',()=>{
       state.alleFilter = b.dataset.alleFilter;
       save(); render();
@@ -1793,12 +2185,16 @@ function render(){
   if(fc) fc.addEventListener('click', clearAllGroupFilters);
 
   const c = document.getElementById('content');
-  if(state.view==='today') c.innerHTML = renderToday();
+  if(state.view==='dashboard') c.innerHTML = renderDashboard();
+  else if(state.view==='fokus') c.innerHTML = renderFokus();
+  else if(state.view==='naa') c.innerHTML = renderNaa();
+  else if(state.view==='today') c.innerHTML = renderToday();
   else if(state.view==='dagens') c.innerHTML = renderDagens();
   else if(state.view==='iphone') c.innerHTML = renderIphone();
   else if(state.view==='iphonex') c.innerHTML = renderIphoneX();
   else if(state.view==='week') c.innerHTML = renderWeek();
   else if(state.view==='all') c.innerHTML = renderAll();
+  else if(state.view==='allelinjer') c.innerHTML = renderAlleLinjer();
   else if(state.view==='done') c.innerHTML = renderDone();
   else if(state.view==='deleted') c.innerHTML = renderDeleted();
   else if(state.view==='notes') c.innerHTML = renderNotes();
@@ -1809,12 +2205,15 @@ function render(){
 
   renderFab();
 
-  if(state.view==='today' || state.view==='dagens' || state.view==='iphone' || state.view==='iphonex' || state.view==='week' || state.view==='all') wireTasks();
+  if(state.view==='today' || state.view==='dagens' || state.view==='naa' || state.view==='iphone' || state.view==='iphonex' || state.view==='week' || state.view==='all') wireTasks();
   if(state.view==='iphone') wireIphone();
   if(state.view==='done') { wireTasks(); wireDoneActions(); }
   if(state.view==='deleted') wireDeletedActions();
   if(state.view==='form') wireForm();
+  if(state.view==='dashboard') wireDashboard();
+  if(state.view==='fokus') wireFokus();
   if(state.view==='notes') wireNotes();
+  if(state.view==='allelinjer') wireAlleLinjer();
   if(state.view==='groups') wireGroups();
   if(state.view==='sms') wireSms();
   if(state.view==='noteForm') wireNoteForm();
@@ -1840,7 +2239,7 @@ function renderFab(){
     document.getElementById('btn-new-quick').addEventListener('click',()=>{
       state.returnView = state.view;
       state.view='form';
-      state.form={title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
+      state.form={title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
       save(); render();
     });
   }
@@ -1907,6 +2306,7 @@ function taskHTML(t, opts={}){
   const iphoneBtn = opts.doneView ? '' : `<button class="icon-btn ${t.iphoneFlag?'iphone-active':''}" data-toggle-iphone="${t.id}" aria-label="${t.iphoneFlag?'Fjern fra iPhone':'Legg til iPhone'}">${ICONS.phone}</button>`;
   const todayBtn = opts.doneView ? '' : `<button class="icon-btn ${t.todayFlag?'today-active':''}" data-toggle-today="${t.id}" aria-label="${t.todayFlag?'Fjern I dag-merket':'Merk for I dag'}">${ICONS.sun}</button>`;
   const waitBtn = opts.doneView ? '' : `<button class="icon-btn ${t.waitFlag?'wait-active':''}" data-toggle-wait="${t.id}" aria-label="${t.waitFlag?'Fjern På vent-merket':'Sett på vent'}">${ICONS.pause}</button>`;
+  const buyBtn = opts.doneView ? '' : `<button class="icon-btn ${t.buyFlag?'buy-active':''}" data-toggle-buy="${t.id}" aria-label="${t.buyFlag?'Fjern Kjøp-merket':'Merk for kjøp'}">${ICONS.cart}</button>`;
   const gripHandle = opts.showMove ? `<button class="task-grip" data-grip="${t.id}" aria-label="Dra for å flytte">${ICONS.grip}</button>` : '';
   const actions = opts.doneView
     ? `<div class="task-actions">
@@ -1918,6 +2318,7 @@ function taskHTML(t, opts={}){
          ${pinBtn}
          ${iphoneBtn}
          ${waitBtn}
+         ${buyBtn}
          <button class="icon-btn" data-copy="${t.id}" aria-label="Kopier">${ICONS.copy}</button>
          <button class="icon-btn" data-edit="${t.id}" aria-label="Rediger">${ICONS.edit}</button>
          <button class="icon-btn" data-del="${t.id}" aria-label="Slett">${ICONS.trash}</button>
@@ -1976,6 +2377,32 @@ function darkenColor(hex){
   return hex;
 }
 
+function dueDateBadge(t){
+  if(!t.date) return '';
+  const d = new Date(t.date+'T00:00:00');
+  const today = new Date(); today.setHours(0,0,0,0);
+  const diff = Math.round((d-today)/86400000);
+  let color, bg;
+  if(diff <= 0){ color='#FF8080'; bg='rgba(226,75,74,0.15)'; }       // i dag eller forfalt
+  else if(diff <= 2){ color='#FAC775'; bg='rgba(239,159,39,0.15)'; } // snart
+  else { color='#888'; bg='rgba(136,135,128,0.15)'; }               // senere
+  return `<span class="idag-due" style="color:${color};background:${bg}">${fmtDate(t.date)}</span>`;
+}
+
+function idagRow(t, accentColor){
+  const contactTag = (t.contact||'').trim() ? `<div class="iphonex-contact">${ICONS.user}<span>${escapeHtml(t.contact)}</span></div>` : '';
+  return `<div class="iphonex-row ${t.done?'done':''}" data-iphonex-edit="${t.id}" data-id="${t.id}">
+    <button class="iphonex-grip" data-iphonex-grip="${t.id}" aria-label="Dra for å flytte">${ICONS.grip}</button>
+    <div class="iphonex-check ${t.done?'checked':''}" data-iphonex-check="${t.id}" role="checkbox" aria-checked="${t.done?'true':'false'}">${t.done?ICONS.check:''}</div>
+    <div style="flex:1;min-width:0">
+      ${contactTag}
+      <span class="iphonex-title">${escapeHtml(t.title||'')}</span>
+    </div>
+    ${dueDateBadge(t)}
+    <span class="iphonex-number" style="color:${accentColor}">${t.number||''}</span>
+  </div>`;
+}
+
 function renderToday(){
   const tv = state.todayView || 'group1';
   const todayListFilter = state.todayListFilter || 'all';
@@ -1996,7 +2423,9 @@ function renderToday(){
   }
 
   // For list og priority – tom skjerm når ingenting matcher
-  if(!list.length && (tv === 'list' || tv === 'priority')){
+  // (men ikke når en spesifikk kategori er valgt i Liste – den henter fra alle oppgaver)
+  const catSelected = (tv === 'list' && (state.todayListCat||'all') !== 'all');
+  if(!list.length && (tv === 'list' || tv === 'priority') && !catSelected){
     if(isGroupFilterActive() || (state.searchQuery||'').trim()){
       return `<div class="empty">${ICONS.checks}<p>Ingen oppgaver matcher filteret</p>${isGroupFilterActive()?`<p style="font-size:11px;margin-top:6px"><button class="filter-clear-btn" id="filter-clear-empty" style="color:var(--text-info)">${ICONS.x} Vis alle</button></p>`:''}</div>`;
     }
@@ -2015,38 +2444,127 @@ function renderToday(){
       return prioRank[a.priority]-prioRank[b.priority];
     };
 
-    if(todayListFilter === 'pinned' || todayListFilter === 'iphone'){
-      // Kompakt modus med skille-linjer
-      list.sort(sortFn);
-      const wovenHTML = weaveDividers(list, t=>taskHTML(t,{hideDate:true, draggable:true, compact:true, showMove:true}));
-      return wovenHTML + `<button class="add-divider-btn" data-add-divider="1">${ICONS.minus} Sett inn skille-linje</button>`;
+    // Kategori-filterrad (Alle, Haster, I dag, A, B, C, På vent, Kjøp)
+    const cat = state.todayListCat || 'all';
+    const catFilterRow = `<div class="iphonex-filter-row">
+      <span class="iphonex-filter-label">Vis:</span>
+      <button class="cat-btn cat-all ${cat==='all'?'active':''}" data-today-cat="all">Alle</button>
+      <button class="cat-btn cat-urgent ${cat==='urgent'?'active':''}" data-today-cat="urgent">Haster</button>
+      <button class="cat-btn cat-today ${cat==='today'?'active':''}" data-today-cat="today">${ICONS.sun}<span>I dag</span></button>
+      <button class="cat-btn cat-a ${cat==='a'?'active':''}" data-today-cat="a">A</button>
+      <button class="cat-btn cat-b ${cat==='b'?'active':''}" data-today-cat="b">B</button>
+      <button class="cat-btn cat-c ${cat==='c'?'active':''}" data-today-cat="c">C</button>
+      <button class="cat-btn cat-buy ${cat==='buy'?'active':''}" data-today-cat="buy">${ICONS.cart}<span>Kjøp</span></button>
+      <button class="cat-btn cat-wait ${cat==='wait'?'active':''}" data-today-cat="wait">${ICONS.pause}<span>På vent</span></button>
+    </div>`;
+
+    // Hvis en spesifikk kategori er valgt: vis flat, filtrert liste (ikke seksjoner)
+    // Henter fra ALLE oppgaver (ikke kun dagens), så Kjøp/På vent/osv viser hele kategorien
+    if(cat !== 'all'){
+      const catBase = state.tasks.filter(t=>!t.done && matchesSearch(t) && passesGroupFilter(t));
+      let catList;
+      if(cat==='urgent') catList = catBase.filter(t=>t.category==='urgent');
+      else if(cat==='today') catList = catBase.filter(t=>t.todayFlag);
+      else if(cat==='a') catList = catBase.filter(t=>t.category==='a');
+      else if(cat==='b') catList = catBase.filter(t=>t.category==='b');
+      else if(cat==='c') catList = catBase.filter(t=>t.category==='c');
+      else if(cat==='buy') catList = catBase.filter(t=>t.buyFlag);
+      else if(cat==='wait') catList = catBase.filter(t=>t.waitFlag);
+      else catList = catBase;
+      catList = catList.sort(sortFn);
+      const accent = {urgent:'#FF8080',today:'#5DDFF1',a:'#FAC775',b:'#AED183',c:'#B5AEF0',buy:'#7FD99F',wait:'#D3D1C7'}[cat] || '#5DDFF1';
+      const catLabels = {urgent:'Haster',today:'I dag',a:'A',b:'B',c:'C',buy:'Kjøp',wait:'På vent'};
+      if(!catList.length){
+        return catFilterRow + `<div class="empty">${ICONS.checks}<p>Ingen oppgaver merket ${catLabels[cat]||''}</p></div>`;
+      }
+      const rows = catList.map(t=>idagRow(t, accent)).join('');
+      return catFilterRow + `<div class="iphonex-body">${rows}</div>`;
     }
 
-    // Alt-modus: tre seksjoner med rammer
-    // Alternativ A: pinnet og iPhone-merket → havner i Pinnete
-    const pinnedList = list.filter(t=>t.pinned).sort(sortFn);
-    const iphoneList = list.filter(t=>!t.pinned && t.iphoneFlag).sort(sortFn);
-    const restList = list.filter(t=>!t.pinned && !t.iphoneFlag).sort(sortFn);
+    // Fullt kategori-hierarki (som iPhone X), bygget fra dagens relevante oppgaver:
+    // Haster > I dag > Pinnet > iPhone > Kjøp > A > B > C > På vent
+    const urgentList = list.filter(t=>t.category==='urgent' && !t.waitFlag && !t.buyFlag).sort(sortFn);
+    const todayList = list.filter(t=>t.todayFlag && !t.waitFlag && !t.buyFlag && t.category!=='urgent').sort(sortFn);
+    const pinnedList = list.filter(t=>t.pinned && !t.waitFlag && !t.buyFlag && !t.todayFlag && t.category!=='urgent').sort(sortFn);
+    const iphoneList = list.filter(t=>t.iphoneFlag && !t.waitFlag && !t.buyFlag && !t.pinned && !t.todayFlag && t.category!=='urgent').sort(sortFn);
+    const buyList = list.filter(t=>t.buyFlag && !t.waitFlag).sort(sortFn);
+    const aList = list.filter(t=>t.category==='a' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag).sort(sortFn);
+    const bList = list.filter(t=>t.category==='b' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag).sort(sortFn);
+    const cList = list.filter(t=>t.category==='c' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag).sort(sortFn);
+    const waitList = list.filter(t=>t.waitFlag).sort(sortFn);
+
+    // Egen seksjons-bygger i iPhone X-stil med collapse
+    const buildIdagSection = (cssClass, headerIcon, title, titleClass, items, dividerKey, accentColor, collapseKey) => {
+      const collapsed = !!(state.collapsedSections && state.collapsedSections[collapseKey]);
+      let inner;
+      if(dividerKey){
+        inner = weaveDividers(items, t=>idagRow(t, accentColor), {
+          dividerList: state[dividerKey] || [],
+          dividerKey: dividerKey
+        });
+      } else {
+        inner = items.map(t=>idagRow(t, accentColor)).join('');
+      }
+      return `<div class="${cssClass} ${collapsed?'collapsed':''}" data-section-target="${collapseKey}" data-divider-key="${dividerKey||''}">
+        <div class="${cssClass}-header" data-section-collapse="${collapseKey}">
+          <span class="section-collapse-toggle">${ICONS.chevronDown}</span>
+          ${headerIcon}
+          <span class="${cssClass}-title">${title}</span>
+          <span class="${cssClass}-count">${items.length}</span>
+        </div>
+        <div class="${cssClass}-body">
+          <div class="iphonex-body ${titleClass}">${inner || ''}</div>
+          ${dividerKey ? `<div style="padding:6px 10px"><button class="add-divider-btn" data-add-divider="${dividerKey}">${ICONS.minus} Sett inn skille-linje</button></div>` : ''}
+        </div>
+      </div>`;
+    };
 
     let html = '';
+    const hidden = state.todayHidden || [];
+    const isHidden = (key) => hidden.includes(key);
 
-    if(pinnedList.length){
-      const tasksHTML = pinnedList.map(t=>taskHTML(t, {hideDate:true, draggable:true, compact:true, showMove:true})).join('');
-      html += renderSection('pinned', 'pinned-section', ICONS.starFilled, 'Pinnete', pinnedList.length, tasksHTML);
+    // Alle ni rammer med metadata
+    const idagFrames = [
+      {key:'today-urgent', list:urgentList, css:'urgent-section', icon:ICONS.warning, title:'Haster', bodyClass:'iphonex-body-urgent', dividerKey:'dividersIphoneXUrgent', accent:'#FF8080'},
+      {key:'today-todayflag', list:todayList, css:'today-section', icon:ICONS.sun, title:'I dag', bodyClass:'iphonex-body-today', dividerKey:'dividersIphoneXToday', accent:'#5DDFF1'},
+      {key:'today-pinned', list:pinnedList, css:'pinned-section', icon:ICONS.starFilled, title:'Pinnete', bodyClass:'iphonex-body-pinned', dividerKey:'dividersIphoneXPinned', accent:'#FAC775'},
+      {key:'today-iphone', list:iphoneList, css:'iphone-section', icon:ICONS.phone, title:'iPhone-merkede', bodyClass:'', dividerKey:'dividersIphoneXIphone', accent:'#85B7EB'},
+      {key:'today-buy', list:buyList, css:'buy-section', icon:ICONS.cart, title:'Kjøp', bodyClass:'iphonex-body-buy', dividerKey:'dividersIphoneXBuy', accent:'#7FD99F'},
+      {key:'today-a', list:aList, css:'cat-a-section', icon:`<span class="cat-letter-badge cat-a-badge">A</span>`, title:'A', bodyClass:'iphonex-body-a', dividerKey:'dividersIphoneXA', accent:'#FAC775'},
+      {key:'today-b', list:bList, css:'cat-b-section', icon:`<span class="cat-letter-badge cat-b-badge">B</span>`, title:'B', bodyClass:'iphonex-body-b', dividerKey:'dividersIphoneXB', accent:'#AED183'},
+      {key:'today-c', list:cList, css:'cat-c-section', icon:`<span class="cat-letter-badge cat-c-badge">C</span>`, title:'C', bodyClass:'iphonex-body-c', dividerKey:'dividersIphoneXC', accent:'#B5AEF0'},
+      {key:'today-wait', list:waitList, css:'wait-section', icon:ICONS.pause, title:'På vent', bodyClass:'iphonex-body-wait', dividerKey:'dividersIphoneXWait', accent:'#D3D1C7'}
+    ];
+
+    // Rammer som vises (har innhold OG ikke skjult)
+    const shownFrames = idagFrames.filter(f=>f.list.length > 0 && !isHidden(f.key));
+    const availableFrames = idagFrames.filter(f=>f.list.length > 0).length;
+
+    // Kontrollknapper (Lukk alle / Velg rammer)
+    const collapseKeys = shownFrames.map(f=>f.key);
+    const collapsedSections = state.collapsedSections || {};
+    const allCollapsed = collapseKeys.length > 0 && collapseKeys.every(k=>collapsedSections[k]);
+    const toggleLabel = allCollapsed ? 'Åpne alle' : 'Lukk alle';
+    const toggleIcon = allCollapsed ? ICONS.chevronDown : ICONS.chevronUp;
+    const visibleCount = shownFrames.length;
+    const controls = `<div class="alle-group-controls">
+      <button class="alle-group-ctrl-btn primary" data-today-toggle-all>${toggleIcon}<span>${toggleLabel}</span></button>
+      <button class="alle-group-ctrl-btn" data-today-pick-frames>${ICONS.filter}<span>Velg rammer (${visibleCount}/${availableFrames})</span></button>
+    </div>`;
+    html += catFilterRow;
+    html += controls;
+
+    shownFrames.forEach(f=>{
+      html += buildIdagSection(f.css, f.icon, f.title, f.bodyClass, f.list, f.dividerKey, f.accent, f.key);
+    });
+
+    // Hvis alle rammer er skjult men det finnes oppgaver
+    if(shownFrames.length === 0 && availableFrames > 0){
+      html += `<div class="empty" style="padding:30px 20px">${ICONS.filter}<p>Alle rammer er skjult</p><p style="font-size:11px;margin-top:6px;color:var(--text-tertiary)">Trykk "Velg rammer" for å vise dem igjen</p></div>`;
     }
-
-    if(iphoneList.length){
-      const tasksHTML = iphoneList.map(t=>taskHTML(t, {hideDate:true, draggable:true, compact:true, showMove:true})).join('');
-      html += renderSection('iphone', 'iphone-section', ICONS.phone, 'iPhone-merkede', iphoneList.length, tasksHTML);
+    if(availableFrames === 0){
+      return `<div class="empty">${ICONS.checks}<p>Ingen oppgaver i dag</p></div>`;
     }
-
-    // Resten-ramme med skille-linjer inni
-    if(restList.length || (state.dividers||[]).length){
-      const wovenHTML = weaveDividers(restList, t=>taskHTML(t, {hideDate:true, draggable:true, compact:true, showMove:true}));
-      html += renderSection('rest', 'rest-section', ICONS.listCompact, 'Resten', restList.length, wovenHTML);
-    }
-
-    html += `<button class="add-divider-btn" data-add-divider="1">${ICONS.minus} Sett inn skille-linje</button>`;
     return html;
   }
 
@@ -2369,16 +2887,17 @@ function renderIphoneX(){
   const filter = state.iphoneXFilter || 'all';
   const baseFilter = t => !t.done && matchesSearch(t);
 
-  // Nytt hierarki (v2.73): Haster > I dag > Pinnet > iPhone > A > B > C > På vent
-  // På vent har LAVEST prioritet - så waitFlag overskygger alle andre kategorier/flagg
-  const urgentList = state.tasks.filter(t=>t.category==='urgent' && !t.waitFlag && baseFilter(t)).sort(sortFn);
-  const todayList = state.tasks.filter(t=>t.todayFlag && !t.waitFlag && t.category!=='urgent' && baseFilter(t)).sort(sortFn);
-  const pinnedList = state.tasks.filter(t=>t.pinned && !t.waitFlag && !t.todayFlag && t.category!=='urgent' && baseFilter(t)).sort(sortFn);
-  const iphoneList = state.tasks.filter(t=>t.iphoneFlag && !t.waitFlag && !t.pinned && !t.todayFlag && t.category!=='urgent' && baseFilter(t)).sort(sortFn);
-  const aList = state.tasks.filter(t=>t.category==='a' && !t.waitFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && baseFilter(t)).sort(sortFn);
-  const bList = state.tasks.filter(t=>t.category==='b' && !t.waitFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && baseFilter(t)).sort(sortFn);
-  const cList = state.tasks.filter(t=>t.category==='c' && !t.waitFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && baseFilter(t)).sort(sortFn);
-  // På vent: alle oppgaver med waitFlag, uavhengig av andre flagg
+  // Nytt hierarki (v2.86): Haster > I dag > Pinnet > iPhone > Kjøp > A > B > C > På vent
+  // Kjøp og På vent samler ALLE sine oppgaver uavhengig av andre flagg (buyFlag/waitFlag overskygger)
+  const urgentList = state.tasks.filter(t=>t.category==='urgent' && !t.waitFlag && !t.buyFlag && baseFilter(t)).sort(sortFn);
+  const todayList = state.tasks.filter(t=>t.todayFlag && !t.waitFlag && !t.buyFlag && t.category!=='urgent' && baseFilter(t)).sort(sortFn);
+  const pinnedList = state.tasks.filter(t=>t.pinned && !t.waitFlag && !t.buyFlag && !t.todayFlag && t.category!=='urgent' && baseFilter(t)).sort(sortFn);
+  const iphoneList = state.tasks.filter(t=>t.iphoneFlag && !t.waitFlag && !t.buyFlag && !t.pinned && !t.todayFlag && t.category!=='urgent' && baseFilter(t)).sort(sortFn);
+  const buyList = state.tasks.filter(t=>t.buyFlag && !t.waitFlag && baseFilter(t)).sort(sortFn);
+  const aList = state.tasks.filter(t=>t.category==='a' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && baseFilter(t)).sort(sortFn);
+  const bList = state.tasks.filter(t=>t.category==='b' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && baseFilter(t)).sort(sortFn);
+  const cList = state.tasks.filter(t=>t.category==='c' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && baseFilter(t)).sort(sortFn);
+  // På vent: alle med waitFlag (waitFlag overskygger også buyFlag)
   const waitList = state.tasks.filter(t=>t.waitFlag && baseFilter(t)).sort(sortFn);
 
   const renderRow = (t, color) => {
@@ -2405,6 +2924,7 @@ function renderIphoneX(){
     <button class="cat-btn cat-a ${filter==='a'?'active':''}" data-iphonex-filter="a">A</button>
     <button class="cat-btn cat-b ${filter==='b'?'active':''}" data-iphonex-filter="b">B</button>
     <button class="cat-btn cat-c ${filter==='c'?'active':''}" data-iphonex-filter="c">C</button>
+    <button class="cat-btn cat-buy ${filter==='buy'?'active':''}" data-iphonex-filter="buy">${ICONS.cart}<span>Kjøp</span></button>
     <button class="cat-btn cat-wait ${filter==='wait'?'active':''}" data-iphonex-filter="wait">${ICONS.pause}<span>På vent</span></button>
   </div>`;
 
@@ -2415,7 +2935,7 @@ function renderIphoneX(){
       dividerKey: dividerKey
     });
     const isCollapsed = !!(state.collapsedSections && state.collapsedSections[collapseKey]);
-    return `<div class="${cssClass} ${isCollapsed?'collapsed':''}" data-section-target="${sectionTarget}">
+    return `<div class="${cssClass} ${isCollapsed?'collapsed':''}" data-section-target="${sectionTarget}" data-divider-key="${dividerKey}">
       <div class="${cssClass}-header" data-section-collapse="${collapseKey}">
         <span class="section-collapse-toggle">${ICONS.chevronDown}</span>
         ${headerIcon}
@@ -2442,6 +2962,7 @@ function renderIphoneX(){
   const showC = (filter==='all' || filter==='c') && cList.length > 0 && !isHiddenInList('c');
   const showPinned = (filter==='all' || filter==='pinned') && pinnedList.length > 0 && !isHiddenInList('pinned');
   const showIphone = (filter==='all' || filter==='iphone') && iphoneList.length > 0 && !isHiddenInList('iphone');
+  const showBuy = (filter==='all' || filter==='buy') && buyList.length > 0 && !isHiddenInList('buy');
   const showWait = (filter==='all' || filter==='wait') && waitList.length > 0 && !isHiddenInList('wait');
 
   // Kontroll-knapper: Lukk alle / Åpne alle + Velg rammer
@@ -2450,6 +2971,7 @@ function renderIphoneX(){
   if(showToday) collapseKeys.push('today');
   if(showPinned) collapseKeys.push('pinned');
   if(showIphone) collapseKeys.push('iphone');
+  if(showBuy) collapseKeys.push('buy');
   if(showA) collapseKeys.push('a');
   if(showB) collapseKeys.push('b');
   if(showC) collapseKeys.push('c');
@@ -2458,10 +2980,10 @@ function renderIphoneX(){
   const allCollapsed = collapseKeys.length > 0 && collapseKeys.every(k=>collapsedSections[k]);
   const toggleLabel = allCollapsed ? 'Åpne alle' : 'Lukk alle';
   const toggleIcon = allCollapsed ? ICONS.chevronDown : ICONS.chevronUp;
-  const visibleCount = 8 - hidden.length;
+  const visibleCount = 9 - hidden.length;
   const controls = `<div class="alle-group-controls">
     <button class="alle-group-ctrl-btn primary" data-iphonex-toggle-all>${toggleIcon}<span>${toggleLabel}</span></button>
-    <button class="alle-group-ctrl-btn" data-iphonex-pick-frames>${ICONS.filter}<span>Velg rammer (${visibleCount}/8)</span></button>
+    <button class="alle-group-ctrl-btn" data-iphonex-pick-frames>${ICONS.filter}<span>Velg rammer (${visibleCount}/9)</span></button>
   </div>`;
 
   let body = '';
@@ -2470,6 +2992,7 @@ function renderIphoneX(){
   if(showToday) body += buildSection('today-section', ICONS.sun, 'I dag', 'iphonex-body-today', todayList, 'dividersIphoneXToday', 'color:#5DDFF1;background:rgba(0,180,219,0.15)', 'today', 'today');
   if(showPinned) body += buildSection('pinned-section', ICONS.starFilled, 'Pinnete', 'iphonex-body-pinned', pinnedList, 'dividersIphoneXPinned', 'color:#FAC775;background:rgba(239,159,39,0.12)', 'pinned', 'pinned');
   if(showIphone) body += buildSection('iphone-section', ICONS.phone, 'iPhone-merkede', '', iphoneList, 'dividersIphoneXIphone', '', 'iphone', 'iphone');
+  if(showBuy) body += buildSection('buy-section', ICONS.cart, 'Kjøp', 'iphonex-body-buy', buyList, 'dividersIphoneXBuy', 'color:#7FD99F;background:rgba(45,158,117,0.18)', 'buy', 'buy');
   if(showA) body += buildSection('cat-a-section', `<span class="cat-letter-badge cat-a-badge">A</span>`, 'A', 'iphonex-body-a', aList, 'dividersIphoneXA', 'color:#FAC775;background:rgba(239,159,39,0.15)', 'a', 'a');
   if(showB) body += buildSection('cat-b-section', `<span class="cat-letter-badge cat-b-badge">B</span>`, 'B', 'iphonex-body-b', bList, 'dividersIphoneXB', 'color:#AED183;background:rgba(99,153,34,0.15)', 'b', 'b');
   if(showC) body += buildSection('cat-c-section', `<span class="cat-letter-badge cat-c-badge">C</span>`, 'C', 'iphonex-body-c', cList, 'dividersIphoneXC', 'color:#B5AEF0;background:rgba(127,119,221,0.15)', 'c', 'c');
@@ -2482,12 +3005,13 @@ function renderIphoneX(){
     else if(filter==='today') msg = 'Ingen oppgaver merket for I dag';
     else if(filter==='pinned') msg = 'Ingen pinnete oppgaver';
     else if(filter==='iphone') msg = 'Ingen iPhone-merkede oppgaver';
+    else if(filter==='buy') msg = 'Ingen oppgaver merket Kjøp';
     else if(filter==='wait') msg = 'Ingen oppgaver på vent';
     else msg = `Ingen oppgaver merket ${filter.toUpperCase()}`;
     body = `<div class="empty">${ICONS.phone}<p>${msg}</p><p style="font-size:11px;margin-top:6px;color:var(--text-tertiary)">Sett kategori i registreringsskjemaet eller bruk stjerne / mobil-emblem</p></div>`;
   }
 
-  return filterRow + controls + body;
+  return (state.filterOpen ? filterRow : '') + controls + body;
 }
 
 function renderIphone(){
@@ -2582,8 +3106,26 @@ function wireDividers(){
       const key = b.dataset.addDivider; // '1' (default) eller f.eks. 'dividersIphoneXPinned'
       const listKey = (key === '1' || !key) ? 'dividers' : key;
       if(!state[listKey]) state[listKey] = [];
-      const maxPos = state[listKey].reduce((m,d)=>Math.max(m, d.position||0), 0);
-      state[listKey].push({id: uid('d'), position: maxPos + 100});
+      // Sett posisjon etter siste element i rammen (oppgaver + skillelinjer)
+      // Finn høyeste order blant oppgaver OG høyeste position blant skillelinjer
+      const sectionEl = b.closest('[data-section-target], .group-block, .all-group-section') || document;
+      const domRows = [...sectionEl.querySelectorAll('.iphonex-row[data-id], .divider-row[data-divider-id], .task[data-id]')];
+      let maxPos = 0;
+      domRows.forEach(el=>{
+        if(el.classList.contains('divider-row')){
+          const d = findDividerAnywhere(el.dataset.dividerId);
+          if(d) maxPos = Math.max(maxPos, d.position||0);
+        } else {
+          const id = el.dataset.id || el.dataset.iphonexEdit;
+          const t = (state.tasks||[]).find(x=>x.id===id);
+          if(t) maxPos = Math.max(maxPos, t.order||0);
+        }
+      });
+      // Fallback hvis ingen rader funnet
+      if(maxPos === 0){
+        maxPos = state[listKey].reduce((m,d)=>Math.max(m, d.position||0), 0);
+      }
+      state[listKey].push({id: uid('d'), position: maxPos + 10});
       save(); render();
     });
   });
@@ -2700,7 +3242,7 @@ function renumberSequence(dividerId, dropTarget, dropPosition){
 }
 
 function findDividerAnywhere(id){
-  const lists = ['dividers','dividersIphoneXPinned','dividersIphoneXIphone','dividersIphoneXUrgent','dividersIphoneXToday','dividersIphoneXWait','dividersIphoneXA','dividersIphoneXB','dividersIphoneXC'];
+  const lists = ['dividers','dividersIphoneXPinned','dividersIphoneXIphone','dividersIphoneXUrgent','dividersIphoneXToday','dividersIphoneXWait','dividersIphoneXBuy','dividersIphoneXA','dividersIphoneXB','dividersIphoneXC'];
   for(const k of lists){
     const arr = state[k] || [];
     const d = arr.find(x=>x.id===id);
@@ -2839,6 +3381,632 @@ function renderGroupedRow(t, currentSetNr){
     <button class="group-edit-badge" data-edit-group-on="2" data-task-id="${t.id}" style="${g2Style}">${g2Label} ${ICONS.chevron}</button>
     <span class="iphonex-number">${t.number||''}</span>
   </div>`;
+}
+
+function dashboardTabMeta(){
+  // Alle mulige snarvei-mål: view-key → {label, icon, color}
+  return {
+    fokus:     {label:'Kalender ToDo', icon:ICONS.calendar,   color:'#00B4DB'},
+    naa:       {label:'Nå',          icon:ICONS.sun,        color:'#00B4DB'},
+    today:     {label:'I dag',       icon:ICONS.sun,        color:'#EF9F27'},
+    dagens:    {label:'Dagens',      icon:ICONS.starFilled, color:'#EF9F27'},
+    iphonex:   {label:'iPhone X',    icon:ICONS.phone,      color:'#378ADD'},
+    iphone:    {label:'iPhone',      icon:ICONS.phone,      color:'#378ADD'},
+    week:      {label:'Uke',         icon:ICONS.calendar,   color:'#639922'},
+    all:       {label:'Alle',        icon:ICONS.checks,     color:'#7F77DD'},
+    allelinjer:{label:'Alle linjer', icon:ICONS.list,       color:'#7F77DD'},
+    done:      {label:'Ferdig',      icon:ICONS.check,      color:'#5DCAA5'},
+    deleted:   {label:'Slettede',    icon:ICONS.trash,      color:'#888780'},
+    notes:     {label:'Notat',       icon:ICONS.notebook,   color:'#00B4DB'},
+    sms:       {label:'SMS',         icon:ICONS.message,    color:'#00B4DB'},
+    groups:    {label:'Grupper',     icon:ICONS.tag,        color:'#D85A30'}
+  };
+}
+
+function renderDashboard(){
+  const meta = dashboardTabMeta();
+  const shortcuts = (state.dashboardShortcuts || []).filter(k=>meta[k]);
+
+  // Statistikk
+  const active = state.tasks.filter(t=>!t.done);
+  const todayCount = active.filter(t=>(t.pinned || t.todayFlag) && !t.waitFlag).length;
+  const urgentCount = active.filter(t=>t.category==='urgent' && !t.waitFlag).length;
+  const activeCount = active.length;
+
+  const editing = !!state.dashboardEditing;
+
+  const shortcutCards = shortcuts.map(key=>{
+    const m = meta[key];
+    return `<button class="dash-shortcut" data-dash-go="${key}" style="border-color:${m.color};background:${hexToRgba(m.color,0.12)}">
+      ${editing ? `<span class="dash-shortcut-remove" data-dash-remove="${key}">${ICONS.x}</span>` : ''}
+      <span class="dash-shortcut-icon" style="color:${m.color}">${m.icon}</span>
+      <span class="dash-shortcut-label">${m.label}</span>
+    </button>`;
+  }).join('');
+
+  const addCard = `<button class="dash-shortcut dash-shortcut-add" data-dash-add>
+    ${ICONS.plus}
+    <span class="dash-shortcut-label" style="color:var(--text-tertiary)">Legg til</span>
+  </button>`;
+
+  return `<div class="dashboard">
+    <div class="dash-clock">
+      <div class="dash-time" id="dash-time">--:--</div>
+      <div class="dash-date" id="dash-date"></div>
+    </div>
+
+    <div class="dash-stats">
+      <button class="dash-stat" data-dash-go="dagens" style="border-color:#00B4DB;background:rgba(0,180,219,0.1)">
+        <span class="dash-stat-num" style="color:#5DDFF1">${todayCount}</span>
+        <span class="dash-stat-label" style="color:#5DDFF1">I dag</span>
+      </button>
+      <button class="dash-stat" data-dash-go="iphonex" style="border-color:#E24B4A;background:rgba(226,75,74,0.1)">
+        <span class="dash-stat-num" style="color:#FF8080">${urgentCount}</span>
+        <span class="dash-stat-label" style="color:#FF8080">Haster</span>
+      </button>
+      <button class="dash-stat" data-dash-go="allelinjer" style="border-color:#639922;background:rgba(99,153,34,0.1)">
+        <span class="dash-stat-num" style="color:#AED183">${activeCount}</span>
+        <span class="dash-stat-label" style="color:#AED183">Aktive</span>
+      </button>
+    </div>
+
+    <div class="dash-section-head">
+      <span class="dash-section-title">Mine snarveier</span>
+      <button class="dash-edit-btn" data-dash-edit-toggle>${editing ? ICONS.check : ICONS.edit}<span>${editing ? 'Ferdig' : 'Rediger'}</span></button>
+    </div>
+
+    <div class="dash-grid">
+      ${shortcutCards}
+      ${editing ? '' : addCard}
+    </div>
+  </div>`;
+}
+
+// Metadata for kategoriene i Dagens-kortet
+function dagensKortCatMeta(){
+  return {
+    urgent: {label:'Haster', color:'#E24B4A', text:'#FF8080', icon:ICONS.warning, match:(t)=>t.category==='urgent' && !t.waitFlag},
+    today: {label:'I dag', color:'#00B4DB', text:'#5DDFF1', icon:ICONS.sun, match:(t)=>t.todayFlag && !t.waitFlag},
+    pinned: {label:'Pinnete', color:'#EF9F27', text:'#FAC775', icon:ICONS.starFilled, match:(t)=>t.pinned && !t.waitFlag},
+    iphone: {label:'iPhone', color:'#378ADD', text:'#85B7EB', icon:ICONS.phone, match:(t)=>t.iphoneFlag && !t.waitFlag},
+    buy: {label:'Kjøp', color:'#1D9E75', text:'#7FD99F', icon:ICONS.cart, match:(t)=>t.buyFlag && !t.waitFlag},
+    a: {label:'A', color:'#EF9F27', text:'#FAC775', icon:`<span class="cat-letter-badge cat-a-badge">A</span>`, match:(t)=>t.category==='a' && !t.waitFlag},
+    b: {label:'B', color:'#639922', text:'#AED183', icon:`<span class="cat-letter-badge cat-b-badge">B</span>`, match:(t)=>t.category==='b' && !t.waitFlag},
+    c: {label:'C', color:'#7F77DD', text:'#B5AEF0', icon:`<span class="cat-letter-badge cat-c-badge">C</span>`, match:(t)=>t.category==='c' && !t.waitFlag},
+    wait: {label:'På vent', color:'#888780', text:'#D3D1C7', icon:ICONS.pause, match:(t)=>t.waitFlag}
+  };
+}
+
+function renderNaa(){
+  const today = todayISO();
+  const sortFn = (a,b)=>{
+    if((a.order||0) !== (b.order||0)) return (a.order||0) - (b.order||0);
+    return prioRank[a.priority]-prioRank[b.priority];
+  };
+  // "Nå" = oppgaver merket I dag (todayFlag) ELLER med forfallsdato i dag
+  const items = state.tasks.filter(t=>
+    (t.todayFlag || t.date===today) && !t.waitFlag && !t.done && matchesSearch(t) && passesGroupFilter(t)
+  ).sort(sortFn);
+
+  const collapseKey = 'naa-today';
+  const collapsed = !!(state.collapsedSections && state.collapsedSections[collapseKey]);
+
+  if(!items.length){
+    if(isGroupFilterActive() || (state.searchQuery||'').trim()){
+      return `<div class="empty">${ICONS.sun}<p>Ingen oppgaver matcher filteret</p></div>`;
+    }
+    return `<div class="empty">${ICONS.sun}<p>Ingen oppgaver akkurat nå</p><p style="font-size:11px;margin-top:6px;color:var(--text-tertiary)">Merk oppgaver med I dag-knappen eller sett forfallsdato i dag</p></div>`;
+  }
+
+  const accent = '#5DDFF1';
+  const inner = weaveDividers(items, t=>idagRow(t, accent), {
+    dividerList: state.dividersIphoneXToday || [],
+    dividerKey: 'dividersIphoneXToday'
+  });
+
+  return `<div class="fokus-view">
+    <div class="today-section ${collapsed?'collapsed':''}" data-section-target="${collapseKey}" data-divider-key="dividersIphoneXToday">
+      <div class="today-section-header" data-section-collapse="${collapseKey}">
+        <span class="section-collapse-toggle">${ICONS.chevronDown}</span>
+        ${ICONS.sun}
+        <span class="today-section-title">I dag</span>
+        <span class="today-section-count">${items.length}</span>
+      </div>
+      <div class="today-section-body">
+        <div class="iphonex-body iphonex-body-today">${inner||''}</div>
+        <div style="padding:6px 10px"><button class="add-divider-btn" data-add-divider="dividersIphoneXToday">${ICONS.minus} Sett inn skille-linje</button></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderFokus(){
+  const meta = dagensKortCatMeta();
+  const cats = (state.dashboardTodayCats || []).filter(k=>meta[k]);
+  const active = state.tasks.filter(t=>!t.done);
+  const MAX_PER_CAT = 4;
+
+  const dagerKort = ['søn','man','tir','ons','tor','fre','lør'];
+  const dager = ['Søndag','Mandag','Tirsdag','Onsdag','Torsdag','Fredag','Lørdag'];
+  const mnd = ['jan','feb','mar','apr','mai','jun','jul','aug','sep','okt','nov','des'];
+  const todayIso = todayISO();
+  const selectedDate = state.fokusDate || todayIso;
+  const isToday = (selectedDate === todayIso);
+
+  // 7-dagers velger fra i dag og framover
+  const dayBtns = [];
+  for(let i=0;i<7;i++){
+    const d = new Date(); d.setHours(0,0,0,0); d.setDate(d.getDate()+i);
+    const iso = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+    const sel = (iso === selectedDate);
+    const dayCount = active.filter(t=>t.date === iso).length;
+    const badge = dayCount > 0 ? `<span class="fokus-day-badge ${sel?'on-active':''}">${dayCount}</span>` : '';
+    dayBtns.push(`<button class="fokus-day ${sel?'active':''}" data-fokus-day="${iso}">
+      ${badge}
+      <span class="fokus-day-name">${dagerKort[d.getDay()]}</span>
+      <span class="fokus-day-num">${d.getDate()}</span>
+    </button>`);
+  }
+  const dayPicker = `<div class="fokus-day-row">${dayBtns.join('')}</div>`;
+
+  // Dato-tekst (valgt dag)
+  const selD = new Date(selectedDate+'T00:00:00');
+  const datoTekst = `${dager[selD.getDay()]} ${selD.getDate()}. ${mnd[selD.getMonth()]}`;
+
+  let totalCount = 0;
+  let bodyContent = '';
+
+  if(isToday){
+    // I dag: vis kategori-kortene som før
+    const sections = cats.map(key=>{
+      const m = meta[key];
+      const items = active.filter(m.match);
+      totalCount += items.length;
+      const collapseKey = 'fokus-'+key;
+      const collapsed = !!(state.collapsedSections && state.collapsedSections[collapseKey]);
+      const chevron = `<span class="fokus-chevron ${collapsed?'collapsed':''}" style="color:${m.text}">${ICONS.chevronDown}</span>`;
+      const headerHTML = `<div class="fokus-cat-head" data-fokus-collapse="${collapseKey}" style="background:${hexToRgba(m.color,0.15)};border-bottom:1px solid ${collapsed?'transparent':hexToRgba(m.color,0.4)}">
+        ${chevron}
+        <span style="color:${m.text};display:inline-flex">${m.icon}</span>
+        <span class="fokus-cat-label" style="color:${m.text}">${m.label}</span>
+        <span class="fokus-cat-count" style="color:${m.text};background:${hexToRgba(m.color,0.25)}">${items.length}</span>
+      </div>`;
+      let bodyHTML = '';
+      if(!collapsed){
+        if(!items.length){
+          bodyHTML = `<div class="fokus-cat-body"><div class="dagens-kort-empty">Ingen oppgaver</div></div>`;
+        } else {
+          const shown = items.slice(0, MAX_PER_CAT);
+          const rest = items.length - shown.length;
+          const rows = shown.map(t=>`<div class="dagens-kort-row" data-fokus-edit="${t.id}">
+            <span class="dagens-kort-circle" data-dagens-check="${t.id}" style="border-color:${m.color}"></span>
+            <span class="dagens-kort-title">${escapeHtml(t.title||'')}</span>
+          </div>`).join('');
+          const more = rest > 0 ? `<div class="dagens-kort-more" data-fokus-go-cat="${key}">+ ${rest} flere</div>` : '';
+          bodyHTML = `<div class="fokus-cat-body">${rows}${more}</div>`;
+        }
+      }
+      return `<div class="fokus-cat-card ${collapsed?'collapsed':''}" style="border-left:3px solid ${m.color}">
+        ${headerHTML}
+        ${bodyHTML}
+      </div>`;
+    }).join('');
+
+    const body = cats.length
+      ? sections
+      : `<div class="dagens-kort-empty" style="padding:18px 12px">Ingen kategorier valgt. Trykk tannhjulet for å velge.</div>`;
+
+    // Lukk alle / Åpne alle
+    const collapseKeys = cats.map(k=>'fokus-'+k);
+    const collapsedSections = state.collapsedSections || {};
+    const allCollapsed = collapseKeys.length > 0 && collapseKeys.every(k=>collapsedSections[k]);
+    const toggleLabel = allCollapsed ? 'Åpne alle' : 'Lukk alle';
+    const toggleIcon = allCollapsed ? ICONS.chevronDown : ICONS.chevronUp;
+    const controlsHTML = cats.length ? `<div class="fokus-controls">
+      <button class="fokus-ctrl-btn" data-fokus-toggle-all>${toggleIcon}<span>${toggleLabel}</span></button>
+    </div>` : '';
+
+    bodyContent = `${controlsHTML}<div class="dagens-kort-body fokus-cards">${body}</div>`;
+  } else {
+    // Valgt en annen dag: vis oppgaver med forfallsdato den dagen (flat liste)
+    const dayTasks = active.filter(t=>t.date === selectedDate).sort((a,b)=>prioRank[a.priority]-prioRank[b.priority]);
+    totalCount = dayTasks.length;
+    const prioColor = { high:'#E24B4A', med:'#EF9F27', low:'#5DCAA5' };
+    if(!dayTasks.length){
+      bodyContent = `<div class="dagens-kort-body fokus-cards"><div class="dagens-kort-empty" style="padding:24px 12px;text-align:center">Ingen oppgaver med forfall denne dagen</div></div>`;
+    } else {
+      const rows = dayTasks.map(t=>{
+        const stripe = prioColor[t.priority] || '#EF9F27';
+        return `<div class="fokus-cat-card" style="border-left:3px solid ${stripe}">
+          <div class="fokus-cat-body" style="padding:7px 11px">
+            <div class="dagens-kort-row" data-fokus-edit="${t.id}">
+              <span class="dagens-kort-circle" data-dagens-check="${t.id}" style="border-color:${stripe}"></span>
+              <span class="dagens-kort-title">${escapeHtml(t.title||'')}</span>
+              <span class="fokus-day-num" style="color:var(--text-tertiary);font-size:10px;font-family:monospace">${t.number||''}</span>
+            </div>
+          </div>
+        </div>`;
+      }).join('');
+      bodyContent = `<div class="dagens-kort-body fokus-cards">${rows}</div>`;
+    }
+  }
+
+  return `<div class="fokus-view">
+    <div class="dagens-kort">
+      <div class="dagens-kort-head">
+        <span class="dagens-kort-cal-icon">${ICONS.calendar || ICONS.sun}</span>
+        <div style="flex:1">
+          <div class="dagens-kort-date">${datoTekst}</div>
+          <div class="dagens-kort-sub">${isToday ? totalCount+' oppgaver i fokus' : totalCount+' med forfall'}</div>
+        </div>
+        <button class="dagens-kort-settings" data-dagens-pick-cats aria-label="Velg kategorier">${ICONS.settings || ICONS.filter}</button>
+      </div>
+      ${dayPicker}
+      ${bodyContent}
+      <div class="dagens-kort-actions">
+        <button class="dagens-kort-action" data-fokus-go-today>${ICONS.checks || ICONS.list}<span>Åpne I dag</span></button>
+        <button class="dagens-kort-action" data-dagens-new>${ICONS.plus}<span>Ny oppgave</span></button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function wireFokus(){
+  // Kryss av oppgave (kun sirkelen)
+  document.querySelectorAll('[data-dagens-check]').forEach(el=>{
+    el.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      const id = el.dataset.dagensCheck;
+      const t = state.tasks.find(x=>x.id===id);
+      if(!t) return;
+      t.done = true;
+      t.completedAt = new Date().toISOString();
+      showToast('Markert som ferdig');
+      save(); render();
+    });
+  });
+  // Trykk på raden → åpne/rediger oppgaven
+  document.querySelectorAll('[data-fokus-edit]').forEach(el=>{
+    el.addEventListener('click',(e)=>{
+      if(e.target.closest('[data-dagens-check]')) return;
+      const id = el.dataset.fokusEdit;
+      const t = state.tasks.find(x=>x.id===id);
+      if(!t) return;
+      const mode = (t.subtasks && t.subtasks.length>0) ? 'checklist' : 'notes';
+      state.form = {
+        title:t.title||'', notes:t.notes||'', subtasks:(t.subtasks||[]).map(s=>({...s})),
+        priority:t.priority||'med', date:t.date||todayISO(), futureDate:t.futureDate||'',
+        group1Id:t.group1Id||'', group2Id:t.group2Id||'', www:t.www||'', contact:t.contact||'',
+        images:(t.images||[]).slice(), pinned:!!t.pinned, iphoneFlag:!!t.iphoneFlag, todayFlag:!!t.todayFlag, waitFlag:!!t.waitFlag, buyFlag:!!t.buyFlag, noteId:t.noteId||'',
+        category:t.category||'none', activeTab:'title', editingId:t.id, mode
+      };
+      state.returnView = 'fokus';
+      state.view = 'form';
+      save(); render();
+    });
+  });
+  // Ny oppgave
+  const dagensNew = document.querySelector('[data-dagens-new]');
+  if(dagensNew) dagensNew.addEventListener('click',()=>{
+    const startDate = state.fokusDate || todayISO();
+    state.form={title:'',notes:'',subtasks:[],priority:'med',date:startDate,futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
+    state.returnView = 'fokus';
+    state.view = 'form';
+    save(); render();
+  });
+  // Velg kategorier
+  const dagensPick = document.querySelector('[data-dagens-pick-cats]');
+  if(dagensPick) dagensPick.addEventListener('click',()=>openDagensKortCatPicker());
+  // Kollapse/åpne seksjon ved klikk på kategori-headeren
+  document.querySelectorAll('[data-fokus-collapse]').forEach(head=>{
+    head.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      const key = head.dataset.fokusCollapse;
+      if(!state.collapsedSections) state.collapsedSections = {};
+      if(state.collapsedSections[key]) delete state.collapsedSections[key];
+      else state.collapsedSections[key] = true;
+      save(); render();
+    });
+  });
+  // Lukk alle / Åpne alle
+  const toggleAll = document.querySelector('[data-fokus-toggle-all]');
+  if(toggleAll) toggleAll.addEventListener('click',()=>{
+    const cats = (state.dashboardTodayCats || []);
+    const keys = cats.map(k=>'fokus-'+k);
+    if(!state.collapsedSections) state.collapsedSections = {};
+    const allCollapsed = keys.length > 0 && keys.every(k=>state.collapsedSections[k]);
+    if(allCollapsed){
+      keys.forEach(k=>delete state.collapsedSections[k]);
+    } else {
+      keys.forEach(k=>{ state.collapsedSections[k] = true; });
+    }
+    save(); render();
+  });
+  // Dagvelger (7 dager)
+  document.querySelectorAll('[data-fokus-day]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      state.fokusDate = btn.dataset.fokusDay;
+      save(); render();
+    });
+  });
+  // Åpne I dag
+  const goToday = document.querySelector('[data-fokus-go-today]');
+  if(goToday) goToday.addEventListener('click',()=>{ state.view='today'; state.todayView='list'; save(); render(); });
+  // "+ X flere" → åpne iPhone X filtrert på kategorien
+  document.querySelectorAll('[data-fokus-go-cat]').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const key = el.dataset.fokusGoCat;
+      state.view = 'iphonex';
+      state.iphoneXFilter = (['urgent','today','pinned','iphone','buy','a','b','c','wait'].includes(key)) ? key : 'all';
+      save(); render();
+    });
+  });
+}
+
+function hexToRgba(hex, a){
+  const h = hex.replace('#','');
+  const r = parseInt(h.substring(0,2),16);
+  const g = parseInt(h.substring(2,4),16);
+  const b = parseInt(h.substring(4,6),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+
+let dashClockTimer = null;
+function startDashClock(){
+  const update = ()=>{
+    const timeEl = document.getElementById('dash-time');
+    const dateEl = document.getElementById('dash-date');
+    if(!timeEl || !dateEl){ if(dashClockTimer){clearInterval(dashClockTimer); dashClockTimer=null;} return; }
+    const now = new Date();
+    const hh = String(now.getHours()).padStart(2,'0');
+    const mm = String(now.getMinutes()).padStart(2,'0');
+    timeEl.textContent = `${hh}:${mm}`;
+    const dager = ['søndag','mandag','tirsdag','onsdag','torsdag','fredag','lørdag'];
+    const mnd = ['januar','februar','mars','april','mai','juni','juli','august','september','oktober','november','desember'];
+    dateEl.textContent = `${dager[now.getDay()]} ${now.getDate()}. ${mnd[now.getMonth()]} ${now.getFullYear()}`;
+  };
+  update();
+  if(dashClockTimer) clearInterval(dashClockTimer);
+  dashClockTimer = setInterval(update, 10000);
+}
+
+function wireDashboard(){
+  startDashClock();
+  // Snarveier og statistikk-kort → naviger
+  document.querySelectorAll('[data-dash-go]').forEach(el=>{
+    el.addEventListener('click',(e)=>{
+      if(e.target.closest('[data-dash-remove]')) return;
+      if(state.dashboardEditing) return; // i redigeringsmodus: ikke naviger
+      const v = el.dataset.dashGo;
+      state.view = v;
+      save(); render();
+    });
+  });
+  // Rediger-toggle
+  const editToggle = document.querySelector('[data-dash-edit-toggle]');
+  if(editToggle) editToggle.addEventListener('click',()=>{
+    state.dashboardEditing = !state.dashboardEditing;
+    save(); render();
+  });
+  // Fjern snarvei
+  document.querySelectorAll('[data-dash-remove]').forEach(el=>{
+    el.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      const key = el.dataset.dashRemove;
+      state.dashboardShortcuts = (state.dashboardShortcuts||[]).filter(k=>k!==key);
+      save(); render();
+    });
+  });
+  // Legg til snarvei
+  const addBtn = document.querySelector('[data-dash-add]');
+  if(addBtn) addBtn.addEventListener('click',()=>openDashboardAddPicker());
+}
+
+function openDagensKortCatPicker(){
+  const meta = dagensKortCatMeta();
+  const selected = state.dashboardTodayCats || [];
+  const active = state.tasks.filter(t=>!t.done);
+  const host = document.getElementById('modal-host');
+
+  const order = ['urgent','today','pinned','iphone','buy','a','b','c','wait'];
+  const items = order.map(key=>{
+    const m = meta[key];
+    const count = active.filter(m.match).length;
+    const isOn = selected.includes(key);
+    return `<label class="vis-row" data-dagens-cat="${key}" style="border-left:3px solid ${m.color}">
+      <div class="vis-check ${isOn?'checked':''}" style="${isOn?`background:${m.color};border-color:${m.color}`:''}">${isOn?ICONS.check:''}</div>
+      <span style="color:${m.text};display:inline-flex">${m.icon}</span>
+      <span class="vis-name" style="${isOn?'':'color:var(--text-tertiary)'}">${m.label}</span>
+      <span class="vis-count">${count}</span>
+    </label>`;
+  }).join('');
+
+  host.innerHTML = `<div class="modal-bg" id="dagens-cat-bg">
+    <div class="modal" style="max-width:340px">
+      <h3 style="margin:0 0 4px;font-size:14px">Velg kategorier i Dagens-kortet</h3>
+      <p style="font-size:11px;color:var(--text-tertiary);margin:0 0 10px">Hvilke kategorier skal vises øverst på Start.</p>
+      <div style="max-height:50vh;overflow-y:auto">${items}</div>
+      <button class="fab-btn primary" id="dagens-cat-close" style="width:100%;margin-top:12px">Ferdig</button>
+    </div>
+  </div>`;
+
+  const close = ()=>{ host.innerHTML=''; render(); };
+  document.getElementById('dagens-cat-bg').addEventListener('click',(e)=>{ if(e.target.id==='dagens-cat-bg') close(); });
+  document.getElementById('dagens-cat-close').addEventListener('click', close);
+  host.querySelectorAll('[data-dagens-cat]').forEach(row=>{
+    row.addEventListener('click',(e)=>{
+      e.preventDefault();
+      const key = row.dataset.dagensCat;
+      let list = state.dashboardTodayCats || [];
+      const m = meta[key];
+      if(list.includes(key)){
+        list = list.filter(x=>x!==key);
+      } else {
+        // Behold rekkefølgen etter `order`
+        list = order.filter(k=>list.includes(k) || k===key);
+      }
+      state.dashboardTodayCats = list;
+      const isOn = list.includes(key);
+      const check = row.querySelector('.vis-check');
+      const name = row.querySelector('.vis-name');
+      if(isOn){
+        check.classList.add('checked');
+        check.style.background = m.color;
+        check.style.borderColor = m.color;
+        check.innerHTML = ICONS.check;
+        name.style.color = '';
+      } else {
+        check.classList.remove('checked');
+        check.style.background = '';
+        check.style.borderColor = '';
+        check.innerHTML = '';
+        name.style.color = 'var(--text-tertiary)';
+      }
+      save();
+    });
+  });
+}
+
+function openDashboardAddPicker(){
+  const meta = dashboardTabMeta();
+  const current = state.dashboardShortcuts || [];
+  const available = Object.keys(meta).filter(k=>!current.includes(k));
+
+  const host = document.getElementById('modal-host');
+  const items = available.map(key=>{
+    const m = meta[key];
+    return `<button class="dash-add-item" data-dash-pick="${key}">
+      <span class="dash-add-icon" style="color:${m.color}">${m.icon}</span>
+      <span>${m.label}</span>
+      ${ICONS.plus}
+    </button>`;
+  }).join('');
+
+  host.innerHTML = `<div class="modal-bg" id="dash-add-bg">
+    <div class="modal" style="max-width:340px">
+      <h3 style="margin:0 0 12px;font-size:14px">Legg til snarvei</h3>
+      ${available.length ? `<div class="dash-add-list">${items}</div>` : '<p style="font-size:12px;color:var(--text-tertiary)">Alle faner er allerede lagt til som snarveier.</p>'}
+      <button class="fab-btn" id="dash-add-close" style="width:100%;margin-top:12px">Lukk</button>
+    </div>
+  </div>`;
+
+  const close = ()=>{ host.innerHTML=''; };
+  document.getElementById('dash-add-bg').addEventListener('click',(e)=>{ if(e.target.id==='dash-add-bg') close(); });
+  document.getElementById('dash-add-close').addEventListener('click', close);
+  host.querySelectorAll('[data-dash-pick]').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const key = b.dataset.dashPick;
+      if(!state.dashboardShortcuts) state.dashboardShortcuts = [];
+      state.dashboardShortcuts.push(key);
+      close();
+      save(); render();
+      showToast('Snarvei lagt til');
+    });
+  });
+}
+
+function renderAlleLinjer(){
+  // Kompakt linjevisning: fargestripe (prioritet) + sirkel-checkbox + tittel + nummer
+  const sortKey = state.alleLinjerSort || 'number';
+  const prioRankLocal = { high:1, med:2, low:3 };
+  const sortFns = {
+    number: (a,b)=>{
+      const na = (typeof a.number === 'number') ? a.number : 999999;
+      const nb = (typeof b.number === 'number') ? b.number : 999999;
+      if(na !== nb) return na - nb;
+      return (a.id||'').localeCompare(b.id||'');
+    },
+    alpha: (a,b)=> (a.title||'').localeCompare(b.title||'', 'no', {sensitivity:'base'}),
+    priority: (a,b)=>{
+      const pa = prioRankLocal[a.priority]||2;
+      const pb = prioRankLocal[b.priority]||2;
+      if(pa !== pb) return pa - pb;
+      const na = (typeof a.number === 'number') ? a.number : 999999;
+      const nb = (typeof b.number === 'number') ? b.number : 999999;
+      return na - nb;
+    },
+    newest: (a,b)=>{
+      // Nyeste = høyest nummer først (nummer tildeles stigende ved oppretting)
+      const na = (typeof a.number === 'number') ? a.number : 0;
+      const nb = (typeof b.number === 'number') ? b.number : 0;
+      return nb - na;
+    }
+  };
+  const list = state.tasks
+    .filter(t => !t.done && matchesSearch(t) && passesGroupFilter(t))
+    .sort(sortFns[sortKey] || sortFns.number);
+
+  // Sorteringsrad
+  const sortOptions = [
+    {key:'number', label:'Nummer', icon:ICONS.hash || '#'},
+    {key:'alpha', label:'A–Å', icon:ICONS.sortAz || 'A'},
+    {key:'priority', label:'Prioritet', icon:ICONS.flag || '⚑'},
+    {key:'newest', label:'Nyeste', icon:ICONS.clock || '⏱'}
+  ];
+  const sortBar = `<div class="linje-sort-bar">
+    <span class="linje-sort-label">Sorter:</span>
+    ${sortOptions.map(o=>`<button class="linje-sort-btn ${sortKey===o.key?'active':''}" data-linje-sort="${o.key}">${o.icon}<span>${o.label}</span></button>`).join('')}
+  </div>`;
+
+  if(!list.length){
+    if(isGroupFilterActive() || (state.searchQuery||'').trim()){
+      return sortBar + `<div class="empty">${ICONS.list}<p>Ingen oppgaver matcher filteret</p></div>`;
+    }
+    return sortBar + `<div class="empty">${ICONS.list}<p>Ingen aktive oppgaver</p></div>`;
+  }
+
+  const prioColor = { high:'#E24B4A', med:'#EF9F27', low:'#5DCAA5' };
+  const rows = list.map(t=>{
+    const stripe = prioColor[t.priority] || '#EF9F27';
+    return `<div class="linje-row" data-linje-edit="${t.id}" style="border-left:4px solid ${stripe}">
+      <div class="linje-check" data-linje-check="${t.id}" role="checkbox" aria-checked="false" aria-label="Marker som ferdig"></div>
+      <span class="linje-title">${escapeHtml(t.title||'')}</span>
+      <span class="linje-number">${(typeof t.number === 'number') ? t.number : ''}</span>
+    </div>`;
+  }).join('');
+
+  return sortBar + `<div class="linje-list">${rows}</div>`;
+}
+
+function wireAlleLinjer(){
+  // Sorteringsknapper
+  document.querySelectorAll('[data-linje-sort]').forEach(el=>{
+    el.addEventListener('click',()=>{
+      state.alleLinjerSort = el.dataset.linjeSort;
+      save(); render();
+    });
+  });
+  // Trykk på rad → rediger
+  document.querySelectorAll('[data-linje-edit]').forEach(el=>{
+    el.addEventListener('click',(e)=>{
+      if(e.target.closest('[data-linje-check]')) return; // sirkel håndteres separat
+      const t = state.tasks.find(x=>x.id===el.dataset.linjeEdit);
+      if(!t) return;
+      const subs = t.subtasks?t.subtasks.map(s=>({...s})):[];
+      const mode = subs.length ? 'checklist' : 'notes';
+      state.form = {
+        title:t.title, notes:t.notes||'', subtasks:subs, priority:t.priority,
+        date:t.date, futureDate:t.futureDate||'', www:t.www||'', contact:t.contact||'',
+        images:(t.images||[]).slice(), group1Id:t.group1Id||'', group2Id:t.group2Id||'',
+        pinned:!!t.pinned, iphoneFlag:!!t.iphoneFlag, todayFlag:!!t.todayFlag, waitFlag:!!t.waitFlag, buyFlag:!!t.buyFlag,
+        noteId:t.noteId||'', category:t.category||'none', activeTab:'title', editingId:t.id, mode
+      };
+      state.returnView = state.view; // 'allelinjer'
+      state.view='form'; save(); render();
+    });
+  });
+  // Trykk på sirkel → marker som ferdig
+  document.querySelectorAll('[data-linje-check]').forEach(el=>{
+    el.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      const t = state.tasks.find(x=>x.id===el.dataset.linjeCheck);
+      if(!t) return;
+      t.done = true;
+      t.completedAt = new Date().toISOString();
+      showToast('Markert som ferdig');
+      save(); render();
+    });
+  });
 }
 
 function renderAll(){
@@ -2983,6 +4151,10 @@ function renderAll(){
     list = state.tasks.filter(t=>t.waitFlag && baseFilter(t)).sort(sortFn);
     cssClass = 'wait-section'; headerIcon = ICONS.pause; title = 'På vent';
     msg = 'Ingen oppgaver på vent';
+  } else if(af === 'buy'){
+    list = state.tasks.filter(t=>t.buyFlag && baseFilter(t)).sort(sortFn);
+    cssClass = 'buy-section'; headerIcon = ICONS.cart; title = 'Kjøp';
+    msg = 'Ingen oppgaver merket Kjøp';
   }
 
   if(!list || !list.length) return `<div class="empty">${ICONS.checks}<p>${msg}</p></div>`;
@@ -3415,9 +4587,19 @@ function renderForm(){
         <button class="cat-btn cat-b ${f.category==='b'?'active':''}" data-set-category="b">B</button>
         <button class="cat-btn cat-c ${f.category==='c'?'active':''}" data-set-category="c">C</button>
         <button class="cat-btn cat-wait ${f.waitFlag?'active':''}" id="f-toggle-wait" type="button">${ICONS.pause}<span>På vent</span></button>
+        <button class="cat-btn cat-buy ${f.buyFlag?'active':''}" id="f-toggle-buy" type="button">${ICONS.cart}<span>Kjøp</span></button>
       </div>
       <div class="form-section-body">
-        <label class="form-sub-label">Tittel</label>
+        <label class="form-sub-label">Dato</label>
+        <div class="form-date-box">
+          <input type="date" id="f-date" value="${f.date||''}" style="margin-bottom:0" />
+          <button type="button" class="form-date-quick ${f.date===todayISO()?'active':''}" data-date-quick="today">I dag</button>
+          <button type="button" class="form-date-quick ${f.date===addDays(1)?'active':''}" data-date-quick="tomorrow">I morgen</button>
+          <span class="form-date-divider"></span>
+          <button type="button" class="form-date-action" id="f-cancel-top">Avbryt</button>
+          <button type="button" class="form-date-action primary" id="f-save-top">${f.editingId?'Oppdater':'Lagre'}</button>
+        </div>
+        <label class="form-sub-label" style="margin-top:10px">Tittel</label>
         <div style="display:flex;gap:6px;align-items:center;margin-bottom:10px">
           <input type="text" id="f-title" value="${escapeAttr(f.title)}" placeholder="Hva skal gjøres?" style="flex:1;margin-bottom:0" />
           <span class="form-task-number">${formNumber}</span>
@@ -3498,19 +4680,11 @@ function renderForm(){
   const datesSection = `<div class="form-section">
       <div class="form-section-header">
         ${ICONS.calendarEvent}
-        <span class="form-section-title">Datoer</span>
+        <span class="form-section-title">Oppfølging</span>
       </div>
       <div class="form-section-body">
-        <div style="display:flex;gap:8px">
-          <div style="flex:1">
-            <label class="form-sub-label">Gjennomføring</label>
-            <input type="date" id="f-date" value="${f.date||''}" />
-          </div>
-          <div style="flex:1">
-            <label class="form-sub-label">Oppfølging</label>
-            <input type="date" id="f-future-date" value="${f.futureDate||''}" />
-          </div>
-        </div>
+        <label class="form-sub-label">Oppfølgingsdato</label>
+        <input type="date" id="f-future-date" value="${f.futureDate||''}" />
       </div>
     </div>`;
 
@@ -3598,10 +4772,6 @@ function renderForm(){
   else sectionContent = titleSection;
 
   return `<div class="form-screen">
-    <div style="display:flex;gap:6px;margin-bottom:10px">
-      <button class="fab-btn" id="f-cancel-top" style="flex:1">Avbryt</button>
-      <button class="fab-btn primary" id="f-save-top" style="flex:2">${f.editingId?'Oppdater':'Lagre'}</button>
-    </div>
     <div class="form-tabs">
       <button class="form-tab ${activeTab==='title'?'active':''}" data-form-tab="title">${ICONS.note}<span>Tittel</span></button>
       <button class="form-tab ${activeTab==='groups'?'active':''}" data-form-tab="groups">${ICONS.user}<span>Grupper</span></button>
@@ -3621,7 +4791,7 @@ function wireTasks(){
     b.addEventListener('click',(e)=>{
       e.stopPropagation();
       const hidden = state.iphoneXHidden || [];
-      const allKeys = ['urgent','today','pinned','iphone','a','b','c','wait'].filter(k=>!hidden.includes(k));
+      const allKeys = ['urgent','today','pinned','iphone','buy','a','b','c','wait'].filter(k=>!hidden.includes(k));
       if(!state.collapsedSections) state.collapsedSections = {};
       const allCollapsed = allKeys.length > 0 && allKeys.every(k=>state.collapsedSections[k]);
       if(allCollapsed){
@@ -3637,6 +4807,36 @@ function wireTasks(){
     b.addEventListener('click',(e)=>{
       e.stopPropagation();
       openIphoneXFrameVisibilityModal();
+    });
+  });
+  // Lukk/Åpne alle i I dag (liste-visning)
+  document.querySelectorAll('[data-today-toggle-all]').forEach(b=>{
+    b.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      const hidden = state.todayHidden || [];
+      const allKeys = ['today-urgent','today-todayflag','today-pinned','today-iphone','today-buy','today-a','today-b','today-c','today-wait'].filter(k=>!hidden.includes(k));
+      if(!state.collapsedSections) state.collapsedSections = {};
+      const allCollapsed = allKeys.length > 0 && allKeys.every(k=>state.collapsedSections[k]);
+      if(allCollapsed){
+        allKeys.forEach(k=>delete state.collapsedSections[k]);
+      } else {
+        allKeys.forEach(k=>{ state.collapsedSections[k] = true; });
+      }
+      save(); render();
+    });
+  });
+  // Velg rammer i I dag
+  document.querySelectorAll('[data-today-pick-frames]').forEach(b=>{
+    b.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      openTodayFrameVisibilityModal();
+    });
+  });
+  // Kategori-filter i I dag liste
+  document.querySelectorAll('[data-today-cat]').forEach(b=>{
+    b.addEventListener('click',()=>{
+      state.todayListCat = b.dataset.todayCat;
+      save(); render();
     });
   });
   // Lukk/Åpne alle grupper i Alle-fanen (gruppe-visning)
@@ -3710,12 +4910,12 @@ function wireTasks(){
         title:t.title||'', notes:t.notes||'', subtasks:(t.subtasks||[]).map(s=>({...s})),
         priority:t.priority||'med', date:t.date||todayISO(), futureDate:t.futureDate||'',
         group1Id:t.group1Id||'', group2Id:t.group2Id||'', www:t.www||'', contact:t.contact||'',
-        images:(t.images||[]).slice(), pinned:!!t.pinned, iphoneFlag:!!t.iphoneFlag, todayFlag:!!t.todayFlag, waitFlag:!!t.waitFlag, noteId:t.noteId||'',
+        images:(t.images||[]).slice(), pinned:!!t.pinned, iphoneFlag:!!t.iphoneFlag, todayFlag:!!t.todayFlag, waitFlag:!!t.waitFlag, buyFlag:!!t.buyFlag, noteId:t.noteId||'',
         category:t.category||'none',
         activeTab:'title',
         editingId:t.id, mode
       };
-      state.returnView = 'iphonex';
+      state.returnView = state.view;
       state.view = 'form';
       save(); render();
     });
@@ -3786,26 +4986,30 @@ function wireTasks(){
         el.classList.remove('sort-target-above','sort-target-below');
       });
       if(s.targetRow){
-        // Sortere innen samme ramme
+        // Sortere innen samme ramme - bruk samme posisjonssystem som skillelinjer
         const draggedTask = state.tasks.find(x=>x.id===s.id);
         const targetTask = state.tasks.find(x=>x.id===s.targetRow.dataset.id);
         if(draggedTask && targetTask){
-          // Finn alle task-id-er i denne rammen (i visningsrekkefølge)
           const sectionEl = s.sourceSection;
-          const orderedIds = [...sectionEl.querySelectorAll('.iphonex-row[data-id]')].map(r=>r.dataset.id);
-          // Fjern dragged
-          const filtered = orderedIds.filter(id=>id !== s.id);
-          // Sett inn på riktig posisjon
-          const targetIdx = filtered.indexOf(s.targetRow.dataset.id);
-          if(targetIdx !== -1){
-            const insertAt = s.insertBefore ? targetIdx : targetIdx + 1;
-            filtered.splice(insertAt, 0, s.id);
-          }
-          // Tildel order basert på ny rekkefølge
-          filtered.forEach((tid, i)=>{
-            const tt = state.tasks.find(x=>x.id===tid);
-            if(tt) tt.order = i;
+          // Bygg samlet sekvens av rader OG skillelinjer i denne rammen (visningsrekkefølge)
+          const domRows = [...sectionEl.querySelectorAll('.iphonex-row[data-id], .divider-row[data-divider-id]')];
+          const sequence = domRows.map(el=>{
+            if(el.classList.contains('divider-row')){
+              return { type:'divider', id: el.dataset.dividerId };
+            }
+            return { type:'task', id: el.dataset.id };
           });
+          // Fjern den dragne oppgaven
+          const srcIdx = sequence.findIndex(it=>it.type==='task' && it.id===s.id);
+          if(srcIdx >= 0) sequence.splice(srcIdx, 1);
+          // Finn target og sett inn
+          const tgtIdx = sequence.findIndex(it=>it.type==='task' && it.id===s.targetRow.dataset.id);
+          if(tgtIdx !== -1){
+            const insertAt = s.insertBefore ? tgtIdx : tgtIdx + 1;
+            sequence.splice(insertAt, 0, { type:'task', id: s.id });
+          }
+          // Bruk felles posisjons-tildeling (samme skala for oppgaver og skillelinjer)
+          applySequencePositions(sequence);
           save();
         }
       } else if(s.lastSection){
@@ -3814,10 +5018,11 @@ function wireTasks(){
         const t = state.tasks.find(x=>x.id===s.id);
         if(t){
           // Nytt hierarki: Haster > I dag > Pinnet > iPhone > A > B > C > På vent
-          if(target === 'urgent'){ t.category = 'urgent'; t.waitFlag = false; showToast('Flyttet til Haster'); }
+          if(target === 'urgent'){ t.category = 'urgent'; t.waitFlag = false; t.buyFlag = false; showToast('Flyttet til Haster'); }
           else if(target === 'today'){
             t.todayFlag = true;
             t.waitFlag = false;
+            t.buyFlag = false;
             if(t.category !== 'urgent') t.category = 'none';
             showToast('Flyttet til I dag');
           }
@@ -3825,6 +5030,7 @@ function wireTasks(){
             t.pinned = true;
             t.todayFlag = false;
             t.waitFlag = false;
+            t.buyFlag = false;
             t.category = 'none';
             showToast('Flyttet til Pinnete');
           }
@@ -3832,28 +5038,34 @@ function wireTasks(){
             t.iphoneFlag = true;
             t.todayFlag = false;
             t.waitFlag = false;
+            t.buyFlag = false;
             t.category = 'none';
             t.pinned = false;
             showToast('Flyttet til iPhone-merkede');
           }
           else if(target === 'a'){
             t.category = 'a';
-            t.todayFlag = false; t.pinned = false; t.iphoneFlag = false; t.waitFlag = false;
+            t.todayFlag = false; t.pinned = false; t.iphoneFlag = false; t.waitFlag = false; t.buyFlag = false;
             showToast('Flyttet til A');
           }
           else if(target === 'b'){
             t.category = 'b';
-            t.todayFlag = false; t.pinned = false; t.iphoneFlag = false; t.waitFlag = false;
+            t.todayFlag = false; t.pinned = false; t.iphoneFlag = false; t.waitFlag = false; t.buyFlag = false;
             showToast('Flyttet til B');
           }
           else if(target === 'c'){
             t.category = 'c';
-            t.todayFlag = false; t.pinned = false; t.iphoneFlag = false; t.waitFlag = false;
+            t.todayFlag = false; t.pinned = false; t.iphoneFlag = false; t.waitFlag = false; t.buyFlag = false;
             showToast('Flyttet til C');
           }
           else if(target === 'wait'){
             t.waitFlag = true;
             showToast('Satt på vent');
+          }
+          else if(target === 'buy'){
+            t.buyFlag = true;
+            t.waitFlag = false;
+            showToast('Merket for kjøp');
           }
           save();
         }
@@ -3955,6 +5167,17 @@ function wireTasks(){
       if(!t) return;
       t.waitFlag = !t.waitFlag;
       showToast(t.waitFlag ? 'Satt på vent' : 'Fjernet På vent-merket');
+      save(); render();
+    });
+  });
+  document.querySelectorAll('[data-toggle-buy]').forEach(el=>{
+    el.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      const id = el.dataset.toggleBuy;
+      const t = state.tasks.find(x=>x.id===id);
+      if(!t) return;
+      t.buyFlag = !t.buyFlag;
+      showToast(t.buyFlag ? 'Merket for kjøp' : 'Fjernet Kjøp-merket');
       save(); render();
     });
   });
@@ -4118,6 +5341,7 @@ function wireTasks(){
         iphoneFlag:!!t.iphoneFlag,
         todayFlag:!!t.todayFlag,
         waitFlag:!!t.waitFlag,
+        buyFlag:!!t.buyFlag,
         noteId:t.noteId||'',
         category:t.category||'none',
         activeTab:'title',
@@ -5603,6 +6827,15 @@ function wireForm(){
   if(ww) ww.addEventListener('input',e=>{state.form.www=e.target.value; save();});
   if(co) co.addEventListener('input',e=>{state.form.contact=e.target.value; save();});
 
+  // Dato-hurtigknapper (I dag / I morgen)
+  document.querySelectorAll('[data-date-quick]').forEach(b=>{
+    b.addEventListener('click',()=>{
+      syncFormInputs();
+      state.form.date = (b.dataset.dateQuick === 'tomorrow') ? addDays(1) : todayISO();
+      save(); render();
+    });
+  });
+
   const pinBtn = document.getElementById('f-toggle-pin');
   if(pinBtn) pinBtn.addEventListener('click',()=>{
     syncFormInputs();
@@ -5625,6 +6858,12 @@ function wireForm(){
   if(waitBtn) waitBtn.addEventListener('click',()=>{
     syncFormInputs();
     state.form.waitFlag = !state.form.waitFlag;
+    save(); render();
+  });
+  const buyBtn = document.getElementById('f-toggle-buy');
+  if(buyBtn) buyBtn.addEventListener('click',()=>{
+    syncFormInputs();
+    state.form.buyFlag = !state.form.buyFlag;
     save(); render();
   });
   document.querySelectorAll('[data-set-category]').forEach(b=>{
@@ -5965,7 +7204,7 @@ function wireForm(){
     const ret = state.returnView || 'today';
     state.view = ret;
     state.returnView = null;
-    state.form={title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
+    state.form={title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
     save(); render();
   });
   document.getElementById('f-save-top').addEventListener('click',()=>{
@@ -5990,6 +7229,7 @@ function wireForm(){
       iphoneFlag:!!state.form.iphoneFlag,
       todayFlag:!!state.form.todayFlag,
       waitFlag:!!state.form.waitFlag,
+      buyFlag:!!state.form.buyFlag,
       noteId:state.form.noteId||'',
       category:state.form.category||'none'
     };
@@ -6003,7 +7243,7 @@ function wireForm(){
         state.nextTaskNumber++;
         showToast('Lagt til');
       }
-      state.form={title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
+      state.form={title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
       const ret = state.returnView || 'today';
       state.view = ret;
       state.returnView = null;
@@ -6464,6 +7704,7 @@ function openExportModal(){
           iphoneFlag: !!(t.iphone_flag || t.iphoneFlag),
           todayFlag: !!(t.today_flag || t.todayFlag),
           waitFlag: !!(t.wait_flag || t.waitFlag),
+          buyFlag: !!(t.buy_flag || t.buyFlag),
           noteId: t.note_id || t.noteId || '',
           category: ['none','urgent','a','b','c'].includes(t.category) ? t.category : 'none',
           order: typeof t.order === 'number' ? t.order : 0,
@@ -6482,6 +7723,7 @@ function openExportModal(){
           iphoneFlag: !!(t.iphone_flag || t.iphoneFlag),
           todayFlag: !!(t.today_flag || t.todayFlag),
           waitFlag: !!(t.wait_flag || t.waitFlag),
+          buyFlag: !!(t.buy_flag || t.buyFlag),
           noteId: t.note_id || t.noteId || '',
           category: ['none','urgent','a','b','c'].includes(t.category) ? t.category : 'none',
           order: typeof t.order === 'number' ? t.order : 0,
@@ -6499,6 +7741,15 @@ function openExportModal(){
         else if(data.groups) state.groups1 = data.groups;
         if(data.groups2) state.groups2 = data.groups2;
         if(Array.isArray(data.dividers)) state.dividers = data.dividers;
+        if(Array.isArray(data.dividers_iphonex_urgent)) state.dividersIphoneXUrgent = data.dividers_iphonex_urgent;
+        if(Array.isArray(data.dividers_iphonex_today)) state.dividersIphoneXToday = data.dividers_iphonex_today;
+        if(Array.isArray(data.dividers_iphonex_pinned)) state.dividersIphoneXPinned = data.dividers_iphonex_pinned;
+        if(Array.isArray(data.dividers_iphonex_iphone)) state.dividersIphoneXIphone = data.dividers_iphonex_iphone;
+        if(Array.isArray(data.dividers_iphonex_a)) state.dividersIphoneXA = data.dividers_iphonex_a;
+        if(Array.isArray(data.dividers_iphonex_b)) state.dividersIphoneXB = data.dividers_iphonex_b;
+        if(Array.isArray(data.dividers_iphonex_c)) state.dividersIphoneXC = data.dividers_iphonex_c;
+        if(Array.isArray(data.dividers_iphonex_wait)) state.dividersIphoneXWait = data.dividers_iphonex_wait;
+        if(Array.isArray(data.dividers_iphonex_buy)) state.dividersIphoneXBuy = data.dividers_iphonex_buy;
         if(typeof data.next_task_number === 'number') state.nextTaskNumber = data.next_task_number;
         // Tildele numre til eventuelt oppgaver som mangler det
         const unnumbered = state.tasks.filter(t=>typeof t.number !== 'number');
@@ -6681,6 +7932,15 @@ function exportJSON(){
     source: 'TodoApp standalone', version: APP_VERSION,
     next_task_number: state.nextTaskNumber || 1000,
     dividers: state.dividers || [],
+    dividers_iphonex_urgent: state.dividersIphoneXUrgent || [],
+    dividers_iphonex_today: state.dividersIphoneXToday || [],
+    dividers_iphonex_pinned: state.dividersIphoneXPinned || [],
+    dividers_iphonex_iphone: state.dividersIphoneXIphone || [],
+    dividers_iphonex_a: state.dividersIphoneXA || [],
+    dividers_iphonex_b: state.dividersIphoneXB || [],
+    dividers_iphonex_c: state.dividersIphoneXC || [],
+    dividers_iphonex_wait: state.dividersIphoneXWait || [],
+    dividers_iphonex_buy: state.dividersIphoneXBuy || [],
     groups1: state.groups1,
     groups2: state.groups2,
     tasks: state.tasks.map(t=>({
@@ -6694,6 +7954,7 @@ function exportJSON(){
       iphone_flag: !!t.iphoneFlag,
       today_flag: !!t.todayFlag,
       wait_flag: !!t.waitFlag,
+      buy_flag: !!t.buyFlag,
       category: t.category || 'none',
       note_id: t.noteId || null,
       number: typeof t.number === 'number' ? t.number : null,
@@ -6711,6 +7972,7 @@ function exportJSON(){
       iphone_flag: !!t.iphoneFlag,
       today_flag: !!t.todayFlag,
       wait_flag: !!t.waitFlag,
+      buy_flag: !!t.buyFlag,
       category: t.category || 'none',
       note_id: t.noteId || null,
       number: typeof t.number === 'number' ? t.number : null,
@@ -6724,10 +7986,10 @@ function exportJSON(){
 
 function exportCSVTasks(){
   const esc = v => '"'+String(v==null?'':v).replace(/"/g,'""')+'"';
-  const rows = [['id','number','title','notes','subtasks','priority','due_date','future_date','www','contact','image_count','pinned','iphone_flag','today_flag','wait_flag','category','order','completed','completed_at','group1_id','group1_name','group2_id','group2_name']];
+  const rows = [['id','number','title','notes','subtasks','priority','due_date','future_date','www','contact','image_count','pinned','iphone_flag','today_flag','wait_flag','buy_flag','category','order','completed','completed_at','group1_id','group1_name','group2_id','group2_name']];
   state.tasks.forEach(t=>{
     const subs = (t.subtasks||[]).map(s=>(s.done?'[x] ':'[ ] ')+s.text).join(' | ');
-    rows.push([t.id,t.number||'',t.title,t.notes||'',subs,t.priority,t.date||'',t.futureDate||'',t.www||'',t.contact||'',(t.images||[]).length,t.pinned?'true':'false',t.iphoneFlag?'true':'false',t.todayFlag?'true':'false',t.waitFlag?'true':'false',t.category||'none',t.order||0,t.done?'true':'false',t.completedAt||'',t.group1Id||'',getGroup1(t.group1Id)?.name||'',t.group2Id||'',getGroup2(t.group2Id)?.name||'']);
+    rows.push([t.id,t.number||'',t.title,t.notes||'',subs,t.priority,t.date||'',t.futureDate||'',t.www||'',t.contact||'',(t.images||[]).length,t.pinned?'true':'false',t.iphoneFlag?'true':'false',t.todayFlag?'true':'false',t.waitFlag?'true':'false',t.buyFlag?'true':'false',t.category||'none',t.order||0,t.done?'true':'false',t.completedAt||'',t.group1Id||'',getGroup1(t.group1Id)?.name||'',t.group2Id||'',getGroup2(t.group2Id)?.name||'']);
   });
   const csv = rows.map(r=>r.map(esc).join(',')).join('\n');
   download('oppgaver_'+todayISO()+'.csv', '\ufeff'+csv, 'text/csv;charset=utf-8');
@@ -6752,10 +8014,40 @@ document.querySelectorAll('.tab').forEach(t=>{
       openTabMenu(chev.dataset.tabMenu, chev);
       return;
     }
-    state.view=t.dataset.view;
+    let v = t.dataset.view;
+    // Klikk på "I dag"-fanen (ikke chevron) går til "Nå"-visningen
+    if(v === 'today') v = 'naa';
+    state.view = v;
     save(); render();
   });
 });
+
+// Hus-knapp → tilbake til dashbordet
+(function(){
+  const homeBtn = document.getElementById('home-btn');
+  if(homeBtn) homeBtn.addEventListener('click',()=>{
+    state.view = 'dashboard';
+    state.dashboardEditing = false;
+    save(); render();
+  });
+  // Søk-toggle
+  const searchToggle = document.getElementById('search-toggle');
+  if(searchToggle) searchToggle.addEventListener('click',()=>{
+    state.searchOpen = !state.searchOpen;
+    if(!state.searchOpen){ state.searchQuery = ''; }
+    save(); render();
+    if(state.searchOpen){
+      const inp = document.getElementById('search-input');
+      if(inp){ inp.focus(); }
+    }
+  });
+  // Filter-toggle
+  const filterToggle = document.getElementById('filter-toggle');
+  if(filterToggle) filterToggle.addEventListener('click',()=>{
+    state.filterOpen = !state.filterOpen;
+    save(); render();
+  });
+})();
 
 function openIphoneXFrameVisibilityModal(){
   const existing = document.getElementById('iphonex-frame-visibility-modal');
@@ -6764,13 +8056,14 @@ function openIphoneXFrameVisibilityModal(){
 
   // Tellinger for hver kategori
   const counts = {
-    urgent: state.tasks.filter(t=>t.category==='urgent' && !t.waitFlag && !t.done).length,
-    today: state.tasks.filter(t=>t.todayFlag && !t.waitFlag && t.category!=='urgent' && !t.done).length,
-    pinned: state.tasks.filter(t=>t.pinned && !t.waitFlag && !t.todayFlag && t.category!=='urgent' && !t.done).length,
-    iphone: state.tasks.filter(t=>t.iphoneFlag && !t.waitFlag && !t.pinned && !t.todayFlag && t.category!=='urgent' && !t.done).length,
-    a: state.tasks.filter(t=>t.category==='a' && !t.waitFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && !t.done).length,
-    b: state.tasks.filter(t=>t.category==='b' && !t.waitFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && !t.done).length,
-    c: state.tasks.filter(t=>t.category==='c' && !t.waitFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && !t.done).length,
+    urgent: state.tasks.filter(t=>t.category==='urgent' && !t.waitFlag && !t.buyFlag && !t.done).length,
+    today: state.tasks.filter(t=>t.todayFlag && !t.waitFlag && !t.buyFlag && t.category!=='urgent' && !t.done).length,
+    pinned: state.tasks.filter(t=>t.pinned && !t.waitFlag && !t.buyFlag && !t.todayFlag && t.category!=='urgent' && !t.done).length,
+    iphone: state.tasks.filter(t=>t.iphoneFlag && !t.waitFlag && !t.buyFlag && !t.pinned && !t.todayFlag && t.category!=='urgent' && !t.done).length,
+    a: state.tasks.filter(t=>t.category==='a' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && !t.done).length,
+    b: state.tasks.filter(t=>t.category==='b' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && !t.done).length,
+    c: state.tasks.filter(t=>t.category==='c' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && !t.done).length,
+    buy: state.tasks.filter(t=>t.buyFlag && !t.waitFlag && !t.done).length,
     wait: state.tasks.filter(t=>t.waitFlag && !t.done).length
   };
 
@@ -6779,6 +8072,7 @@ function openIphoneXFrameVisibilityModal(){
     {key:'today', label:'I dag', color:'#00B4DB', icon:ICONS.sun},
     {key:'pinned', label:'Pinnete', color:'#EF9F27', icon:ICONS.starFilled},
     {key:'iphone', label:'iPhone-merkede', color:'#378ADD', icon:ICONS.phone},
+    {key:'buy', label:'Kjøp', color:'#1D9E75', icon:ICONS.cart},
     {key:'a', label:'A', color:'#EF9F27', icon:`<span class="cat-letter-badge cat-a-badge">A</span>`},
     {key:'b', label:'B', color:'#639922', icon:`<span class="cat-letter-badge cat-b-badge">B</span>`},
     {key:'c', label:'C', color:'#7F77DD', icon:`<span class="cat-letter-badge cat-c-badge">C</span>`},
@@ -6817,7 +8111,7 @@ function openIphoneXFrameVisibilityModal(){
 
   const refreshCount = () => {
     const hiddenNow = state.iphoneXHidden || [];
-    const visible = 8 - hiddenNow.length;
+    const visible = 9 - hiddenNow.length;
     const doneBtn = modal.querySelector('#vis-done-ix');
     if(doneBtn) doneBtn.textContent = `Ferdig (${visible} valgt)`;
   };
@@ -6866,7 +8160,7 @@ function openIphoneXFrameVisibilityModal(){
   });
   modal.querySelector('[data-vis-deselect-all]').addEventListener('click',(e)=>{
     e.stopPropagation();
-    state.iphoneXHidden = ['urgent','today','pinned','iphone','a','b','c','wait'];
+    state.iphoneXHidden = ['urgent','today','pinned','iphone','buy','a','b','c','wait'];
     save();
     modal.remove();
     openIphoneXFrameVisibilityModal();
@@ -6886,6 +8180,115 @@ function openIphoneXFrameVisibilityModal(){
       render();
     }
   });
+}
+
+function openTodayFrameVisibilityModal(){
+  const existing = document.getElementById('today-frame-visibility-modal');
+  if(existing) existing.remove();
+  const hidden = state.todayHidden || [];
+  const today = todayISO();
+
+  // Tellinger – samme inndeling/hierarki som I dag liste-visning (Alle-grenen)
+  const dagensList = state.tasks.filter(t=>(t.date===today || t.pinned || t.iphoneFlag) && !t.done);
+  const counts = {
+    'today-urgent': dagensList.filter(t=>t.category==='urgent' && !t.waitFlag && !t.buyFlag).length,
+    'today-todayflag': dagensList.filter(t=>t.todayFlag && !t.waitFlag && !t.buyFlag && t.category!=='urgent').length,
+    'today-pinned': dagensList.filter(t=>t.pinned && !t.waitFlag && !t.buyFlag && !t.todayFlag && t.category!=='urgent').length,
+    'today-iphone': dagensList.filter(t=>t.iphoneFlag && !t.waitFlag && !t.buyFlag && !t.pinned && !t.todayFlag && t.category!=='urgent').length,
+    'today-buy': dagensList.filter(t=>t.buyFlag && !t.waitFlag).length,
+    'today-a': dagensList.filter(t=>t.category==='a' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag).length,
+    'today-b': dagensList.filter(t=>t.category==='b' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag).length,
+    'today-c': dagensList.filter(t=>t.category==='c' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag).length,
+    'today-wait': dagensList.filter(t=>t.waitFlag).length
+  };
+
+  const frames = [
+    {key:'today-urgent', label:'Haster', color:'#E24B4A', icon:ICONS.warning},
+    {key:'today-todayflag', label:'I dag', color:'#00B4DB', icon:ICONS.sun},
+    {key:'today-pinned', label:'Pinnete', color:'#EF9F27', icon:ICONS.starFilled},
+    {key:'today-iphone', label:'iPhone-merkede', color:'#378ADD', icon:ICONS.phone},
+    {key:'today-buy', label:'Kjøp', color:'#1D9E75', icon:ICONS.cart},
+    {key:'today-a', label:'A', color:'#EF9F27', icon:`<span class="cat-letter-badge cat-a-badge">A</span>`},
+    {key:'today-b', label:'B', color:'#639922', icon:`<span class="cat-letter-badge cat-b-badge">B</span>`},
+    {key:'today-c', label:'C', color:'#7F77DD', icon:`<span class="cat-letter-badge cat-c-badge">C</span>`},
+    {key:'today-wait', label:'På vent', color:'#888780', icon:ICONS.pause}
+  ];
+
+  const modal = document.createElement('div');
+  modal.id = 'today-frame-visibility-modal';
+  modal.className = 'modal-overlay';
+  modal.innerHTML = `<div class="modal-content" style="max-width:340px">
+    <div class="modal-header">
+      ${ICONS.filter}
+      <span class="modal-title">Velg rammer å vise</span>
+      <button class="modal-close" data-modal-close>${ICONS.x}</button>
+    </div>
+    <div style="display:flex;gap:6px;padding:8px 12px;border-bottom:0.5px solid var(--border-tertiary)">
+      <button class="alle-group-ctrl-btn" data-vis-select-all style="flex:1;justify-content:center">Velg alle</button>
+      <button class="alle-group-ctrl-btn" data-vis-deselect-all style="flex:1;justify-content:center">Fjern alle</button>
+    </div>
+    <div style="padding:6px 8px">
+      ${frames.map(f=>{
+        const isVisible = !hidden.includes(f.key);
+        return `<label class="vis-row" data-vis-item="${f.key}" style="border-left:3px solid ${f.color}">
+          <div class="vis-check ${isVisible?'checked':''}" style="${isVisible?`background:${f.color};border-color:${f.color}`:''}">${isVisible?ICONS.check:''}</div>
+          ${f.icon}
+          <span class="vis-name" style="${isVisible?'':'color:var(--text-tertiary)'}">${escapeHtml(f.label)}</span>
+          <span class="vis-count">${counts[f.key]||0}</span>
+        </label>`;
+      }).join('')}
+    </div>
+    <div style="padding:8px 12px;border-top:0.5px solid var(--border-tertiary)">
+      <button class="fab-btn primary" id="vis-done-today" style="width:100%">Ferdig</button>
+    </div>
+  </div>`;
+  document.body.appendChild(modal);
+
+  modal.querySelectorAll('[data-vis-item]').forEach(row=>{
+    row.addEventListener('click',(e)=>{
+      e.preventDefault();
+      const key = row.dataset.visItem;
+      let list = state.todayHidden || [];
+      if(list.includes(key)){
+        list = list.filter(x=>x!==key);
+      } else {
+        list = [...list, key];
+      }
+      state.todayHidden = list;
+      const isVisible = !list.includes(key);
+      const frame = frames.find(f=>f.key===key);
+      const check = row.querySelector('.vis-check');
+      const name = row.querySelector('.vis-name');
+      if(isVisible){
+        check.classList.add('checked');
+        check.style.background = frame.color;
+        check.style.borderColor = frame.color;
+        check.innerHTML = ICONS.check;
+        name.style.color = '';
+      } else {
+        check.classList.remove('checked');
+        check.style.background = '';
+        check.style.borderColor = '';
+        check.innerHTML = '';
+        name.style.color = 'var(--text-tertiary)';
+      }
+      save();
+    });
+  });
+
+  modal.querySelector('[data-vis-select-all]').addEventListener('click',(e)=>{
+    e.stopPropagation();
+    state.todayHidden = [];
+    save(); modal.remove(); openTodayFrameVisibilityModal();
+  });
+  modal.querySelector('[data-vis-deselect-all]').addEventListener('click',(e)=>{
+    e.stopPropagation();
+    state.todayHidden = ['today-urgent','today-todayflag','today-pinned','today-iphone','today-buy','today-a','today-b','today-c','today-wait'];
+    save(); modal.remove(); openTodayFrameVisibilityModal();
+  });
+  modal.querySelector('#vis-done-today').addEventListener('click',()=>{ modal.remove(); render(); });
+  modal.querySelector('[data-modal-close]').addEventListener('click',()=>{ modal.remove(); render(); });
+  modal.addEventListener('click',(e)=>{ if(e.target === modal){ modal.remove(); render(); } });
 }
 
 function openAlleGroupVisibilityModal(setNr){
@@ -7496,9 +8899,10 @@ function openTabMenu(group, anchor){
   const existing = document.querySelector('.tab-menu');
   if(existing){ existing.remove(); return; }
   let items = [];
-  if(group === 'today') items = [{view:'today',label:'I dag'},{view:'dagens',label:'Dagens'}];
+  if(group === 'today') items = [{view:'fokus',label:'Kalender ToDo'},{view:'naa',label:'Nå'},{view:'today',label:'I dag'},{view:'dagens',label:'Dagens'}];
   else if(group === 'iphone') items = [{view:'iphonex',label:'iPhone X'},{view:'iphone',label:'iPhone'}];
   else if(group === 'done') items = [{view:'done',label:'Ferdig'},{view:'deleted',label:'Slettede'}];
+  else if(group === 'allelinjer') items = [{view:'allelinjer',label:'Alle linjer'},{view:'all',label:'Alle'}];
   const menu = document.createElement('div');
   menu.className = 'tab-menu';
   menu.innerHTML = items.map(it=>`<button class="tab-menu-item ${state.view===it.view?'active':''}" data-tab-pick="${it.view}">${escapeHtml(it.label)}</button>`).join('');
