@@ -2,11 +2,20 @@
 <!--
   ============================================================
    OPPGAVER – Todo-app
-   Versjon:    3.26
+   Versjon:    3.27
    Oppdatert:  2026-06-01
   ============================================================
    Versjonshistorikk:
-     3.26 Registrering ryddet videre på iPhone:
+     3.27 Kategori D og E lagt til:
+          - Kategori-feltet utvidet fra A/B/C til A/B/C/D/E.
+          - D = cyan (#00B4DB / #5DDFF1)
+          - E = rosa (#E04A9C / #FF80B5)
+          - Lagt til alle steder: kategori-chip-meny i
+            Rediger, mini-meny i Nå, underseksjoner i Nå
+            (I dag og Kjøp), nye rammer i iPhone X (totalt
+            11 rammer nå), filter-rader i I dag-liste og
+            Alle linjer, drag-targets, Velg rammer-modal.
+     3.26 Registrering ryddet videre på iPhone.
           - Form-faner (Tittel/Grupper/Bilde/Mer) jevnt
             fordelt på én linje (flex:1 hver) - tar ikke
             lenger 2 linjer på smal iPhone.
@@ -453,8 +462,8 @@
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
 <meta name="application-name" content="Oppgaver" />
-<meta name="version" content="3.26" />
-<title>Oppgaver v3.26</title>
+<meta name="version" content="3.27" />
+<title>Oppgaver v3.27</title>
 <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23185FA5'/><g transform='translate(30 30)'><rect x='0' y='6' width='114' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='39' width='90' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='72' width='102' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><path d='M15 16.5 L21 22.5 L33 10.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M15 49.5 L21 55.5 L33 43.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='24' cy='82.5' r='9' fill='none' stroke='white' stroke-width='3.5'/></g></svg>" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23185FA5'/><g transform='translate(30 30)'><rect x='0' y='6' width='114' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='39' width='90' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='72' width='102' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><path d='M15 16.5 L21 22.5 L33 10.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M15 49.5 L21 55.5 L33 43.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='24' cy='82.5' r='9' fill='none' stroke='white' stroke-width='3.5'/></g></svg>" />
 <style>
@@ -911,6 +920,8 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .cat-btn.cat-a.active{background:rgba(239,159,39,0.18);border-color:#EF9F27;color:#FAC775}
 .cat-btn.cat-b.active{background:rgba(99,153,34,0.18);border-color:#639922;color:#AED183}
 .cat-btn.cat-c.active{background:rgba(127,119,221,0.18);border-color:#7F77DD;color:#B5AEF0}
+.cat-btn.cat-d.active{background:rgba(0,180,219,0.18);border-color:#00B4DB;color:#5DDFF1}
+.cat-btn.cat-e.active{background:rgba(224,74,156,0.18);border-color:#E04A9C;color:#FF80B5}
 .cat-btn.cat-today{display:inline-flex;align-items:center;gap:3px}
 .cat-btn.cat-today .icon{width:10px;height:10px}
 .cat-btn.cat-today.active{background:rgba(0,180,219,0.18);border-color:#00B4DB;color:#5DDFF1}
@@ -1267,6 +1278,8 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .cat-a-badge{background:#EF9F27}
 .cat-b-badge{background:#639922}
 .cat-c-badge{background:#7F77DD}
+.cat-d-badge{background:#00B4DB}
+.cat-e-badge{background:#E04A9C}
 /* Haster-seksjon */
 .urgent-section{background:rgba(226,75,74,0.08);border:1px solid #E24B4A;border-radius:8px;overflow:hidden;margin-bottom:12px}
 .new-section{background:rgba(99,153,34,0.08);border:1px solid #639922;border-radius:8px;overflow:hidden;margin-bottom:12px}
@@ -1374,6 +1387,26 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .iphonex-body-c .iphonex-row{border-bottom:0.5px solid rgba(127,119,221,0.15)}
 .iphonex-body-c .iphonex-row:active{background:rgba(127,119,221,0.1)}
 .iphonex-body-c .iphonex-row:hover{background:rgba(127,119,221,0.06)}
+.cat-d-section{background:rgba(0,180,219,0.06);border:1px solid #00B4DB;border-radius:8px;overflow:hidden;margin-bottom:12px}
+.cat-d-section-header{background:rgba(0,180,219,0.18);padding:7px 11px;border-bottom:1px solid #00B4DB;display:flex;align-items:center;gap:6px;cursor:pointer}
+.cat-d-section.collapsed .cat-d-section-header{border-bottom:none}
+.cat-d-section.collapsed .cat-d-section-body{display:none}
+.cat-d-section.collapsed .section-collapse-toggle{transform:rotate(-90deg)}
+.cat-d-section-title{flex:1;font-size:11px;font-weight:600;color:#5DDFF1;letter-spacing:0.5px;text-transform:uppercase}
+.cat-d-section-count{font-size:10px;color:#5DDFF1;background:rgba(0,0,0,0.3);padding:1px 6px;border-radius:6px;font-weight:600}
+.iphonex-body-d .iphonex-row{border-bottom:0.5px solid rgba(0,180,219,0.15)}
+.iphonex-body-d .iphonex-row:active{background:rgba(0,180,219,0.1)}
+.iphonex-body-d .iphonex-row:hover{background:rgba(0,180,219,0.06)}
+.cat-e-section{background:rgba(224,74,156,0.06);border:1px solid #E04A9C;border-radius:8px;overflow:hidden;margin-bottom:12px}
+.cat-e-section-header{background:rgba(224,74,156,0.18);padding:7px 11px;border-bottom:1px solid #E04A9C;display:flex;align-items:center;gap:6px;cursor:pointer}
+.cat-e-section.collapsed .cat-e-section-header{border-bottom:none}
+.cat-e-section.collapsed .cat-e-section-body{display:none}
+.cat-e-section.collapsed .section-collapse-toggle{transform:rotate(-90deg)}
+.cat-e-section-title{flex:1;font-size:11px;font-weight:600;color:#FF80B5;letter-spacing:0.5px;text-transform:uppercase}
+.cat-e-section-count{font-size:10px;color:#FF80B5;background:rgba(0,0,0,0.3);padding:1px 6px;border-radius:6px;font-weight:600}
+.iphonex-body-e .iphonex-row{border-bottom:0.5px solid rgba(224,74,156,0.15)}
+.iphonex-body-e .iphonex-row:active{background:rgba(224,74,156,0.1)}
+.iphonex-body-e .iphonex-row:hover{background:rgba(224,74,156,0.06)}
 .iphonex-row{padding:7px 14px;display:flex;align-items:center;gap:10px;border-bottom:0.5px solid rgba(55,138,221,0.15);cursor:pointer;transition:background 0.15s}
 .iphonex-row:last-child{border-bottom:none}
 .iphonex-row:active{background:rgba(55,138,221,0.08)}
@@ -1547,7 +1580,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent)}
 <script>
 (function(){
 const STORAGE_KEY = 'todoapp_v1';
-const APP_VERSION = '3.26';
+const APP_VERSION = '3.27';
 
 const ICONS = {
   check:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 8"/></svg>',
@@ -1781,7 +1814,7 @@ function migrateState(s){
     if(typeof t.buyFlag !== 'boolean') t.buyFlag = false;
     if(typeof t.newFlag !== 'boolean') t.newFlag = false;
     if(typeof t.noteId !== 'string') t.noteId = '';
-    if(!['none','urgent','a','b','c'].includes(t.category)) t.category = 'none';
+    if(!['none','urgent','a','b','c','d','e'].includes(t.category)) t.category = 'none';
     if(typeof t.order !== 'number') t.order = 0;
     if(!Array.isArray(t.images)) t.images = [];
   });
@@ -2378,6 +2411,8 @@ function render(){
       <button class="toggle-btn ${af==='a'?'active':''}" data-alle-filter="a" style="${af==='a'?'background:rgba(239,159,39,0.18);color:#FAC775;border-color:#EF9F27':''}">A</button>
       <button class="toggle-btn ${af==='b'?'active':''}" data-alle-filter="b" style="${af==='b'?'background:rgba(99,153,34,0.18);color:#AED183;border-color:#639922':''}">B</button>
       <button class="toggle-btn ${af==='c'?'active':''}" data-alle-filter="c" style="${af==='c'?'background:rgba(127,119,221,0.18);color:#B5AEF0;border-color:#7F77DD':''}">C</button>
+      <button class="toggle-btn ${af==='d'?'active':''}" data-alle-filter="d" style="${af==='d'?'background:rgba(0,180,219,0.18);color:#5DDFF1;border-color:#00B4DB':''}">D</button>
+      <button class="toggle-btn ${af==='e'?'active':''}" data-alle-filter="e" style="${af==='e'?'background:rgba(224,74,156,0.18);color:#FF80B5;border-color:#E04A9C':''}">E</button>
       <button class="toggle-btn ${af==='pinned'?'active':''}" data-alle-filter="pinned" style="${af==='pinned'?'background:rgba(239,159,39,0.18);color:#FAC775;border-color:#EF9F27':''}">${ICONS.star} Pinnet</button>
       <button class="toggle-btn ${af==='iphone'?'active':''}" data-alle-filter="iphone" style="${af==='iphone'?'background:var(--bg-info);color:var(--text-info);border-color:var(--border-info)':''}">${ICONS.phone} iPhone</button>
       <button class="toggle-btn ${af==='buy'?'active':''}" data-alle-filter="buy" style="${af==='buy'?'background:rgba(45,158,117,0.2);color:#7FD99F;border-color:#1D9E75':''}">${ICONS.cart} Kjøp</button>
@@ -2620,7 +2655,9 @@ function naaRow(t, accentColor){
   const catMeta = {
     a: {label:'A', color:'#EF9F27', text:'#FAC775'},
     b: {label:'B', color:'#639922', text:'#AED183'},
-    c: {label:'C', color:'#7F77DD', text:'#B5AEF0'}
+    c: {label:'C', color:'#7F77DD', text:'#B5AEF0'},
+    d: {label:'D', color:'#00B4DB', text:'#5DDFF1'},
+    e: {label:'E', color:'#E04A9C', text:'#FF80B5'}
   };
   const cm = catMeta[t.category];
   const abcMerke = cm
@@ -2690,6 +2727,8 @@ function renderToday(){
       <button class="cat-btn cat-a ${cat==='a'?'active':''}" data-today-cat="a">A</button>
       <button class="cat-btn cat-b ${cat==='b'?'active':''}" data-today-cat="b">B</button>
       <button class="cat-btn cat-c ${cat==='c'?'active':''}" data-today-cat="c">C</button>
+      <button class="cat-btn cat-d ${cat==='d'?'active':''}" data-today-cat="d">D</button>
+      <button class="cat-btn cat-e ${cat==='e'?'active':''}" data-today-cat="e">E</button>
       <button class="cat-btn cat-buy ${cat==='buy'?'active':''}" data-today-cat="buy">${ICONS.cart}<span>Kjøp</span></button>
       <button class="cat-btn cat-wait ${cat==='wait'?'active':''}" data-today-cat="wait">${ICONS.pause}<span>På vent</span></button>
     </div>`;
@@ -2704,12 +2743,14 @@ function renderToday(){
       else if(cat==='a') catList = catBase.filter(t=>t.category==='a');
       else if(cat==='b') catList = catBase.filter(t=>t.category==='b');
       else if(cat==='c') catList = catBase.filter(t=>t.category==='c');
+      else if(cat==='d') catList = catBase.filter(t=>t.category==='d');
+      else if(cat==='e') catList = catBase.filter(t=>t.category==='e');
       else if(cat==='buy') catList = catBase.filter(t=>t.buyFlag);
       else if(cat==='wait') catList = catBase.filter(t=>t.waitFlag);
       else catList = catBase;
       catList = catList.sort(sortFn);
-      const accent = {urgent:'#FF8080',today:'#5DDFF1',a:'#FAC775',b:'#AED183',c:'#B5AEF0',buy:'#7FD99F',wait:'#D3D1C7'}[cat] || '#5DDFF1';
-      const catLabels = {urgent:'Haster',today:'I dag',a:'A',b:'B',c:'C',buy:'Kjøp',wait:'På vent'};
+      const accent = {urgent:'#FF8080',today:'#5DDFF1',a:'#FAC775',b:'#AED183',c:'#B5AEF0',d:'#5DDFF1',e:'#FF80B5',buy:'#7FD99F',wait:'#D3D1C7'}[cat] || '#5DDFF1';
+      const catLabels = {urgent:'Haster',today:'I dag',a:'A',b:'B',c:'C',d:'D',e:'E',buy:'Kjøp',wait:'På vent'};
       if(!catList.length){
         return catFilterRow + `<div class="empty">${ICONS.checks}<p>Ingen oppgaver merket ${catLabels[cat]||''}</p></div>`;
       }
@@ -3136,6 +3177,8 @@ function renderIphoneX(){
   const aList = state.tasks.filter(t=>t.category==='a' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && baseFilter(t)).sort(sortFn);
   const bList = state.tasks.filter(t=>t.category==='b' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && baseFilter(t)).sort(sortFn);
   const cList = state.tasks.filter(t=>t.category==='c' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && baseFilter(t)).sort(sortFn);
+  const dList = state.tasks.filter(t=>t.category==='d' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && baseFilter(t)).sort(sortFn);
+  const eList = state.tasks.filter(t=>t.category==='e' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && baseFilter(t)).sort(sortFn);
   // På vent: alle med waitFlag (waitFlag overskygger også buyFlag)
   const waitList = state.tasks.filter(t=>t.waitFlag && baseFilter(t)).sort(sortFn);
 
@@ -3199,6 +3242,8 @@ function renderIphoneX(){
   const showA = (filter==='all' || filter==='a') && aList.length > 0 && !isHiddenInList('a');
   const showB = (filter==='all' || filter==='b') && bList.length > 0 && !isHiddenInList('b');
   const showC = (filter==='all' || filter==='c') && cList.length > 0 && !isHiddenInList('c');
+  const showD = (filter==='all' || filter==='d') && dList.length > 0 && !isHiddenInList('d');
+  const showE = (filter==='all' || filter==='e') && eList.length > 0 && !isHiddenInList('e');
   const showPinned = (filter==='all' || filter==='pinned') && pinnedList.length > 0 && !isHiddenInList('pinned');
   const showIphone = (filter==='all' || filter==='iphone') && iphoneList.length > 0 && !isHiddenInList('iphone');
   const showBuy = (filter==='all' || filter==='buy') && buyList.length > 0 && !isHiddenInList('buy');
@@ -3214,15 +3259,17 @@ function renderIphoneX(){
   if(showA) collapseKeys.push('a');
   if(showB) collapseKeys.push('b');
   if(showC) collapseKeys.push('c');
+  if(showD) collapseKeys.push('d');
+  if(showE) collapseKeys.push('e');
   if(showWait) collapseKeys.push('wait');
   const collapsedSections = state.collapsedSections || {};
   const allCollapsed = collapseKeys.length > 0 && collapseKeys.every(k=>collapsedSections[k]);
   const toggleLabel = allCollapsed ? 'Åpne alle' : 'Lukk alle';
   const toggleIcon = allCollapsed ? ICONS.chevronDown : ICONS.chevronUp;
-  const visibleCount = 9 - hidden.length;
+  const visibleCount = 11 - hidden.length;
   const controls = `<div class="alle-group-controls">
     <button class="alle-group-ctrl-btn primary" data-iphonex-toggle-all>${toggleIcon}<span>${toggleLabel}</span></button>
-    <button class="alle-group-ctrl-btn" data-iphonex-pick-frames>${ICONS.filter}<span>Velg rammer (${visibleCount}/9)</span></button>
+    <button class="alle-group-ctrl-btn" data-iphonex-pick-frames>${ICONS.filter}<span>Velg rammer (${visibleCount}/11)</span></button>
   </div>`;
 
   let body = '';
@@ -3235,6 +3282,8 @@ function renderIphoneX(){
   if(showA) body += buildSection('cat-a-section', `<span class="cat-letter-badge cat-a-badge">A</span>`, 'A', 'iphonex-body-a', aList, 'dividersIphoneXA', 'color:#FAC775;background:rgba(239,159,39,0.15)', 'a', 'a');
   if(showB) body += buildSection('cat-b-section', `<span class="cat-letter-badge cat-b-badge">B</span>`, 'B', 'iphonex-body-b', bList, 'dividersIphoneXB', 'color:#AED183;background:rgba(99,153,34,0.15)', 'b', 'b');
   if(showC) body += buildSection('cat-c-section', `<span class="cat-letter-badge cat-c-badge">C</span>`, 'C', 'iphonex-body-c', cList, 'dividersIphoneXC', 'color:#B5AEF0;background:rgba(127,119,221,0.15)', 'c', 'c');
+  if(showD) body += buildSection('cat-d-section', `<span class="cat-letter-badge cat-d-badge">D</span>`, 'D', 'iphonex-body-d', dList, 'dividersIphoneXD', 'color:#5DDFF1;background:rgba(0,180,219,0.15)', 'd', 'd');
+  if(showE) body += buildSection('cat-e-section', `<span class="cat-letter-badge cat-e-badge">E</span>`, 'E', 'iphonex-body-e', eList, 'dividersIphoneXE', 'color:#FF80B5;background:rgba(224,74,156,0.18)', 'e', 'e');
   if(showWait) body += buildSection('wait-section', ICONS.pause, 'På vent', 'iphonex-body-wait', waitList, 'dividersIphoneXWait', 'color:#D3D1C7;background:rgba(136,135,128,0.18)', 'wait', 'wait');
 
   if(!body){
@@ -3714,6 +3763,8 @@ function dagensKortCatMeta(){
     a: {label:'A', color:'#EF9F27', text:'#FAC775', icon:`<span class="cat-letter-badge cat-a-badge">A</span>`, match:(t)=>t.category==='a' && !t.waitFlag},
     b: {label:'B', color:'#639922', text:'#AED183', icon:`<span class="cat-letter-badge cat-b-badge">B</span>`, match:(t)=>t.category==='b' && !t.waitFlag},
     c: {label:'C', color:'#7F77DD', text:'#B5AEF0', icon:`<span class="cat-letter-badge cat-c-badge">C</span>`, match:(t)=>t.category==='c' && !t.waitFlag},
+    d: {label:'D', color:'#00B4DB', text:'#5DDFF1', icon:`<span class="cat-letter-badge cat-d-badge">D</span>`, match:(t)=>t.category==='d' && !t.waitFlag},
+    e: {label:'E', color:'#E04A9C', text:'#FF80B5', icon:`<span class="cat-letter-badge cat-e-badge">E</span>`, match:(t)=>t.category==='e' && !t.waitFlag},
     wait: {label:'På vent', color:'#888780', text:'#D3D1C7', icon:ICONS.pause, match:(t)=>t.waitFlag}
   };
 }
@@ -3791,12 +3842,14 @@ function renderNaa(){
     {key:'a',  label:'A', color:'#EF9F27', text:'#FAC775', match:t=>t.category==='a'},
     {key:'b',  label:'B', color:'#639922', text:'#AED183', match:t=>t.category==='b'},
     {key:'c',  label:'C', color:'#7F77DD', text:'#B5AEF0', match:t=>t.category==='c'},
-    {key:'none', label:'—', color:'#888780', text:'#999', match:t=>!['a','b','c'].includes(t.category)}
+    {key:'d',  label:'D', color:'#00B4DB', text:'#5DDFF1', match:t=>t.category==='d'},
+    {key:'e',  label:'E', color:'#E04A9C', text:'#FF80B5', match:t=>t.category==='e'},
+    {key:'none', label:'—', color:'#888780', text:'#999', match:t=>!['a','b','c','d','e'].includes(t.category)}
   ];
   let todayInnerHTML = '';
   if(todayItems.length){
     // Bruker bare underseksjoner når det finnes flere kategorier - ellers vanlig liste
-    const hasAny = subCats.slice(0,3).some(s => todayItems.some(s.match));
+    const hasAny = subCats.slice(0,5).some(s => todayItems.some(s.match));
     if(hasAny){
       subCats.forEach(s=>{
         const subItems = todayItems.filter(s.match);
@@ -3837,7 +3890,7 @@ function renderNaa(){
   const buyAccent = '#7FD99F';
   let buyInnerHTML = '';
   if(buyItems.length){
-    const hasAnyBuy = subCats.slice(0,3).some(s => buyItems.some(s.match));
+    const hasAnyBuy = subCats.slice(0,5).some(s => buyItems.some(s.match));
     if(hasAnyBuy){
       subCats.forEach(s=>{
         const subItems = buyItems.filter(s.match);
@@ -4093,7 +4146,7 @@ function wireFokus(){
     el.addEventListener('click',()=>{
       const key = el.dataset.fokusGoCat;
       state.view = 'iphonex';
-      state.iphoneXFilter = (['urgent','today','pinned','iphone','buy','a','b','c','wait'].includes(key)) ? key : 'all';
+      state.iphoneXFilter = (['urgent','today','pinned','iphone','buy','a','b','c','d','e','wait'].includes(key)) ? key : 'all';
       save(); render();
     });
   });
@@ -4172,7 +4225,7 @@ function openDagensKortCatPicker(){
   const active = state.tasks.filter(t=>!t.done);
   const host = document.getElementById('modal-host');
 
-  const order = ['urgent','today','pinned','iphone','buy','a','b','c','wait'];
+  const order = ['urgent','today','pinned','iphone','buy','a','b','c','d','e','wait'];
   const items = order.map(key=>{
     const m = meta[key];
     const count = active.filter(m.match).length;
@@ -4955,7 +5008,9 @@ function renderForm(){
     urgent:{label:'Haster',color:'#E24B4A',text:'#FF8080'},
     a:{label:'A',color:'#EF9F27',text:'#FAC775'},
     b:{label:'B',color:'#639922',text:'#AED183'},
-    c:{label:'C',color:'#7F77DD',text:'#B5AEF0'}
+    c:{label:'C',color:'#7F77DD',text:'#B5AEF0'},
+    d:{label:'D',color:'#00B4DB',text:'#5DDFF1'},
+    e:{label:'E',color:'#E04A9C',text:'#FF80B5'}
   };
   const catM = catMeta[f.category||'none'];
 
@@ -5207,7 +5262,7 @@ function wireTasks(){
     b.addEventListener('click',(e)=>{
       e.stopPropagation();
       const hidden = state.iphoneXHidden || [];
-      const allKeys = ['urgent','today','pinned','iphone','buy','a','b','c','wait'].filter(k=>!hidden.includes(k));
+      const allKeys = ['urgent','today','pinned','iphone','buy','a','b','c','d','e','wait'].filter(k=>!hidden.includes(k));
       if(!state.collapsedSections) state.collapsedSections = {};
       const allCollapsed = allKeys.length > 0 && allKeys.every(k=>state.collapsedSections[k]);
       if(allCollapsed){
@@ -5493,6 +5548,16 @@ function wireTasks(){
             t.category = 'c';
             t.todayFlag = false; t.pinned = false; t.iphoneFlag = false; t.waitFlag = false; t.buyFlag = false;
             showToast('Flyttet til C');
+          }
+          else if(target === 'd'){
+            t.category = 'd';
+            t.todayFlag = false; t.pinned = false; t.iphoneFlag = false; t.waitFlag = false; t.buyFlag = false;
+            showToast('Flyttet til D');
+          }
+          else if(target === 'e'){
+            t.category = 'e';
+            t.todayFlag = false; t.pinned = false; t.iphoneFlag = false; t.waitFlag = false; t.buyFlag = false;
+            showToast('Flyttet til E');
           }
           else if(target === 'wait'){
             t.waitFlag = true;
@@ -7751,17 +7816,19 @@ function openNaaAbcMenu(anchor, taskId){
   const host = document.getElementById('modal-host');
   const t = state.tasks.find(x=>x.id===taskId);
   if(!t) return;
-  const cur = ['a','b','c'].includes(t.category) ? t.category : 'none';
+  const cur = ['a','b','c','d','e'].includes(t.category) ? t.category : 'none';
   const opts = [
     {key:'a', label:'A', color:'#EF9F27', text:'#FAC775'},
     {key:'b', label:'B', color:'#639922', text:'#AED183'},
     {key:'c', label:'C', color:'#7F77DD', text:'#B5AEF0'},
+    {key:'d', label:'D', color:'#00B4DB', text:'#5DDFF1'},
+    {key:'e', label:'E', color:'#E04A9C', text:'#FF80B5'},
     {key:'none', label:'— Ingen', color:'#888780', text:'#999'}
   ];
 
   // Posisjon under anchor (eller over hvis nær bunnen av skjermen)
   const rect = anchor.getBoundingClientRect();
-  const menuHeight = 4 * 32 + 8;
+  const menuHeight = 6 * 32 + 8;
   const spaceBelow = window.innerHeight - rect.bottom;
   const top = (spaceBelow >= menuHeight + 10) ? rect.bottom + 4 : rect.top - menuHeight - 4;
   const right = Math.max(8, window.innerWidth - rect.right);
@@ -7861,7 +7928,9 @@ function openCategoryChipPicker(anchor){
     {key:'urgent', label:'Haster', color:'#E24B4A', text:'#FF8080'},
     {key:'a', label:'A', color:'#EF9F27', text:'#FAC775'},
     {key:'b', label:'B', color:'#639922', text:'#AED183'},
-    {key:'c', label:'C', color:'#7F77DD', text:'#B5AEF0'}
+    {key:'c', label:'C', color:'#7F77DD', text:'#B5AEF0'},
+    {key:'d', label:'D', color:'#00B4DB', text:'#5DDFF1'},
+    {key:'e', label:'E', color:'#E04A9C', text:'#FF80B5'}
   ];
   host.innerHTML = `<div class="modal-bg" id="chip-cat-bg">
     <div class="modal" style="max-width:300px">
@@ -8330,7 +8399,7 @@ function openExportModal(){
           waitFlag: !!(t.wait_flag || t.waitFlag),
           buyFlag: !!(t.buy_flag || t.buyFlag),
           noteId: t.note_id || t.noteId || '',
-          category: ['none','urgent','a','b','c'].includes(t.category) ? t.category : 'none',
+          category: ['none','urgent','a','b','c','d','e'].includes(t.category) ? t.category : 'none',
           order: typeof t.order === 'number' ? t.order : 0,
           number: typeof t.number === 'number' ? t.number : null,
           group1Id:t.group1_id||t.group1Id||t.group_id||t.groupId||null,
@@ -8349,7 +8418,7 @@ function openExportModal(){
           waitFlag: !!(t.wait_flag || t.waitFlag),
           buyFlag: !!(t.buy_flag || t.buyFlag),
           noteId: t.note_id || t.noteId || '',
-          category: ['none','urgent','a','b','c'].includes(t.category) ? t.category : 'none',
+          category: ['none','urgent','a','b','c','d','e'].includes(t.category) ? t.category : 'none',
           order: typeof t.order === 'number' ? t.order : 0,
           number: typeof t.number === 'number' ? t.number : null,
           group1Id: t.group1_id||t.group1Id||null,
@@ -8702,6 +8771,8 @@ function openIphoneXFrameVisibilityModal(){
     a: state.tasks.filter(t=>t.category==='a' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && !t.done).length,
     b: state.tasks.filter(t=>t.category==='b' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && !t.done).length,
     c: state.tasks.filter(t=>t.category==='c' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && !t.done).length,
+    d: state.tasks.filter(t=>t.category==='d' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && !t.done).length,
+    e: state.tasks.filter(t=>t.category==='e' && !t.waitFlag && !t.buyFlag && !t.todayFlag && !t.pinned && !t.iphoneFlag && !t.done).length,
     buy: state.tasks.filter(t=>t.buyFlag && !t.waitFlag && !t.done).length,
     wait: state.tasks.filter(t=>t.waitFlag && !t.done).length
   };
@@ -8715,6 +8786,8 @@ function openIphoneXFrameVisibilityModal(){
     {key:'a', label:'A', color:'#EF9F27', icon:`<span class="cat-letter-badge cat-a-badge">A</span>`},
     {key:'b', label:'B', color:'#639922', icon:`<span class="cat-letter-badge cat-b-badge">B</span>`},
     {key:'c', label:'C', color:'#7F77DD', icon:`<span class="cat-letter-badge cat-c-badge">C</span>`},
+    {key:'d', label:'D', color:'#00B4DB', icon:`<span class="cat-letter-badge cat-d-badge">D</span>`},
+    {key:'e', label:'E', color:'#E04A9C', icon:`<span class="cat-letter-badge cat-e-badge">E</span>`},
     {key:'wait', label:'På vent', color:'#888780', icon:ICONS.pause}
   ];
 
@@ -8799,7 +8872,7 @@ function openIphoneXFrameVisibilityModal(){
   });
   modal.querySelector('[data-vis-deselect-all]').addEventListener('click',(e)=>{
     e.stopPropagation();
-    state.iphoneXHidden = ['urgent','today','pinned','iphone','buy','a','b','c','wait'];
+    state.iphoneXHidden = ['urgent','today','pinned','iphone','buy','a','b','c','d','e','wait'];
     save();
     modal.remove();
     openIphoneXFrameVisibilityModal();
