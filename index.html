@@ -2,11 +2,45 @@
 <!--
   ============================================================
    OPPGAVER – Todo-app
-   Versjon:    3.22
+   Versjon:    3.26
    Oppdatert:  2026-06-01
   ============================================================
    Versjonshistorikk:
-     3.22 Nå-fanen: A/B/C-deling i I dag-rammen:
+     3.26 Registrering ryddet videre på iPhone:
+          - Form-faner (Tittel/Grupper/Bilde/Mer) jevnt
+            fordelt på én linje (flex:1 hver) - tar ikke
+            lenger 2 linjer på smal iPhone.
+          - Chips gruppert i to seksjoner med små over-
+            skrifter: "Status" (dato, prioritet, kategori)
+            og "Merking" (I dag, Ny, Pin, iPhone, Kjøp,
+            På vent).
+          - Notat/Sjekkliste vises nå som kompakte segment-
+            knapper i én boks (i stedet for to store).
+          - Notat-toolbar mer kompakt: bare ikoner for
+            Liste, Angre og Gjenta (ingen tekst).
+     3.25 Kjøp-rammen i Nå: A/B/C-deling og mini-meny.
+          - Kjøp-rammen får samme behandling som I dag:
+            underseksjoner A/B/C/— inni rammen.
+          - Mini-meny på hver oppgavelinje for å bytte
+            kategori (trykk merket → velg A/B/C/Ingen).
+          - Hvis ingen Kjøp-oppgaver har kategori vises
+            kun en flat liste (som før).
+     3.24 Nå-fanen: A/B/C-velger som mini-meny.
+          - Endret fra ett-trykks-syklus til mini-meny
+            (trykk merket → velg A/B/C/Ingen direkte).
+          - Merket har nå en liten chevron som indikerer
+            at det åpner en meny.
+          - Menyen plasseres under merket (eller over hvis
+            nær bunnen av skjermen).
+     3.23 Nå-fanen: A/B/C-velger på oppgavelinjen.
+          - Hver oppgavelinje i I dag-rammen har nå et lite
+            A/B/C-merke etter dato-badgen.
+          - Trykk merket for å sykle: A → B → C → — → A.
+          - Oppgaver uten kategori vises som "—" med
+            stiplet kant.
+          - Lagring skjer umiddelbart (saveNow), og
+            oppgaven flytter seg til riktig under-seksjon.
+     3.22 Nå-fanen: A/B/C-deling i I dag-rammen.
           - I dag-rammen grupperer nå oppgavene inni i fire
             underseksjoner: A, B, C, og "—" (uten kategori).
           - Hver underseksjon har egen fargetone, antall-
@@ -419,8 +453,8 @@
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
 <meta name="application-name" content="Oppgaver" />
-<meta name="version" content="3.22" />
-<title>Oppgaver v3.22</title>
+<meta name="version" content="3.26" />
+<title>Oppgaver v3.26</title>
 <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23185FA5'/><g transform='translate(30 30)'><rect x='0' y='6' width='114' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='39' width='90' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='72' width='102' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><path d='M15 16.5 L21 22.5 L33 10.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M15 49.5 L21 55.5 L33 43.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='24' cy='82.5' r='9' fill='none' stroke='white' stroke-width='3.5'/></g></svg>" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23185FA5'/><g transform='translate(30 30)'><rect x='0' y='6' width='114' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='39' width='90' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='72' width='102' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><path d='M15 16.5 L21 22.5 L33 10.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M15 49.5 L21 55.5 L33 43.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='24' cy='82.5' r='9' fill='none' stroke='white' stroke-width='3.5'/></g></svg>" />
 <style>
@@ -841,6 +875,8 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .form-iphone-btn.active{color:#85B7EB;border-color:#378ADD;background:rgba(55,138,221,0.1)}
 .form-task-number{font-size:12px;color:var(--text-tertiary);font-family:ui-monospace,Menlo,monospace;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);padding:6px 9px;border-radius:5px;line-height:1;flex-shrink:0}
 .chip-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
+.chip-row-compact{margin-bottom:10px;gap:4px}
+.chip-group-label{font-size:9px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:4px;font-weight:600}
 .chip{display:inline-flex;align-items:center;gap:4px;font-size:12px;padding:7px 12px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:16px;color:var(--text-secondary);cursor:pointer;font-family:inherit;font-weight:500;white-space:nowrap}
 .chip:active{transform:scale(0.96)}
 .chip .icon{width:13px;height:13px}
@@ -861,9 +897,9 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .form-date-quick:active{transform:scale(0.96)}
 .form-date-quick.active{background:var(--bg-info);border-color:var(--border-info);color:var(--text-info);font-weight:600}
 .form-category-row{background:rgba(55,138,221,0.05);padding:6px 11px;border-bottom:0.5px solid rgba(55,138,221,0.3);display:flex;align-items:center;gap:4px;flex-wrap:wrap}
-.form-tabs{display:flex;gap:5px;align-items:center;margin-bottom:12px;flex-wrap:wrap;padding-bottom:2px}
-.form-tab{flex:0 0 auto}
-.form-tab{background:transparent;border:0.5px solid var(--border-tertiary);color:var(--text-tertiary);font-size:13px;padding:9px 14px;border-radius:7px;font-weight:500;cursor:pointer;font-family:inherit;line-height:1;display:flex;align-items:center;gap:5px;min-height:38px}
+.form-tabs{display:flex;gap:4px;align-items:center;margin-bottom:12px;padding-bottom:2px}
+.form-tab{flex:1 1 0;min-width:0}
+.form-tab{background:transparent;border:0.5px solid var(--border-tertiary);color:var(--text-tertiary);font-size:12px;padding:10px 6px;border-radius:7px;font-weight:500;cursor:pointer;font-family:inherit;line-height:1;display:flex;align-items:center;justify-content:center;gap:4px;min-height:38px;white-space:nowrap;overflow:hidden}
 .form-tab .icon{width:14px;height:14px}
 .form-tab:active{opacity:0.7}
 .form-tab.active{background:rgba(136,135,128,0.18);border-color:#888780;color:var(--text-secondary);font-weight:600}
@@ -1246,6 +1282,14 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .naa-sublabel{font-size:10px;font-weight:700;padding:1px 8px;border-radius:4px;min-width:22px;text-align:center}
 .naa-subcount{flex:1;font-size:9px;color:#888;text-transform:uppercase;letter-spacing:0.4px}
 .naa-subbody{}
+.naa-abc-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;cursor:pointer;font-family:inherit;line-height:1;min-width:30px;text-align:center;flex-shrink:0;border:0.5px solid transparent;display:inline-flex;align-items:center;gap:3px}
+.naa-abc-badge:active{transform:scale(0.92)}
+.naa-abc-chev{font-size:8px;opacity:0.7}
+.naa-abc-empty{color:#888;background:rgba(255,255,255,0.04);border:0.5px dashed #555}
+.naa-abc-empty:active{background:rgba(255,255,255,0.08)}
+.naa-abc-menu-item{display:block;width:100%;font-size:12px;font-weight:600;padding:8px 12px;background:transparent;border:none;border-radius:5px;cursor:pointer;font-family:inherit;text-align:left;color:var(--text-secondary)}
+.naa-abc-menu-item:active{transform:scale(0.97)}
+.naa-abc-menu-item.active{font-weight:700}
 .new-section.collapsed .new-section-header{border-bottom:none}
 .new-section.collapsed .new-section-body{display:none}
 .new-section.collapsed .section-collapse-toggle{transform:rotate(-90deg)}
@@ -1404,9 +1448,9 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .prio-btn.active.med .prio-num{background:var(--med);color:#fff}
 .prio-btn.active.low{background:#E1F5EE;border-color:var(--low);color:#085041;font-weight:600}
 .prio-btn.active.low .prio-num{background:var(--low);color:#fff}
-.mode-row{display:flex;gap:5px;margin-bottom:5px}
-.mode-btn{flex:1;padding:7px 6px;border-radius:6px;border:0.5px solid var(--border-tertiary);background:var(--bg-primary);cursor:pointer;font-size:12px;color:var(--text-secondary);display:flex;align-items:center;justify-content:center;gap:5px}
-.mode-btn.active{background:var(--bg-secondary);color:var(--text-primary);border-color:var(--border-secondary);font-weight:600}
+.mode-row{display:flex;gap:0;margin-bottom:8px;background:var(--bg-secondary);padding:2px;border-radius:6px;border:0.5px solid var(--border-tertiary)}
+.mode-btn{flex:1;padding:7px 6px;border-radius:4px;border:none;background:transparent;cursor:pointer;font-size:12px;color:var(--text-secondary);display:flex;align-items:center;justify-content:center;gap:5px}
+.mode-btn.active{background:var(--bg-primary);color:var(--text-primary);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,0.3)}
 .subtask-editor{display:flex;flex-direction:column;gap:3px;padding:6px 8px;border:0.5px solid var(--border-tertiary);border-radius:6px;background:var(--bg-secondary)}
 .subtask-input-row{display:flex;align-items:center;gap:7px;min-height:24px}
 .subtask-input-box{width:14px;height:14px;border-radius:3px;border:1.5px solid var(--border-secondary);flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:9px;background:var(--bg-primary)}
@@ -1503,7 +1547,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent)}
 <script>
 (function(){
 const STORAGE_KEY = 'todoapp_v1';
-const APP_VERSION = '3.22';
+const APP_VERSION = '3.26';
 
 const ICONS = {
   check:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 8"/></svg>',
@@ -2566,6 +2610,31 @@ function idagRow(t, accentColor){
       <span class="iphonex-title">${escapeHtml(t.title||'')}</span>
     </div>
     ${dueDateBadge(t)}
+    <span class="iphonex-number" style="color:${accentColor}">${t.number||''}</span>
+  </div>`;
+}
+
+// Nå-spesifikk rad: samme som idagRow, men med klikkbart A/B/C-merke for rask kategori-bytting
+function naaRow(t, accentColor){
+  const contactTag = (t.contact||'').trim() ? `<div class="iphonex-contact">${ICONS.user}<span>${escapeHtml(t.contact)}</span></div>` : '';
+  const catMeta = {
+    a: {label:'A', color:'#EF9F27', text:'#FAC775'},
+    b: {label:'B', color:'#639922', text:'#AED183'},
+    c: {label:'C', color:'#7F77DD', text:'#B5AEF0'}
+  };
+  const cm = catMeta[t.category];
+  const abcMerke = cm
+    ? `<button class="naa-abc-badge" data-naa-pick="${t.id}" style="color:${cm.text};background:${hexToRgba(cm.color,0.2)};border:0.5px solid transparent" aria-label="Bytt kategori">${cm.label}<span class="naa-abc-chev">⌄</span></button>`
+    : `<button class="naa-abc-badge naa-abc-empty" data-naa-pick="${t.id}" aria-label="Sett kategori">—<span class="naa-abc-chev">⌄</span></button>`;
+  return `<div class="iphonex-row ${t.done?'done':''}" data-iphonex-edit="${t.id}" data-id="${t.id}">
+    <button class="iphonex-grip" data-iphonex-grip="${t.id}" aria-label="Dra for å flytte">${ICONS.grip}</button>
+    <div class="iphonex-check ${t.done?'checked':''}" data-iphonex-check="${t.id}" role="checkbox" aria-checked="${t.done?'true':'false'}">${t.done?ICONS.check:''}</div>
+    <div style="flex:1;min-width:0">
+      ${contactTag}
+      <span class="iphonex-title">${escapeHtml(t.title||'')}</span>
+    </div>
+    ${dueDateBadge(t)}
+    ${abcMerke}
     <span class="iphonex-number" style="color:${accentColor}">${t.number||''}</span>
   </div>`;
 }
@@ -3734,7 +3803,7 @@ function renderNaa(){
         if(!subItems.length) return;
         const subKey = 'naa-today-sub-'+s.key;
         const subCollapsed = !!(state.collapsedSections && state.collapsedSections[subKey]);
-        const subRows = subCollapsed ? '' : subItems.map(t=>idagRow(t, todayAccent)).join('');
+        const subRows = subCollapsed ? '' : subItems.map(t=>naaRow(t, todayAccent)).join('');
         todayInnerHTML += `<div class="naa-subsection ${subCollapsed?'collapsed':''}">
           <div class="naa-subhead" data-section-collapse="${subKey}" style="background:${hexToRgba(s.color,0.10)};border-bottom:0.5px solid ${hexToRgba(s.color,0.35)}">
             <span class="section-collapse-toggle" style="color:${s.text}">${ICONS.chevronDown}</span>
@@ -3746,7 +3815,7 @@ function renderNaa(){
       });
     } else {
       // Ingen oppgaver med A/B/C - vis kun flat liste
-      todayInnerHTML = weaveDividers(todayItems, t=>idagRow(t, todayAccent), {
+      todayInnerHTML = weaveDividers(todayItems, t=>naaRow(t, todayAccent), {
         dividerList: state.dividersIphoneXToday || [],
         dividerKey: 'dividersIphoneXToday'
       });
@@ -3764,12 +3833,34 @@ function renderNaa(){
     </div>
   </div>` : '';
 
-  // Kjøp-rammen
+  // Kjøp-rammen med underseksjoner A/B/C/— (samme som I dag)
   const buyAccent = '#7FD99F';
-  const buyInner = weaveDividers(buyItems, t=>idagRow(t, buyAccent), {
-    dividerList: state.dividersIphoneXBuy || [],
-    dividerKey: 'dividersIphoneXBuy'
-  });
+  let buyInnerHTML = '';
+  if(buyItems.length){
+    const hasAnyBuy = subCats.slice(0,3).some(s => buyItems.some(s.match));
+    if(hasAnyBuy){
+      subCats.forEach(s=>{
+        const subItems = buyItems.filter(s.match);
+        if(!subItems.length) return;
+        const subKey = 'naa-buy-sub-'+s.key;
+        const subCollapsed = !!(state.collapsedSections && state.collapsedSections[subKey]);
+        const subRows = subCollapsed ? '' : subItems.map(t=>naaRow(t, buyAccent)).join('');
+        buyInnerHTML += `<div class="naa-subsection ${subCollapsed?'collapsed':''}">
+          <div class="naa-subhead" data-section-collapse="${subKey}" style="background:${hexToRgba(s.color,0.10)};border-bottom:0.5px solid ${hexToRgba(s.color,0.35)}">
+            <span class="section-collapse-toggle" style="color:${s.text}">${ICONS.chevronDown}</span>
+            <span class="naa-sublabel" style="color:${s.text};background:${hexToRgba(s.color,0.22)}">${s.label}</span>
+            <span class="naa-subcount" style="color:#888">${subItems.length} oppgave${subItems.length===1?'':'r'}</span>
+          </div>
+          <div class="naa-subbody">${subRows}</div>
+        </div>`;
+      });
+    } else {
+      buyInnerHTML = weaveDividers(buyItems, t=>naaRow(t, buyAccent), {
+        dividerList: state.dividersIphoneXBuy || [],
+        dividerKey: 'dividersIphoneXBuy'
+      });
+    }
+  }
   const buyBlock = buyItems.length ? `<div class="buy-section ${buyCollapsed?'collapsed':''}" data-section-target="${buyKey}" data-divider-key="dividersIphoneXBuy">
     <div class="buy-section-header" data-section-collapse="${buyKey}">
       <span class="section-collapse-toggle">${ICONS.chevronDown}</span>
@@ -3778,8 +3869,7 @@ function renderNaa(){
       <span class="buy-section-count">${buyItems.length}</span>
     </div>
     <div class="buy-section-body">
-      <div class="iphonex-body iphonex-body-buy">${buyInner||''}</div>
-      <div style="padding:6px 10px"><button class="add-divider-btn" data-add-divider="dividersIphoneXBuy">${ICONS.minus} Sett inn skille-linje</button></div>
+      <div class="iphonex-body iphonex-body-buy">${buyInnerHTML}</div>
     </div>
   </div>` : '';
 
@@ -4795,14 +4885,14 @@ function renderForm(){
         <button type="button" class="md-btn" data-rich="code" title="Kode"><span style="font-family:monospace">&lt;/&gt;</span></button>
         <span class="md-sep"></span>
         <button type="button" class="md-btn" data-rich="h2" title="Overskrift"><span style="font-weight:700">H</span></button>
-        <button type="button" class="md-btn" data-rich="ul" title="Punktliste">${ICONS.list||'•'}<span style="margin-left:3px">Liste</span></button>
+        <button type="button" class="md-btn" data-rich="ul" title="Punktliste">${ICONS.list||'•'}</button>
         <button type="button" class="md-btn" data-rich="task" title="Sjekkliste">☐</button>
         <button type="button" class="md-btn" data-rich="quote" title="Sitat">&gt;</button>
         <span class="md-sep"></span>
         <button type="button" class="md-btn" data-rich="link" title="Lenke">${ICONS.link}</button>
         <span class="md-sep"></span>
-        <button type="button" class="md-btn" data-rich-action="undo" title="Angre (Cmd+Z)">${ICONS.undo||'↶'}<span style="margin-left:3px">Angre</span></button>
-        <button type="button" class="md-btn" data-rich-action="redo" title="Gjenta (Cmd+Shift+Z)">${ICONS.redo||'↷'}<span style="margin-left:3px">Gjenta</span></button>
+        <button type="button" class="md-btn" data-rich-action="undo" title="Angre (Cmd+Z)">${ICONS.undo||'↶'}</button>
+        <button type="button" class="md-btn" data-rich-action="redo" title="Gjenta (Cmd+Shift+Z)">${ICONS.redo||'↷'}</button>
       </div>
       <div id="f-notes-rich" class="rich-editor" contenteditable="true" data-placeholder="Detaljer, lenker...">${initialHtml}</div>
     </div>
@@ -4876,12 +4966,10 @@ function renderForm(){
           <span class="form-task-number">${formNumber}</span>
         </div>
 
-        <div class="chip-row">
+        <div class="chip-group-label">Status</div>
+        <div class="chip-row chip-row-compact">
           <button type="button" class="chip" data-chip="date" style="background:rgba(0,180,219,0.15);border-color:#00B4DB;color:#5DDFF1">
             ${ICONS.calendarEvent}<span>${dateChipLabel}</span>
-          </button>
-          <button type="button" class="chip ${f.newFlag?'on':''}" id="f-toggle-new" style="${f.newFlag?'background:rgba(99,153,34,0.2);border-color:#639922;color:#AED183':''}">
-            ${ICONS.plus}<span>Ny</span>
           </button>
           <button type="button" class="chip" data-chip="priority" style="background:${hexToRgba(prioM.color,0.15)};border-color:${prioM.color};color:${prioM.text}">
             ${ICONS.flag}<span>${prioM.label}</span>
@@ -4889,8 +4977,14 @@ function renderForm(){
           <button type="button" class="chip" data-chip="category" style="background:${hexToRgba(catM.color,0.15)};border-color:${catM.color};color:${catM.text}">
             ${ICONS.hash}<span>${catM.label}</span>
           </button>
+        </div>
+        <div class="chip-group-label">Merking</div>
+        <div class="chip-row chip-row-compact">
           <button type="button" class="chip ${f.todayFlag?'on':''}" id="f-toggle-today" style="${f.todayFlag?'background:rgba(0,180,219,0.18);border-color:#00B4DB;color:#5DDFF1':''}">
             ${ICONS.sun}<span>I dag</span>
+          </button>
+          <button type="button" class="chip ${f.newFlag?'on':''}" id="f-toggle-new" style="${f.newFlag?'background:rgba(99,153,34,0.2);border-color:#639922;color:#AED183':''}">
+            ${ICONS.plus}<span>Ny</span>
           </button>
           <button type="button" class="chip ${f.pinned?'on':''}" id="f-toggle-pin" style="${f.pinned?'background:rgba(239,159,39,0.18);border-color:#EF9F27;color:#FAC775':''}">
             ${f.pinned?ICONS.starFilled:ICONS.star}<span>Pin</span>
@@ -5221,9 +5315,10 @@ function wireTasks(){
   });
   document.querySelectorAll('[data-iphonex-edit]').forEach(el=>{
     el.addEventListener('click',(e)=>{
-      // Ikke trigger edit hvis klikket var på grip eller checkbox
+      // Ikke trigger edit hvis klikket var på grip, checkbox eller A/B/C-merke
       if(e.target.closest('[data-iphonex-grip]')) return;
       if(e.target.closest('[data-iphonex-check]')) return;
+      if(e.target.closest('[data-naa-pick]')) return;
       const id = el.dataset.iphonexEdit;
       const t = state.tasks.find(x=>x.id===id);
       if(!t) return;
@@ -5240,6 +5335,15 @@ function wireTasks(){
       state.returnView = state.view;
       state.view = 'form';
       save(); render();
+    });
+  });
+  // Nå-fanen: klikk på A/B/C-merket åpner mini-meny for å velge kategori
+  document.querySelectorAll('[data-naa-pick]').forEach(btn=>{
+    btn.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      e.preventDefault();
+      const id = btn.dataset.naaPick;
+      openNaaAbcMenu(btn, id);
     });
   });
   // Dra-håndtak på iPhone X-rader for å flytte mellom seksjoner
@@ -7641,6 +7745,44 @@ function closeGroupPicker(){
   const backdrop = document.getElementById('group-popup-backdrop');
   if(existing) existing.remove();
   if(backdrop) backdrop.remove();
+}
+
+function openNaaAbcMenu(anchor, taskId){
+  const host = document.getElementById('modal-host');
+  const t = state.tasks.find(x=>x.id===taskId);
+  if(!t) return;
+  const cur = ['a','b','c'].includes(t.category) ? t.category : 'none';
+  const opts = [
+    {key:'a', label:'A', color:'#EF9F27', text:'#FAC775'},
+    {key:'b', label:'B', color:'#639922', text:'#AED183'},
+    {key:'c', label:'C', color:'#7F77DD', text:'#B5AEF0'},
+    {key:'none', label:'— Ingen', color:'#888780', text:'#999'}
+  ];
+
+  // Posisjon under anchor (eller over hvis nær bunnen av skjermen)
+  const rect = anchor.getBoundingClientRect();
+  const menuHeight = 4 * 32 + 8;
+  const spaceBelow = window.innerHeight - rect.bottom;
+  const top = (spaceBelow >= menuHeight + 10) ? rect.bottom + 4 : rect.top - menuHeight - 4;
+  const right = Math.max(8, window.innerWidth - rect.right);
+
+  host.innerHTML = `<div class="naa-abc-menu-bg" id="naa-abc-menu-bg" style="position:fixed;inset:0;z-index:9999">
+    <div class="naa-abc-menu" style="position:fixed;top:${top}px;right:${right}px;background:var(--bg-secondary);border:0.5px solid var(--border-secondary);border-radius:8px;padding:4px;box-shadow:0 8px 20px rgba(0,0,0,0.5);min-width:96px">
+      ${opts.map(o=>`<button class="naa-abc-menu-item ${cur===o.key?'active':''}" data-naa-set="${o.key}" style="${cur===o.key?`color:${o.text};background:${hexToRgba(o.color,0.15)}`:`color:${o.text}`}">${o.label}</button>`).join('')}
+    </div>
+  </div>`;
+  const close = ()=>{ host.innerHTML=''; };
+  document.getElementById('naa-abc-menu-bg').addEventListener('click',(e)=>{
+    if(e.target.id==='naa-abc-menu-bg') close();
+  });
+  host.querySelectorAll('[data-naa-set]').forEach(b=>{
+    b.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      t.category = b.dataset.naaSet;
+      close();
+      saveNow(); render();
+    });
+  });
 }
 
 function openDateChipPicker(anchor){
