@@ -2,10 +2,49 @@
 <!--
   ============================================================
    OPPGAVER – Todo-app
-   Versjon:    3.07
-   Oppdatert:  2026-05-28
+   Versjon:    3.14
+   Oppdatert:  2026-06-01
   ============================================================
    Versjonshistorikk:
+     3.14 Nå-fanen: Kjøp-ramme lagt til:
+          - Viser nå to rammer: "I dag" (cyan) og "Kjøp"
+            (grønn). Begge kan kollapses uavhengig.
+          - I dag-rammen viser oppgaver merket I dag eller
+            med forfallsdato i dag (uten Kjøp-merkede).
+          - Kjøp-rammen viser handlelisten (alle med Kjøp).
+     3.13 Større form-fane-knapper for iPhone.
+          - Tittel, Grupper, Prioritet, Datoer, Lenke,
+            Kontakt, Bilde er nå større (font 13px, min-
+            høyde 38px) - lettere å treffe på iPhone.
+     3.12 Tre justeringer i Rediger.
+          - Kategori-knappene er nå større (font 13px, høyere
+            min-høyde 38px) - lettere å treffe på iPhone.
+          - Når du legger til et bilde blir du stående på
+            Bilde-fanen (ble før flyttet til Tittel).
+          - Bulletpoint-knappen i Notat-toolbaren har nå
+            "Liste"-tekst ved siden av prikken - tydeligere.
+     3.11 FIKS: dra mellom Haster og I dag virket ikke.
+          - Når du dro fra Haster til I dag ble category=
+            'urgent' beholdt, så oppgaven havnet tilbake i
+            Haster. Nå nullstilles alle motstridende flagg.
+          - Når du dro fra I dag til Haster ble todayFlag
+            beholdt. Også fikset.
+          - Begge retninger fungerer nå.
+     3.10 Avbryt/Oppdater også nederst i skjemaet.
+          - Knappene vises nederst på alle skjemafaner.
+          - Samme farger som øverst (rød Avbryt, grønn
+            Oppdater). Oppdater er bredere (2:1 forhold).
+     3.09 Angre/Gjenta + farger på skjema-knappene.
+          - Angre og Gjenta lagt til i markdown-toolbar over
+            Notat (både i oppgave-skjemaet og notat-skjemaet).
+          - Cmd+Z/Ctrl+Z funker fortsatt fra tastaturet.
+          - "Oppdater"/"Lagre" er nå GRØNN.
+          - "Avbryt" er nå RØD.
+     3.08 FIKS: skille-linjer dukket opp under søk.
+          - Skille-linjer skjules nå når et søk er aktivt
+            (i Nå, iPhone X, I dag-liste, Alle, og alle andre
+            visninger som bruker skille-linjer).
+          - Kommer tilbake automatisk når søket lukkes.
      3.07 "Fokus" omdøpt til "Kalender ToDo" (overalt:
           dropdown, tittel, fane-label, snarvei).
      3.06 Klikk på "I dag"-fanen åpner nå "Nå"-visningen.
@@ -318,8 +357,8 @@
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
 <meta name="application-name" content="Oppgaver" />
-<meta name="version" content="3.07" />
-<title>Oppgaver v3.07</title>
+<meta name="version" content="3.14" />
+<title>Oppgaver v3.14</title>
 <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23185FA5'/><g transform='translate(30 30)'><rect x='0' y='6' width='114' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='39' width='90' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='72' width='102' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><path d='M15 16.5 L21 22.5 L33 10.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M15 49.5 L21 55.5 L33 43.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='24' cy='82.5' r='9' fill='none' stroke='white' stroke-width='3.5'/></g></svg>" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23185FA5'/><g transform='translate(30 30)'><rect x='0' y='6' width='114' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='39' width='90' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='72' width='102' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><path d='M15 16.5 L21 22.5 L33 10.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M15 49.5 L21 55.5 L33 43.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='24' cy='82.5' r='9' fill='none' stroke='white' stroke-width='3.5'/></g></svg>" />
 <style>
@@ -708,6 +747,13 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .fab-btn:active{opacity:0.7}
 
 .form-screen{padding:10px 14px 4px}
+.form-bottom-actions{display:flex;gap:8px;padding:14px 0 20px;margin-top:8px;border-top:0.5px solid var(--border-tertiary);padding-top:14px}
+.form-bottom-btn{font-size:13px;padding:11px 14px;border-radius:8px;cursor:pointer;font-family:inherit;font-weight:600;border:0.5px solid var(--border-tertiary);background:var(--bg-secondary);color:var(--text-secondary)}
+.form-bottom-btn:active{transform:scale(0.97)}
+.form-bottom-btn.cancel{flex:1;background:rgba(226,75,74,0.15);border-color:#E24B4A;color:#FF8080}
+.form-bottom-btn.cancel:active{background:rgba(226,75,74,0.25)}
+.form-bottom-btn.save{flex:2;background:#1D9E75;border-color:#1D9E75;color:#fff}
+.form-bottom-btn.save:active{background:#15805F;border-color:#15805F}
 .form-field{margin-bottom:10px}
 .form-label{font-size:11px;color:var(--text-secondary);margin-bottom:4px;display:block;font-weight:600}
 .form-section{background:rgba(136,135,128,0.06);border:0.5px solid rgba(136,135,128,0.5);border-radius:10px;margin-bottom:14px;overflow:hidden}
@@ -735,19 +781,22 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .form-date-divider{width:1px;height:22px;background:var(--border-tertiary);flex-shrink:0}
 .form-date-action{font-size:12px;padding:8px 14px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;color:var(--text-secondary);cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0}
 .form-date-action:active{transform:scale(0.96)}
-.form-date-action.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.form-date-action.primary{background:#1D9E75;border-color:#1D9E75;color:#fff;font-weight:600}
+.form-date-action.primary:active{background:#15805F;border-color:#15805F}
+#f-cancel-top{background:rgba(226,75,74,0.15);border-color:#E24B4A;color:#FF8080;font-weight:600}
+#f-cancel-top:active{background:rgba(226,75,74,0.25)}
 .form-date-quick{font-size:12px;padding:8px 12px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;color:var(--text-secondary);cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0}
 .form-date-quick:active{transform:scale(0.96)}
 .form-date-quick.active{background:var(--bg-info);border-color:var(--border-info);color:var(--text-info);font-weight:600}
 .form-category-row{background:rgba(55,138,221,0.05);padding:6px 11px;border-bottom:0.5px solid rgba(55,138,221,0.3);display:flex;align-items:center;gap:4px;flex-wrap:wrap}
-.form-tabs{display:flex;gap:4px;align-items:center;margin-bottom:10px;flex-wrap:wrap;padding-bottom:2px}
+.form-tabs{display:flex;gap:5px;align-items:center;margin-bottom:12px;flex-wrap:wrap;padding-bottom:2px}
 .form-tab{flex:0 0 auto}
-.form-tab{background:transparent;border:0.5px solid var(--border-tertiary);color:var(--text-tertiary);font-size:11px;padding:7px 10px;border-radius:6px;font-weight:500;cursor:pointer;font-family:inherit;line-height:1;display:flex;align-items:center;gap:4px;min-height:32px}
-.form-tab .icon{width:12px;height:12px}
+.form-tab{background:transparent;border:0.5px solid var(--border-tertiary);color:var(--text-tertiary);font-size:13px;padding:9px 14px;border-radius:7px;font-weight:500;cursor:pointer;font-family:inherit;line-height:1;display:flex;align-items:center;gap:5px;min-height:38px}
+.form-tab .icon{width:14px;height:14px}
 .form-tab:active{opacity:0.7}
 .form-tab.active{background:rgba(136,135,128,0.18);border-color:#888780;color:var(--text-secondary);font-weight:600}
 .form-category-label{font-size:10px;color:var(--text-tertiary);margin-right:2px;flex-shrink:0}
-.cat-btn{background:transparent;border:0.5px solid var(--border-tertiary);color:var(--text-tertiary);font-size:10px;padding:3px 9px;border-radius:4px;font-weight:600;cursor:pointer;font-family:inherit;line-height:1;min-width:28px}
+.cat-btn{background:transparent;border:0.5px solid var(--border-tertiary);color:var(--text-tertiary);font-size:13px;padding:9px 14px;border-radius:7px;font-weight:600;cursor:pointer;font-family:inherit;line-height:1;min-width:42px;min-height:38px}
 .cat-btn:active{opacity:0.7}
 .cat-btn.cat-all.active{background:rgba(136,135,128,0.18);border-color:#888780;color:#D3D1C7}
 .cat-btn.cat-urgent.active{background:rgba(226,75,74,0.18);border-color:#E24B4A;color:#FF8080}
@@ -1358,7 +1407,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent)}
 <script>
 (function(){
 const STORAGE_KEY = 'todoapp_v1';
-const APP_VERSION = '3.07';
+const APP_VERSION = '3.14';
 
 const ICONS = {
   check:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 8"/></svg>',
@@ -1409,6 +1458,8 @@ const ICONS = {
   hash:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>',
   sortAz:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5h10"/><path d="M11 9h7"/><path d="M11 13h4"/><path d="M3 17l3 3 3-3"/><path d="M6 18V4"/></svg>',
   clock:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>',
+  undo:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>',
+  redo:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14l5-5-5-5"/><path d="M20 9H10a6 6 0 0 0 0 12h3"/></svg>',
   minus:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>'
 };
 
@@ -2856,10 +2907,13 @@ function renderSection(key, cssClass, icon, title, count, bodyHTML){
 function weaveDividers(taskList, taskRenderer, opts){
   opts = opts || {};
   const dividerList = opts.dividerList || state.dividers || [];
-  const dividerKey = opts.dividerKey || 'dividers'; // for å vite hvor add/remove skal lagre
+  const dividerKey = opts.dividerKey || 'dividers';
+  // Skjul skille-linjer når et søk er aktivt – de gir ikke mening uten oppgavene mellom
+  const searchActive = !!(state.searchQuery && state.searchQuery.trim());
+  const effectiveDividers = searchActive ? [] : dividerList;
   const elements = [];
   taskList.forEach(t=>elements.push({type:'task', task:t, pos: t.order||0}));
-  dividerList.forEach(d=>elements.push({type:'divider', divider:d, pos: d.position||0}));
+  effectiveDividers.forEach(d=>elements.push({type:'divider', divider:d, pos: d.position||0}));
   // Sorter elementer etter posisjon. Oppgaver uten order kommer etter dividers med order=0.
   elements.sort((a,b)=>{
     if(a.pos !== b.pos) return a.pos - b.pos;
@@ -3483,41 +3537,65 @@ function renderNaa(){
     if((a.order||0) !== (b.order||0)) return (a.order||0) - (b.order||0);
     return prioRank[a.priority]-prioRank[b.priority];
   };
-  // "Nå" = oppgaver merket I dag (todayFlag) ELLER med forfallsdato i dag
-  const items = state.tasks.filter(t=>
-    (t.todayFlag || t.date===today) && !t.waitFlag && !t.done && matchesSearch(t) && passesGroupFilter(t)
+  const baseFilter = t => !t.done && matchesSearch(t) && passesGroupFilter(t);
+  // I dag: oppgaver merket I dag (todayFlag) ELLER med forfallsdato i dag (men ikke Kjøp - de er i Kjøp-rammen)
+  const todayItems = state.tasks.filter(t=>
+    (t.todayFlag || t.date===today) && !t.waitFlag && !t.buyFlag && baseFilter(t)
   ).sort(sortFn);
+  // Kjøp: alle oppgaver merket Kjøp (handleliste)
+  const buyItems = state.tasks.filter(t=>t.buyFlag && !t.waitFlag && baseFilter(t)).sort(sortFn);
 
-  const collapseKey = 'naa-today';
-  const collapsed = !!(state.collapsedSections && state.collapsedSections[collapseKey]);
+  const todayKey = 'naa-today';
+  const buyKey = 'naa-buy';
+  const todayCollapsed = !!(state.collapsedSections && state.collapsedSections[todayKey]);
+  const buyCollapsed = !!(state.collapsedSections && state.collapsedSections[buyKey]);
 
-  if(!items.length){
+  if(!todayItems.length && !buyItems.length){
     if(isGroupFilterActive() || (state.searchQuery||'').trim()){
       return `<div class="empty">${ICONS.sun}<p>Ingen oppgaver matcher filteret</p></div>`;
     }
-    return `<div class="empty">${ICONS.sun}<p>Ingen oppgaver akkurat nå</p><p style="font-size:11px;margin-top:6px;color:var(--text-tertiary)">Merk oppgaver med I dag-knappen eller sett forfallsdato i dag</p></div>`;
+    return `<div class="empty">${ICONS.sun}<p>Ingen oppgaver akkurat nå</p><p style="font-size:11px;margin-top:6px;color:var(--text-tertiary)">Merk oppgaver med I dag-knappen, sett forfallsdato i dag, eller merk for Kjøp</p></div>`;
   }
 
-  const accent = '#5DDFF1';
-  const inner = weaveDividers(items, t=>idagRow(t, accent), {
+  // I dag-rammen
+  const todayAccent = '#5DDFF1';
+  const todayInner = weaveDividers(todayItems, t=>idagRow(t, todayAccent), {
     dividerList: state.dividersIphoneXToday || [],
     dividerKey: 'dividersIphoneXToday'
   });
-
-  return `<div class="fokus-view">
-    <div class="today-section ${collapsed?'collapsed':''}" data-section-target="${collapseKey}" data-divider-key="dividersIphoneXToday">
-      <div class="today-section-header" data-section-collapse="${collapseKey}">
-        <span class="section-collapse-toggle">${ICONS.chevronDown}</span>
-        ${ICONS.sun}
-        <span class="today-section-title">I dag</span>
-        <span class="today-section-count">${items.length}</span>
-      </div>
-      <div class="today-section-body">
-        <div class="iphonex-body iphonex-body-today">${inner||''}</div>
-        <div style="padding:6px 10px"><button class="add-divider-btn" data-add-divider="dividersIphoneXToday">${ICONS.minus} Sett inn skille-linje</button></div>
-      </div>
+  const todayBlock = todayItems.length ? `<div class="today-section ${todayCollapsed?'collapsed':''}" data-section-target="${todayKey}" data-divider-key="dividersIphoneXToday">
+    <div class="today-section-header" data-section-collapse="${todayKey}">
+      <span class="section-collapse-toggle">${ICONS.chevronDown}</span>
+      ${ICONS.sun}
+      <span class="today-section-title">I dag</span>
+      <span class="today-section-count">${todayItems.length}</span>
     </div>
-  </div>`;
+    <div class="today-section-body">
+      <div class="iphonex-body iphonex-body-today">${todayInner||''}</div>
+      <div style="padding:6px 10px"><button class="add-divider-btn" data-add-divider="dividersIphoneXToday">${ICONS.minus} Sett inn skille-linje</button></div>
+    </div>
+  </div>` : '';
+
+  // Kjøp-rammen
+  const buyAccent = '#7FD99F';
+  const buyInner = weaveDividers(buyItems, t=>idagRow(t, buyAccent), {
+    dividerList: state.dividersIphoneXBuy || [],
+    dividerKey: 'dividersIphoneXBuy'
+  });
+  const buyBlock = buyItems.length ? `<div class="buy-section ${buyCollapsed?'collapsed':''}" data-section-target="${buyKey}" data-divider-key="dividersIphoneXBuy">
+    <div class="buy-section-header" data-section-collapse="${buyKey}">
+      <span class="section-collapse-toggle">${ICONS.chevronDown}</span>
+      ${ICONS.cart}
+      <span class="buy-section-title">Kjøp</span>
+      <span class="buy-section-count">${buyItems.length}</span>
+    </div>
+    <div class="buy-section-body">
+      <div class="iphonex-body iphonex-body-buy">${buyInner||''}</div>
+      <div style="padding:6px 10px"><button class="add-divider-btn" data-add-divider="dividersIphoneXBuy">${ICONS.minus} Sett inn skille-linje</button></div>
+    </div>
+  </div>` : '';
+
+  return `<div class="fokus-view">${todayBlock}${buyBlock}</div>`;
 }
 
 function renderFokus(){
@@ -4469,6 +4547,9 @@ function renderNoteForm(){
         <button type="button" class="md-btn" data-rich="quote" title="Sitat-blokk">&gt;</button>
         <span class="md-sep"></span>
         <button type="button" class="md-btn" data-rich="link" title="Lenke">${ICONS.link||'🔗'}</button>
+        <span class="md-sep"></span>
+        <button type="button" class="md-btn" data-rich-action="undo" title="Angre (Cmd+Z)">${ICONS.undo||'↶'}<span style="margin-left:3px">Angre</span></button>
+        <button type="button" class="md-btn" data-rich-action="redo" title="Gjenta (Cmd+Shift+Z)">${ICONS.redo||'↷'}<span style="margin-left:3px">Gjenta</span></button>
       </div>
       <div id="nf-body-rich" class="rich-editor" contenteditable="true" data-placeholder="Skriv notatet her..." style="min-height:200px">${markdownToHtml(f.body||'')}</div>
     </div>
@@ -4515,11 +4596,14 @@ function renderForm(){
         <button type="button" class="md-btn" data-rich="code" title="Kode"><span style="font-family:monospace">&lt;/&gt;</span></button>
         <span class="md-sep"></span>
         <button type="button" class="md-btn" data-rich="h2" title="Overskrift"><span style="font-weight:700">H</span></button>
-        <button type="button" class="md-btn" data-rich="ul" title="Liste">${ICONS.list||'•'}</button>
+        <button type="button" class="md-btn" data-rich="ul" title="Punktliste">${ICONS.list||'•'}<span style="margin-left:3px">Liste</span></button>
         <button type="button" class="md-btn" data-rich="task" title="Sjekkliste">☐</button>
         <button type="button" class="md-btn" data-rich="quote" title="Sitat">&gt;</button>
         <span class="md-sep"></span>
         <button type="button" class="md-btn" data-rich="link" title="Lenke">${ICONS.link}</button>
+        <span class="md-sep"></span>
+        <button type="button" class="md-btn" data-rich-action="undo" title="Angre (Cmd+Z)">${ICONS.undo||'↶'}<span style="margin-left:3px">Angre</span></button>
+        <button type="button" class="md-btn" data-rich-action="redo" title="Gjenta (Cmd+Shift+Z)">${ICONS.redo||'↷'}<span style="margin-left:3px">Gjenta</span></button>
       </div>
       <div id="f-notes-rich" class="rich-editor" contenteditable="true" data-placeholder="Detaljer, lenker...">${initialHtml}</div>
     </div>
@@ -4782,6 +4866,10 @@ function renderForm(){
       <button class="form-tab ${activeTab==='image'?'active':''}" data-form-tab="image">${ICONS.camera}<span>Bilde</span></button>
     </div>
     ${sectionContent}
+    <div class="form-bottom-actions">
+      <button type="button" class="form-bottom-btn cancel" id="f-cancel-bottom">Avbryt</button>
+      <button type="button" class="form-bottom-btn save" id="f-save-bottom">${f.editingId?'Oppdater':'Lagre'}</button>
+    </div>
   </div>`;
 }
 
@@ -5018,12 +5106,22 @@ function wireTasks(){
         const t = state.tasks.find(x=>x.id===s.id);
         if(t){
           // Nytt hierarki: Haster > I dag > Pinnet > iPhone > A > B > C > På vent
-          if(target === 'urgent'){ t.category = 'urgent'; t.waitFlag = false; t.buyFlag = false; showToast('Flyttet til Haster'); }
-          else if(target === 'today'){
-            t.todayFlag = true;
+          if(target === 'urgent'){
+            t.category = 'urgent';
+            t.todayFlag = false;
+            t.pinned = false;
+            t.iphoneFlag = false;
             t.waitFlag = false;
             t.buyFlag = false;
-            if(t.category !== 'urgent') t.category = 'none';
+            showToast('Flyttet til Haster');
+          }
+          else if(target === 'today'){
+            t.todayFlag = true;
+            t.category = 'none';
+            t.pinned = false;
+            t.iphoneFlag = false;
+            t.waitFlag = false;
+            t.buyFlag = false;
             showToast('Flyttet til I dag');
           }
           else if(target === 'pinned'){
@@ -6064,6 +6162,23 @@ function initRichEditor(editorId, getCurrentValue, onChange){
     });
   });
 
+  // Angre/Gjenta-knapper
+  toolbar.querySelectorAll('[data-rich-action]').forEach(btn=>{
+    btn.addEventListener('mousedown', e=>e.preventDefault());
+    btn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      editor.focus();
+      const action = btn.dataset.richAction;
+      try {
+        if(action === 'undo') document.execCommand('undo');
+        else if(action === 'redo') document.execCommand('redo');
+      } catch(err){}
+      // Trigger onChange så markdown lagres
+      const md = htmlToMarkdown(editor.innerHTML);
+      onChange(md);
+    });
+  });
+
   // Marker aktive knapper (bold/italic) basert på markøren
   const updateActiveButtons = () => {
     if(!toolbar) return;
@@ -6947,6 +7062,8 @@ function wireForm(){
     }
     if(added > 0){
       try {
+        // Sørg for å bli stående på Bilde-fanen etter opplasting
+        state.form.activeTab = 'image';
         save();
         showToast(added===1 ? '1 bilde lagt til' : added+' bilder lagt til');
       } catch(err){
@@ -7206,6 +7323,17 @@ function wireForm(){
     state.returnView = null;
     state.form={title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
     save(); render();
+  });
+  // Bunn-knappene gjenbruker topp-knappenes handlere
+  const fCancelBottom = document.getElementById('f-cancel-bottom');
+  if(fCancelBottom) fCancelBottom.addEventListener('click',()=>{
+    const topBtn = document.getElementById('f-cancel-top');
+    if(topBtn) topBtn.click();
+  });
+  const fSaveBottom = document.getElementById('f-save-bottom');
+  if(fSaveBottom) fSaveBottom.addEventListener('click',()=>{
+    const topBtn = document.getElementById('f-save-top');
+    if(topBtn) topBtn.click();
   });
   document.getElementById('f-save-top').addEventListener('click',()=>{
     syncFormInputs();
