@@ -2,11 +2,105 @@
 <!--
   ============================================================
    OPPGAVER – Todo-app
-   Versjon:    3.27
+   Versjon:    3.37
    Oppdatert:  2026-06-01
   ============================================================
    Versjonshistorikk:
-     3.27 Kategori D og E lagt til:
+     3.37 Ny App-utvikling-ramme i Nå-fanen:
+          - Plassert nederst (etter Nå i dag, I dag, Kjøp).
+          - Blå farge (samme som chipen i Rediger).
+          - Viser alle oppgaver merket med appDevFlag.
+          - A/B/C/D/E-grupperinger inni rammen (samme som
+            I dag og Kjøp) når oppgaver har kategori.
+          - prioNum-skillelinjer mellom 1/2/3/4/uten inni
+            hver gruppe (eller i flat liste hvis ingen
+            kategori).
+          - Inkludert i Lukk alle/Åpne alle.
+     3.36 Eksport/import inkluderer nå alle valg fra Oppsett.
+          - Alle oppgaveflagg: newFlag, naaNowFlag,
+            appDevFlag, prioNum (manglet før).
+          - Alle skille-linjer: D, E, Nye, Nå i dag
+            (manglet før).
+          - Brukerinnstillinger (settings): snarveier på
+            Start, kollapse-tilstand, skjulte rammer,
+            kolonneoppsett, kompakt-modus, kolonnebredder,
+            filter- og sorterings-valg, gruppefiltre.
+          - Bakoverkompatibel: gamle backup-filer kan
+            fortsatt importeres uten å miste data.
+     3.35 Tre justeringer.
+          1. Ny "App-utvikling"-chip i Rediger (etter
+             Nå i dag). Toggler appDevFlag på oppgaven.
+             Blå farge.
+          2. "Lukk alle / Åpne alle"-knapp øverst i Nå-
+             fanen. Lukker/åpner alle tre rammer inkl.
+             A/B/C-undergrupper.
+          3. URL-feltet i Rediger (Mer-fanen) har nå en
+             "Åpne"-knapp ved siden av. Klikk åpner
+             lenken i ny fane. Knappen er deaktivert når
+             feltet er tomt. Mangler https:// legges til.
+     3.34 Nå-fanen justeringer.
+          - Nå i dag-rammen sorterer nå etter prioNum med
+            tynn skillelinje mellom hver verdi (1, 2, 3,
+            4, uten) - samme som A/B/C-grupperingene.
+          - Fjernet manuell "Sett inn skille-linje"-knapp
+            i Nå i dag (skillelinjer er nå automatiske
+            basert på prioNum).
+          - Fjernet dato-badge og oppgavenummer fra alle
+            tre rammene (Nå i dag, I dag, Kjøp) -
+            ryddigere linje med fokus på tittel + A/B/C +
+            prioNum.
+     3.33 prioNum 1-2-3-4 sorterer innenfor A/B/C/D/E.
+          - I dag- og Kjøp-rammen: innenfor hver A/B/C/D/E-
+            gruppe sorteres oppgavene etter prioNum:
+            1, 2, 3, 4, deretter uten.
+          - Tynn skillelinje vises mellom hver prioNum-
+            verdi (mellom 1 og 2, mellom 2 og 3, osv).
+          - PrioNum-merket vises som før på hver linje.
+          - A/B/C-gruppering er fortsatt overordnet, så
+            "A med prio 1" havner først i A-gruppen.
+     3.32 Nytt 1-2-3-4-prioriteringsfelt i Nå.
+          - Nytt prioNum-felt på oppgaver (1=viktigst,
+            2=viktig, 3=mindre, 4=sist, eller ingen).
+          - Vises som farget merke til høyre for A/B/C-
+            merket på oppgavelinjen i Nå-fanen.
+          - Trykk merket → mini-meny med 1/2/3/4/Ingen.
+          - Hver verdi har sin egen farge (1=rød, 2=gul,
+            3=grønn, 4=blå).
+          - Tynn skillelinje mellom hvert valg i menyen,
+            tykkere skille før "Ingen".
+          - Eksisterende prio (Høy/Medium/Lav) påvirkes
+            ikke - de to feltene fungerer side-om-side.
+     3.31 Tydeligere skille mellom A/B/C-underseksjoner
+          i Nå-fanen (I dag og Kjøp):
+          - 10px luft mellom hver underseksjon (var 1px).
+          - Mørkere fargetone i header (0.20 vs 0.10).
+          - 3px venstre fargestripe på både header og rader.
+          - Tellertekst i kategoriens farge (var grå).
+          - Sterkere bokstav-badge (0.30 alfa).
+     3.30 Skille-linjer i Nå-fanen.
+          - Skille-linjer kan kun brukes i flat liste-modus
+            (når ingen oppgaver har A/B/C-kategori). Da
+            dukker også underseksjonene opp, og skille-
+            linjene gir ikke mening.
+          - Når underseksjoner vises (A/B/C-modus) får man
+            en melding i stedet for knappen.
+          - I dag- og Kjøp-rammen oppfører seg likt nå.
+          - Skille-linjer kan dras opp/ned via dra-håndtak
+            som før i Nå-i-dag-rammen.
+     3.29 Rediger: "Nå i dag"-chip lagt til.
+          - Ny chip rett etter "I dag" i Merking-raden,
+            lilla farge (samme som Nå i dag-rammen i Nå).
+          - Toggler naaNowFlag - oppgaven havner i Nå i dag-
+            rammen når flagget er på.
+     3.28 Ny "Nå i dag"-ramme i Nå-fanen.
+          - Tredje ramme i Nå (lilla, øverst): "Nå i dag".
+          - Eget flagg naaNowFlag - drar du en oppgave hit
+            settes det. Drar du bort fjernes det.
+          - Drag-støtte begge veier: Nå i dag <-> I dag,
+            og Nå i dag <-> Kjøp.
+          - Skille-linjer støttes i alle tre rammer.
+          - Tom Nå-i-dag-ramme viser instruks om å dra inn.
+     3.27 Kategori D og E lagt til.
           - Kategori-feltet utvidet fra A/B/C til A/B/C/D/E.
           - D = cyan (#00B4DB / #5DDFF1)
           - E = rosa (#E04A9C / #FF80B5)
@@ -462,8 +556,8 @@
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
 <meta name="application-name" content="Oppgaver" />
-<meta name="version" content="3.27" />
-<title>Oppgaver v3.27</title>
+<meta name="version" content="3.37" />
+<title>Oppgaver v3.37</title>
 <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23185FA5'/><g transform='translate(30 30)'><rect x='0' y='6' width='114' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='39' width='90' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='72' width='102' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><path d='M15 16.5 L21 22.5 L33 10.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M15 49.5 L21 55.5 L33 43.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='24' cy='82.5' r='9' fill='none' stroke='white' stroke-width='3.5'/></g></svg>" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23185FA5'/><g transform='translate(30 30)'><rect x='0' y='6' width='114' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='39' width='90' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><rect x='0' y='72' width='102' height='21' rx='6' fill='rgba(255,255,255,0.25)'/><path d='M15 16.5 L21 22.5 L33 10.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M15 49.5 L21 55.5 L33 43.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='24' cy='82.5' r='9' fill='none' stroke='white' stroke-width='3.5'/></g></svg>" />
 <style>
@@ -1287,19 +1381,25 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .new-section-header .icon{width:14px;height:14px;color:#AED183}
 .new-section-title{flex:1;font-size:12px;font-weight:700;color:#AED183;letter-spacing:0.5px;text-transform:uppercase}
 .new-section-count{font-size:10px;color:#AED183;background:rgba(0,0,0,0.15);padding:1px 7px;border-radius:6px;font-weight:600}
-.naa-subsection{margin-top:1px}
-.naa-subhead{padding:5px 11px;display:flex;align-items:center;gap:7px;cursor:pointer;user-select:none}
+.naa-subsection{margin-top:10px}
+.naa-subsection:first-child{margin-top:0}
+.naa-subhead{padding:7px 11px;display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;border-left-width:3px;border-left-style:solid}
 .naa-subhead .section-collapse-toggle{display:inline-flex;transition:transform 0.15s}
 .naa-subsection.collapsed .naa-subhead .section-collapse-toggle{transform:rotate(-90deg)}
 .naa-subsection.collapsed .naa-subbody{display:none}
-.naa-sublabel{font-size:10px;font-weight:700;padding:1px 8px;border-radius:4px;min-width:22px;text-align:center}
-.naa-subcount{flex:1;font-size:9px;color:#888;text-transform:uppercase;letter-spacing:0.4px}
-.naa-subbody{}
+.naa-sublabel{font-size:11px;font-weight:700;padding:2px 9px;border-radius:4px;min-width:24px;text-align:center}
+.naa-subcount{flex:1;font-size:10px;letter-spacing:0.4px;text-transform:uppercase;font-weight:600}
+.naa-subbody{border-left-width:3px;border-left-style:solid}
 .naa-abc-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;cursor:pointer;font-family:inherit;line-height:1;min-width:30px;text-align:center;flex-shrink:0;border:0.5px solid transparent;display:inline-flex;align-items:center;gap:3px}
 .naa-abc-badge:active{transform:scale(0.92)}
 .naa-abc-chev{font-size:8px;opacity:0.7}
 .naa-abc-empty{color:#888;background:rgba(255,255,255,0.04);border:0.5px dashed #555}
 .naa-abc-empty:active{background:rgba(255,255,255,0.08)}
+.naa-prionum-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;cursor:pointer;font-family:inherit;line-height:1;min-width:28px;text-align:center;flex-shrink:0;display:inline-flex;align-items:center;gap:3px}
+.naa-prionum-badge:active{transform:scale(0.92)}
+.naa-prionum-sep{height:1px;background:var(--border-tertiary);margin:2px 4px;opacity:0.4}
+.naa-prionum-sep.strong{height:1px;background:var(--border-secondary);margin:4px 4px;opacity:0.7}
+.prionum-sep{height:1px;background:rgba(255,255,255,0.08);margin:3px 11px}
 .naa-abc-menu-item{display:block;width:100%;font-size:12px;font-weight:600;padding:8px 12px;background:transparent;border:none;border-radius:5px;cursor:pointer;font-family:inherit;text-align:left;color:var(--text-secondary)}
 .naa-abc-menu-item:active{transform:scale(0.97)}
 .naa-abc-menu-item.active{font-weight:700}
@@ -1407,6 +1507,40 @@ mark{background:#FAEEDA;color:inherit;padding:0 2px;border-radius:2px}
 .iphonex-body-e .iphonex-row{border-bottom:0.5px solid rgba(224,74,156,0.15)}
 .iphonex-body-e .iphonex-row:active{background:rgba(224,74,156,0.1)}
 .iphonex-body-e .iphonex-row:hover{background:rgba(224,74,156,0.06)}
+.naa-now-section{background:rgba(127,119,221,0.06);border:1px solid #7F77DD;border-radius:8px;overflow:hidden;margin-bottom:12px}
+.naa-now-section-header{background:rgba(127,119,221,0.22);padding:7px 11px;border-bottom:1px solid #7F77DD;display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none}
+.naa-now-section.collapsed .naa-now-section-header{border-bottom:none}
+.naa-now-section.collapsed .naa-now-section-body{display:none}
+.naa-now-section.collapsed .section-collapse-toggle{transform:rotate(-90deg)}
+.naa-now-section-header .icon{width:14px;height:14px;color:#B5AEF0;flex-shrink:0}
+.naa-now-section-title{flex:1;font-size:12px;font-weight:700;color:#B5AEF0;letter-spacing:0.5px;text-transform:uppercase}
+.naa-now-section-count{font-size:10px;color:#B5AEF0;background:rgba(0,0,0,0.15);padding:1px 7px;border-radius:6px;font-weight:600}
+.iphonex-body-naa-now .iphonex-row{border-bottom:0.5px solid rgba(127,119,221,0.15)}
+.iphonex-body-naa-now .iphonex-row:active{background:rgba(127,119,221,0.1)}
+.iphonex-body-naa-now .iphonex-row:hover{background:rgba(127,119,221,0.06)}
+.naa-now-empty{opacity:0.7}
+.naa-now-empty .naa-now-section-header{background:rgba(127,119,221,0.10);border-bottom-color:rgba(127,119,221,0.25)}
+.naa-now-empty-msg{padding:14px 12px;font-size:11px;color:var(--text-tertiary);font-style:italic;text-align:center}
+.naa-controls{display:flex;justify-content:flex-end;margin-bottom:8px;padding:0 2px}
+.naa-toggle-all-btn{background:rgba(85,183,235,0.15);border:0.5px solid #378ADD;border-radius:6px;padding:6px 12px;color:#85B7EB;font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:5px;cursor:pointer;font-family:inherit}
+.naa-toggle-all-btn .icon{width:12px;height:12px}
+.naa-toggle-all-btn:active{transform:scale(0.96);background:rgba(85,183,235,0.25)}
+.appdev-section{background:rgba(85,183,235,0.06);border:1px solid #378ADD;border-radius:8px;overflow:hidden;margin-bottom:12px}
+.appdev-section-header{background:rgba(85,183,235,0.22);padding:7px 11px;border-bottom:1px solid #378ADD;display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none}
+.appdev-section.collapsed .appdev-section-header{border-bottom:none}
+.appdev-section.collapsed .appdev-section-body{display:none}
+.appdev-section.collapsed .section-collapse-toggle{transform:rotate(-90deg)}
+.appdev-section-header .icon{width:14px;height:14px;color:#85B7EB;flex-shrink:0}
+.appdev-section-title{flex:1;font-size:12px;font-weight:700;color:#85B7EB;letter-spacing:0.5px;text-transform:uppercase}
+.appdev-section-count{font-size:10px;color:#85B7EB;background:rgba(0,0,0,0.15);padding:1px 7px;border-radius:6px;font-weight:600}
+.iphonex-body-appdev .iphonex-row{border-bottom:0.5px solid rgba(85,183,235,0.15)}
+.iphonex-body-appdev .iphonex-row:active{background:rgba(85,183,235,0.1)}
+.iphonex-body-appdev .iphonex-row:hover{background:rgba(85,183,235,0.06)}
+.url-open-btn{background:rgba(85,183,235,0.18);border:0.5px solid #378ADD;border-radius:5px;padding:8px 12px;color:#85B7EB;font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:4px;cursor:pointer;font-family:inherit;flex-shrink:0;white-space:nowrap}
+.url-open-btn .icon{width:12px;height:12px}
+.url-open-btn:active{transform:scale(0.96);background:rgba(85,183,235,0.28)}
+.url-open-btn:disabled{opacity:0.35;cursor:not-allowed}
+.url-open-btn:disabled:active{transform:none;background:rgba(85,183,235,0.18)}
 .iphonex-row{padding:7px 14px;display:flex;align-items:center;gap:10px;border-bottom:0.5px solid rgba(55,138,221,0.15);cursor:pointer;transition:background 0.15s}
 .iphonex-row:last-child{border-bottom:none}
 .iphonex-row:active{background:rgba(55,138,221,0.08)}
@@ -1580,7 +1714,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent)}
 <script>
 (function(){
 const STORAGE_KEY = 'todoapp_v1';
-const APP_VERSION = '3.27';
+const APP_VERSION = '3.37';
 
 const ICONS = {
   check:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 8"/></svg>',
@@ -1813,6 +1947,9 @@ function migrateState(s){
     if(typeof t.waitFlag !== 'boolean') t.waitFlag = false;
     if(typeof t.buyFlag !== 'boolean') t.buyFlag = false;
     if(typeof t.newFlag !== 'boolean') t.newFlag = false;
+    if(typeof t.naaNowFlag !== 'boolean') t.naaNowFlag = false;
+    if(typeof t.appDevFlag !== 'boolean') t.appDevFlag = false;
+    if(typeof t.prioNum !== 'number' || t.prioNum < 1 || t.prioNum > 4) t.prioNum = 0;
     if(typeof t.noteId !== 'string') t.noteId = '';
     if(!['none','urgent','a','b','c','d','e'].includes(t.category)) t.category = 'none';
     if(typeof t.order !== 'number') t.order = 0;
@@ -2485,7 +2622,7 @@ function renderFab(){
     document.getElementById('btn-new-quick').addEventListener('click',()=>{
       state.returnView = state.view;
       state.view='form';
-      state.form={title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,newFlag:false,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
+      state.form={title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,newFlag:false,naaNowFlag:false,appDevFlag:false,prioNum:0,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
       save(); render();
     });
   }
@@ -2663,6 +2800,13 @@ function naaRow(t, accentColor){
   const abcMerke = cm
     ? `<button class="naa-abc-badge" data-naa-pick="${t.id}" style="color:${cm.text};background:${hexToRgba(cm.color,0.2)};border:0.5px solid transparent" aria-label="Bytt kategori">${cm.label}<span class="naa-abc-chev">⌄</span></button>`
     : `<button class="naa-abc-badge naa-abc-empty" data-naa-pick="${t.id}" aria-label="Sett kategori">—<span class="naa-abc-chev">⌄</span></button>`;
+  // 1-2-3-4 prioritering (prioNum)
+  const prioColors = {1:'#E24B4A', 2:'#EF9F27', 3:'#5DCAA5', 4:'#85B7EB'};
+  const prioTexts  = {1:'#FF8080', 2:'#FAC775', 3:'#5DCAA5', 4:'#85B7EB'};
+  const pn = t.prioNum;
+  const pNumMerke = pn && prioColors[pn]
+    ? `<button class="naa-prionum-badge" data-naa-prionum="${t.id}" style="color:${prioTexts[pn]};background:${hexToRgba(prioColors[pn],0.2)};border:0.5px solid ${prioColors[pn]}" aria-label="Bytt 1-4-prioritet">${pn}<span class="naa-abc-chev">⌄</span></button>`
+    : `<button class="naa-prionum-badge naa-abc-empty" data-naa-prionum="${t.id}" aria-label="Sett 1-4-prioritet">·<span class="naa-abc-chev">⌄</span></button>`;
   return `<div class="iphonex-row ${t.done?'done':''}" data-iphonex-edit="${t.id}" data-id="${t.id}">
     <button class="iphonex-grip" data-iphonex-grip="${t.id}" aria-label="Dra for å flytte">${ICONS.grip}</button>
     <div class="iphonex-check ${t.done?'checked':''}" data-iphonex-check="${t.id}" role="checkbox" aria-checked="${t.done?'true':'false'}">${t.done?ICONS.check:''}</div>
@@ -2670,9 +2814,8 @@ function naaRow(t, accentColor){
       ${contactTag}
       <span class="iphonex-title">${escapeHtml(t.title||'')}</span>
     </div>
-    ${dueDateBadge(t)}
     ${abcMerke}
-    <span class="iphonex-number" style="color:${accentColor}">${t.number||''}</span>
+    ${pNumMerke}
   </div>`;
 }
 
@@ -3816,20 +3959,36 @@ function renderNaa(){
     if((a.order||0) !== (b.order||0)) return (a.order||0) - (b.order||0);
     return prioRank[a.priority]-prioRank[b.priority];
   };
+  // Sortering innen A/B/C/D/E-underseksjon: først etter prioNum (1,2,3,4), så uten,
+  // og innenfor samme prioNum behold eksisterende rekkefølge
+  const prioNumSort = (a, b) => {
+    const pa = (a.prioNum >= 1 && a.prioNum <= 4) ? a.prioNum : 5;
+    const pb = (b.prioNum >= 1 && b.prioNum <= 4) ? b.prioNum : 5;
+    if(pa !== pb) return pa - pb;
+    return sortFn(a, b);
+  };
   const baseFilter = t => !t.done && matchesSearch(t) && passesGroupFilter(t);
-  // I dag: oppgaver merket I dag (todayFlag) ELLER med forfallsdato i dag (men ikke Kjøp - de er i Kjøp-rammen)
+  // Nå i dag: oppgaver merket med naaNowFlag (egen "snap"-liste)
+  const naaNowItems = state.tasks.filter(t=>t.naaNowFlag && !t.waitFlag && baseFilter(t)).sort(sortFn);
+  // I dag: oppgaver merket I dag (todayFlag) ELLER med forfallsdato i dag (men ikke Kjøp eller Nå i dag - de er i sine egne rammer)
   const todayItems = state.tasks.filter(t=>
-    (t.todayFlag || t.date===today) && !t.waitFlag && !t.buyFlag && baseFilter(t)
+    (t.todayFlag || t.date===today) && !t.waitFlag && !t.buyFlag && !t.naaNowFlag && baseFilter(t)
   ).sort(sortFn);
-  // Kjøp: alle oppgaver merket Kjøp (handleliste)
-  const buyItems = state.tasks.filter(t=>t.buyFlag && !t.waitFlag && baseFilter(t)).sort(sortFn);
+  // Kjøp: alle oppgaver merket Kjøp (handleliste, men ikke Nå i dag)
+  const buyItems = state.tasks.filter(t=>t.buyFlag && !t.waitFlag && !t.naaNowFlag && baseFilter(t)).sort(sortFn);
+  // App-utvikling: oppgaver merket med appDevFlag (egen ramme nederst)
+  const appDevItems = state.tasks.filter(t=>t.appDevFlag && !t.waitFlag && baseFilter(t)).sort(sortFn);
 
+  const naaNowKey = 'naa-now';
   const todayKey = 'naa-today';
   const buyKey = 'naa-buy';
+  const appDevKey = 'naa-appdev';
+  const naaNowCollapsed = !!(state.collapsedSections && state.collapsedSections[naaNowKey]);
   const todayCollapsed = !!(state.collapsedSections && state.collapsedSections[todayKey]);
   const buyCollapsed = !!(state.collapsedSections && state.collapsedSections[buyKey]);
+  const appDevCollapsed = !!(state.collapsedSections && state.collapsedSections[appDevKey]);
 
-  if(!todayItems.length && !buyItems.length){
+  if(!todayItems.length && !buyItems.length && !naaNowItems.length && !appDevItems.length){
     if(isGroupFilterActive() || (state.searchQuery||'').trim()){
       return `<div class="empty">${ICONS.sun}<p>Ingen oppgaver matcher filteret</p></div>`;
     }
@@ -3846,34 +4005,50 @@ function renderNaa(){
     {key:'e',  label:'E', color:'#E04A9C', text:'#FF80B5', match:t=>t.category==='e'},
     {key:'none', label:'—', color:'#888780', text:'#999', match:t=>!['a','b','c','d','e'].includes(t.category)}
   ];
+  // Sjekk om I dag-rammen er i underseksjons-modus (skille-linjer fungerer kun i flat liste)
+  let todayHasSubcats = false;
   let todayInnerHTML = '';
   if(todayItems.length){
-    // Bruker bare underseksjoner når det finnes flere kategorier - ellers vanlig liste
-    const hasAny = subCats.slice(0,5).some(s => todayItems.some(s.match));
-    if(hasAny){
+    todayHasSubcats = subCats.slice(0,5).some(s => todayItems.some(s.match));
+    if(todayHasSubcats){
       subCats.forEach(s=>{
-        const subItems = todayItems.filter(s.match);
+        const subItems = todayItems.filter(s.match).sort(prioNumSort);
         if(!subItems.length) return;
         const subKey = 'naa-today-sub-'+s.key;
         const subCollapsed = !!(state.collapsedSections && state.collapsedSections[subKey]);
-        const subRows = subCollapsed ? '' : subItems.map(t=>naaRow(t, todayAccent)).join('');
+        // Bygg rader med tynn skillelinje når prioNum endrer seg
+        let subRows = '';
+        if(!subCollapsed){
+          let prevP = null;
+          subItems.forEach((t, idx) => {
+            const cur = (t.prioNum >= 1 && t.prioNum <= 4) ? t.prioNum : 5;
+            if(idx > 0 && cur !== prevP){
+              subRows += `<div class="prionum-sep"></div>`;
+            }
+            subRows += naaRow(t, todayAccent);
+            prevP = cur;
+          });
+        }
         todayInnerHTML += `<div class="naa-subsection ${subCollapsed?'collapsed':''}">
-          <div class="naa-subhead" data-section-collapse="${subKey}" style="background:${hexToRgba(s.color,0.10)};border-bottom:0.5px solid ${hexToRgba(s.color,0.35)}">
+          <div class="naa-subhead" data-section-collapse="${subKey}" style="background:${hexToRgba(s.color,0.20)};border-left-color:${s.color}">
             <span class="section-collapse-toggle" style="color:${s.text}">${ICONS.chevronDown}</span>
-            <span class="naa-sublabel" style="color:${s.text};background:${hexToRgba(s.color,0.22)}">${s.label}</span>
-            <span class="naa-subcount" style="color:#888">${subItems.length} oppgave${subItems.length===1?'':'r'}</span>
+            <span class="naa-sublabel" style="color:${s.text};background:${hexToRgba(s.color,0.30)}">${s.label}</span>
+            <span class="naa-subcount" style="color:${s.text}">${subItems.length} oppgave${subItems.length===1?'':'r'}</span>
           </div>
-          <div class="naa-subbody">${subRows}</div>
+          <div class="naa-subbody" style="border-left-color:${hexToRgba(s.color,0.35)}">${subRows}</div>
         </div>`;
       });
     } else {
-      // Ingen oppgaver med A/B/C - vis kun flat liste
+      // Ingen oppgaver med A/B/C - vis flat liste med skille-linjer
       todayInnerHTML = weaveDividers(todayItems, t=>naaRow(t, todayAccent), {
         dividerList: state.dividersIphoneXToday || [],
         dividerKey: 'dividersIphoneXToday'
       });
     }
   }
+  const todayDividerBtn = todayHasSubcats
+    ? `<div style="padding:6px 10px;font-size:10px;color:var(--text-tertiary);font-style:italic">Skille-linjer kan ikke brukes når A/B/C-underseksjoner vises</div>`
+    : `<div style="padding:6px 10px"><button class="add-divider-btn" data-add-divider="dividersIphoneXToday">${ICONS.minus} Sett inn skille-linje</button></div>`;
   const todayBlock = todayItems.length ? `<div class="today-section ${todayCollapsed?'collapsed':''}" data-section-target="${todayKey}" data-divider-key="dividersIphoneXToday">
     <div class="today-section-header" data-section-collapse="${todayKey}">
       <span class="section-collapse-toggle">${ICONS.chevronDown}</span>
@@ -3883,28 +4058,42 @@ function renderNaa(){
     </div>
     <div class="today-section-body">
       <div class="iphonex-body iphonex-body-today">${todayInnerHTML}</div>
+      ${todayDividerBtn}
     </div>
   </div>` : '';
 
   // Kjøp-rammen med underseksjoner A/B/C/— (samme som I dag)
   const buyAccent = '#7FD99F';
+  let buyHasSubcats = false;
   let buyInnerHTML = '';
   if(buyItems.length){
-    const hasAnyBuy = subCats.slice(0,5).some(s => buyItems.some(s.match));
-    if(hasAnyBuy){
+    buyHasSubcats = subCats.slice(0,5).some(s => buyItems.some(s.match));
+    if(buyHasSubcats){
       subCats.forEach(s=>{
-        const subItems = buyItems.filter(s.match);
+        const subItems = buyItems.filter(s.match).sort(prioNumSort);
         if(!subItems.length) return;
         const subKey = 'naa-buy-sub-'+s.key;
         const subCollapsed = !!(state.collapsedSections && state.collapsedSections[subKey]);
-        const subRows = subCollapsed ? '' : subItems.map(t=>naaRow(t, buyAccent)).join('');
+        // Bygg rader med tynn skillelinje når prioNum endrer seg
+        let subRows = '';
+        if(!subCollapsed){
+          let prevP = null;
+          subItems.forEach((t, idx) => {
+            const cur = (t.prioNum >= 1 && t.prioNum <= 4) ? t.prioNum : 5;
+            if(idx > 0 && cur !== prevP){
+              subRows += `<div class="prionum-sep"></div>`;
+            }
+            subRows += naaRow(t, buyAccent);
+            prevP = cur;
+          });
+        }
         buyInnerHTML += `<div class="naa-subsection ${subCollapsed?'collapsed':''}">
-          <div class="naa-subhead" data-section-collapse="${subKey}" style="background:${hexToRgba(s.color,0.10)};border-bottom:0.5px solid ${hexToRgba(s.color,0.35)}">
+          <div class="naa-subhead" data-section-collapse="${subKey}" style="background:${hexToRgba(s.color,0.20)};border-left-color:${s.color}">
             <span class="section-collapse-toggle" style="color:${s.text}">${ICONS.chevronDown}</span>
-            <span class="naa-sublabel" style="color:${s.text};background:${hexToRgba(s.color,0.22)}">${s.label}</span>
-            <span class="naa-subcount" style="color:#888">${subItems.length} oppgave${subItems.length===1?'':'r'}</span>
+            <span class="naa-sublabel" style="color:${s.text};background:${hexToRgba(s.color,0.30)}">${s.label}</span>
+            <span class="naa-subcount" style="color:${s.text}">${subItems.length} oppgave${subItems.length===1?'':'r'}</span>
           </div>
-          <div class="naa-subbody">${subRows}</div>
+          <div class="naa-subbody" style="border-left-color:${hexToRgba(s.color,0.35)}">${subRows}</div>
         </div>`;
       });
     } else {
@@ -3914,6 +4103,9 @@ function renderNaa(){
       });
     }
   }
+  const buyDividerBtn = buyHasSubcats
+    ? `<div style="padding:6px 10px;font-size:10px;color:var(--text-tertiary);font-style:italic">Skille-linjer kan ikke brukes når A/B/C-underseksjoner vises</div>`
+    : `<div style="padding:6px 10px"><button class="add-divider-btn" data-add-divider="dividersIphoneXBuy">${ICONS.minus} Sett inn skille-linje</button></div>`;
   const buyBlock = buyItems.length ? `<div class="buy-section ${buyCollapsed?'collapsed':''}" data-section-target="${buyKey}" data-divider-key="dividersIphoneXBuy">
     <div class="buy-section-header" data-section-collapse="${buyKey}">
       <span class="section-collapse-toggle">${ICONS.chevronDown}</span>
@@ -3923,10 +4115,130 @@ function renderNaa(){
     </div>
     <div class="buy-section-body">
       <div class="iphonex-body iphonex-body-buy">${buyInnerHTML}</div>
+      ${buyDividerBtn}
     </div>
   </div>` : '';
 
-  return `<div class="fokus-view">${todayBlock}${buyBlock}</div>`;
+  // Nå i dag-rammen (lilla) - plassert øverst
+  // Sorterer etter prioNum og legger tynn skillelinje mellom hver prioNum-verdi
+  const naaNowAccent = '#B5AEF0';
+  let naaNowInnerHTML = '';
+  if(naaNowItems.length){
+    const sorted = naaNowItems.slice().sort(prioNumSort);
+    let prevP = null;
+    sorted.forEach((t, idx) => {
+      const cur = (t.prioNum >= 1 && t.prioNum <= 4) ? t.prioNum : 5;
+      if(idx > 0 && cur !== prevP){
+        naaNowInnerHTML += `<div class="prionum-sep"></div>`;
+      }
+      naaNowInnerHTML += naaRow(t, naaNowAccent);
+      prevP = cur;
+    });
+  }
+  const naaNowBlock = naaNowItems.length ? `<div class="naa-now-section ${naaNowCollapsed?'collapsed':''}" data-section-target="${naaNowKey}" data-divider-key="dividersNaaNow">
+    <div class="naa-now-section-header" data-section-collapse="${naaNowKey}">
+      <span class="section-collapse-toggle">${ICONS.chevronDown}</span>
+      ${ICONS.bolt||ICONS.sun}
+      <span class="naa-now-section-title">Nå i dag</span>
+      <span class="naa-now-section-count">${naaNowItems.length}</span>
+    </div>
+    <div class="naa-now-section-body">
+      <div class="iphonex-body iphonex-body-naa-now">${naaNowInnerHTML}</div>
+    </div>
+  </div>` : `<div class="naa-now-section naa-now-empty" data-section-target="${naaNowKey}" data-divider-key="dividersNaaNow">
+    <div class="naa-now-section-header">
+      ${ICONS.bolt||ICONS.sun}
+      <span class="naa-now-section-title">Nå i dag</span>
+      <span class="naa-now-section-count">0</span>
+    </div>
+    <div class="naa-now-section-body">
+      <div class="naa-now-empty-msg">Dra oppgaver hit fra I dag eller Kjøp – din "akkurat nå"-liste</div>
+    </div>
+  </div>`;
+
+  // App-utvikling-rammen (blå) - plassert nederst, samme stil som I dag/Kjøp
+  const appDevAccent = '#85B7EB';
+  let appDevHasSubcats = false;
+  let appDevInnerHTML = '';
+  if(appDevItems.length){
+    appDevHasSubcats = subCats.slice(0,5).some(s => appDevItems.some(s.match));
+    if(appDevHasSubcats){
+      subCats.forEach(s=>{
+        const subItems = appDevItems.filter(s.match).sort(prioNumSort);
+        if(!subItems.length) return;
+        const subKey = 'naa-appdev-sub-'+s.key;
+        const subCollapsed = !!(state.collapsedSections && state.collapsedSections[subKey]);
+        let subRows = '';
+        if(!subCollapsed){
+          let prevP = null;
+          subItems.forEach((t, idx) => {
+            const cur = (t.prioNum >= 1 && t.prioNum <= 4) ? t.prioNum : 5;
+            if(idx > 0 && cur !== prevP){
+              subRows += `<div class="prionum-sep"></div>`;
+            }
+            subRows += naaRow(t, appDevAccent);
+            prevP = cur;
+          });
+        }
+        appDevInnerHTML += `<div class="naa-subsection ${subCollapsed?'collapsed':''}">
+          <div class="naa-subhead" data-section-collapse="${subKey}" style="background:${hexToRgba(s.color,0.20)};border-left-color:${s.color}">
+            <span class="section-collapse-toggle" style="color:${s.text}">${ICONS.chevronDown}</span>
+            <span class="naa-sublabel" style="color:${s.text};background:${hexToRgba(s.color,0.30)}">${s.label}</span>
+            <span class="naa-subcount" style="color:${s.text}">${subItems.length} oppgave${subItems.length===1?'':'r'}</span>
+          </div>
+          <div class="naa-subbody" style="border-left-color:${hexToRgba(s.color,0.35)}">${subRows}</div>
+        </div>`;
+      });
+    } else {
+      // Flat liste sortert etter prioNum med skillelinjer
+      const sorted = appDevItems.slice().sort(prioNumSort);
+      let prevP = null;
+      sorted.forEach((t, idx) => {
+        const cur = (t.prioNum >= 1 && t.prioNum <= 4) ? t.prioNum : 5;
+        if(idx > 0 && cur !== prevP){
+          appDevInnerHTML += `<div class="prionum-sep"></div>`;
+        }
+        appDevInnerHTML += naaRow(t, appDevAccent);
+        prevP = cur;
+      });
+    }
+  }
+  const appDevBlock = appDevItems.length ? `<div class="appdev-section ${appDevCollapsed?'collapsed':''}" data-section-target="${appDevKey}">
+    <div class="appdev-section-header" data-section-collapse="${appDevKey}">
+      <span class="section-collapse-toggle">${ICONS.chevronDown}</span>
+      ${ICONS.code||ICONS.list}
+      <span class="appdev-section-title">App-utvikling</span>
+      <span class="appdev-section-count">${appDevItems.length}</span>
+    </div>
+    <div class="appdev-section-body">
+      <div class="iphonex-body iphonex-body-appdev">${appDevInnerHTML}</div>
+    </div>
+  </div>` : '';
+
+  // Lukk alle / Åpne alle - alle keys i Nå-fanen (inkl A/B/C-undergrupper)
+  const naaCollapseKeys = [];
+  if(naaNowItems.length) naaCollapseKeys.push(naaNowKey);
+  if(todayItems.length){
+    naaCollapseKeys.push(todayKey);
+    if(todayHasSubcats) subCats.forEach(s=>{ if(todayItems.some(s.match)) naaCollapseKeys.push('naa-today-sub-'+s.key); });
+  }
+  if(buyItems.length){
+    naaCollapseKeys.push(buyKey);
+    if(buyHasSubcats) subCats.forEach(s=>{ if(buyItems.some(s.match)) naaCollapseKeys.push('naa-buy-sub-'+s.key); });
+  }
+  if(appDevItems.length){
+    naaCollapseKeys.push(appDevKey);
+    if(appDevHasSubcats) subCats.forEach(s=>{ if(appDevItems.some(s.match)) naaCollapseKeys.push('naa-appdev-sub-'+s.key); });
+  }
+  const collapsedSections = state.collapsedSections || {};
+  const naaAllCollapsed = naaCollapseKeys.length > 0 && naaCollapseKeys.every(k=>collapsedSections[k]);
+  const naaToggleLabel = naaAllCollapsed ? 'Åpne alle' : 'Lukk alle';
+  const naaToggleIcon = naaAllCollapsed ? ICONS.chevronDown : ICONS.chevronUp;
+  const naaControls = naaCollapseKeys.length > 0 ? `<div class="naa-controls">
+    <button class="naa-toggle-all-btn" data-naa-toggle-all>${naaToggleIcon}<span>${naaToggleLabel}</span></button>
+  </div>` : '';
+
+  return `<div class="fokus-view">${naaControls}${naaNowBlock}${todayBlock}${buyBlock}${appDevBlock}</div>`;
 }
 
 function renderFokus(){
@@ -4086,7 +4398,7 @@ function wireFokus(){
         title:t.title||'', notes:t.notes||'', subtasks:(t.subtasks||[]).map(s=>({...s})),
         priority:t.priority||'med', date:t.date||todayISO(), futureDate:t.futureDate||'',
         group1Id:t.group1Id||'', group2Id:t.group2Id||'', www:t.www||'', contact:t.contact||'',
-        images:(t.images||[]).slice(), pinned:!!t.pinned, iphoneFlag:!!t.iphoneFlag, todayFlag:!!t.todayFlag, waitFlag:!!t.waitFlag, buyFlag:!!t.buyFlag, newFlag:!!t.newFlag, noteId:t.noteId||'',
+        images:(t.images||[]).slice(), pinned:!!t.pinned, iphoneFlag:!!t.iphoneFlag, todayFlag:!!t.todayFlag, waitFlag:!!t.waitFlag, buyFlag:!!t.buyFlag, newFlag:!!t.newFlag, naaNowFlag:!!t.naaNowFlag, appDevFlag:!!t.appDevFlag, prioNum:t.prioNum||0, noteId:t.noteId||'',
         category:t.category||'none', activeTab:'title', editingId:t.id, mode
       };
       state.returnView = 'fokus';
@@ -4098,7 +4410,7 @@ function wireFokus(){
   const dagensNew = document.querySelector('[data-dagens-new]');
   if(dagensNew) dagensNew.addEventListener('click',()=>{
     const startDate = state.fokusDate || todayISO();
-    state.form={title:'',notes:'',subtasks:[],priority:'med',date:startDate,futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,newFlag:false,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
+    state.form={title:'',notes:'',subtasks:[],priority:'med',date:startDate,futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,newFlag:false,naaNowFlag:false,appDevFlag:false,prioNum:0,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
     state.returnView = 'fokus';
     state.view = 'form';
     save(); render();
@@ -4189,7 +4501,7 @@ function wireDashboard(){
       const v = el.dataset.dashGo;
       // Hurtig-snarvei → åpne registreringsskjemaet med Ny-flagg, retur til Start
       if(v === 'hurtig'){
-        state.form = {title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,newFlag:true,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
+        state.form = {title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,newFlag:true,naaNowFlag:false,appDevFlag:false,prioNum:0,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
         state.returnView = 'dashboard';
         state.view = 'form';
         save(); render();
@@ -4408,7 +4720,7 @@ function wireAlleLinjer(){
         title:t.title, notes:t.notes||'', subtasks:subs, priority:t.priority,
         date:t.date, futureDate:t.futureDate||'', www:t.www||'', contact:t.contact||'',
         images:(t.images||[]).slice(), group1Id:t.group1Id||'', group2Id:t.group2Id||'',
-        pinned:!!t.pinned, iphoneFlag:!!t.iphoneFlag, todayFlag:!!t.todayFlag, waitFlag:!!t.waitFlag, buyFlag:!!t.buyFlag, newFlag:!!t.newFlag,
+        pinned:!!t.pinned, iphoneFlag:!!t.iphoneFlag, todayFlag:!!t.todayFlag, waitFlag:!!t.waitFlag, buyFlag:!!t.buyFlag, newFlag:!!t.newFlag, naaNowFlag:!!t.naaNowFlag, appDevFlag:!!t.appDevFlag, prioNum:t.prioNum||0,
         noteId:t.noteId||'', category:t.category||'none', activeTab:'title', editingId:t.id, mode
       };
       state.returnView = state.view; // 'allelinjer'
@@ -5038,6 +5350,12 @@ function renderForm(){
           <button type="button" class="chip ${f.todayFlag?'on':''}" id="f-toggle-today" style="${f.todayFlag?'background:rgba(0,180,219,0.18);border-color:#00B4DB;color:#5DDFF1':''}">
             ${ICONS.sun}<span>I dag</span>
           </button>
+          <button type="button" class="chip ${f.naaNowFlag?'on':''}" id="f-toggle-naa-now" style="${f.naaNowFlag?'background:rgba(127,119,221,0.22);border-color:#7F77DD;color:#B5AEF0':''}">
+            ${ICONS.bolt||ICONS.sun}<span>Nå i dag</span>
+          </button>
+          <button type="button" class="chip ${f.appDevFlag?'on':''}" id="f-toggle-appdev" style="${f.appDevFlag?'background:rgba(85,183,235,0.20);border-color:#378ADD;color:#85B7EB':''}">
+            ${ICONS.code||ICONS.list}<span>App-utvikling</span>
+          </button>
           <button type="button" class="chip ${f.newFlag?'on':''}" id="f-toggle-new" style="${f.newFlag?'background:rgba(99,153,34,0.2);border-color:#639922;color:#AED183':''}">
             ${ICONS.plus}<span>Ny</span>
           </button>
@@ -5229,7 +5547,10 @@ function renderForm(){
         <label class="form-sub-label" style="margin-top:14px">Oppfølgingsdato</label>
         <input type="date" id="f-future-date" value="${f.futureDate||''}" />
         <label class="form-sub-label" style="margin-top:14px">Lenke (URL)</label>
-        <input type="text" id="f-www" value="${escapeAttr(f.www)}" placeholder="https://..." />
+        <div style="display:flex;gap:6px;align-items:center">
+          <input type="text" id="f-www" value="${escapeAttr(f.www)}" placeholder="https://..." style="flex:1;margin-bottom:0" />
+          <button type="button" class="url-open-btn" id="f-www-open" ${!(f.www||'').trim()?'disabled':''}>${ICONS.link||'🔗'}<span>Åpne</span></button>
+        </div>
         <label class="form-sub-label" style="margin-top:14px">Kontakt</label>
         <input type="text" id="f-contact" value="${escapeAttr(f.contact)}" placeholder="Navn, telefon eller e-post" />
       </div>
@@ -5374,6 +5695,7 @@ function wireTasks(){
       if(e.target.closest('[data-iphonex-grip]')) return;
       if(e.target.closest('[data-iphonex-check]')) return;
       if(e.target.closest('[data-naa-pick]')) return;
+      if(e.target.closest('[data-naa-prionum]')) return;
       const id = el.dataset.iphonexEdit;
       const t = state.tasks.find(x=>x.id===id);
       if(!t) return;
@@ -5382,13 +5704,34 @@ function wireTasks(){
         title:t.title||'', notes:t.notes||'', subtasks:(t.subtasks||[]).map(s=>({...s})),
         priority:t.priority||'med', date:t.date||todayISO(), futureDate:t.futureDate||'',
         group1Id:t.group1Id||'', group2Id:t.group2Id||'', www:t.www||'', contact:t.contact||'',
-        images:(t.images||[]).slice(), pinned:!!t.pinned, iphoneFlag:!!t.iphoneFlag, todayFlag:!!t.todayFlag, waitFlag:!!t.waitFlag, buyFlag:!!t.buyFlag, newFlag:!!t.newFlag, noteId:t.noteId||'',
+        images:(t.images||[]).slice(), pinned:!!t.pinned, iphoneFlag:!!t.iphoneFlag, todayFlag:!!t.todayFlag, waitFlag:!!t.waitFlag, buyFlag:!!t.buyFlag, newFlag:!!t.newFlag, naaNowFlag:!!t.naaNowFlag, appDevFlag:!!t.appDevFlag, prioNum:t.prioNum||0, noteId:t.noteId||'',
         category:t.category||'none',
         activeTab:'title',
         editingId:t.id, mode
       };
       state.returnView = state.view;
       state.view = 'form';
+      save(); render();
+    });
+  });
+  // Nå-fanen: Lukk alle / Åpne alle
+  document.querySelectorAll('[data-naa-toggle-all]').forEach(b=>{
+    b.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      if(!state.collapsedSections) state.collapsedSections = {};
+      const keys = ['naa-now','naa-today','naa-buy','naa-appdev'];
+      // Inkluder undergrupper også
+      ['a','b','c','d','e','none'].forEach(k=>{
+        keys.push('naa-today-sub-'+k);
+        keys.push('naa-buy-sub-'+k);
+        keys.push('naa-appdev-sub-'+k);
+      });
+      const allCollapsed = keys.every(k=>state.collapsedSections[k]);
+      if(allCollapsed){
+        keys.forEach(k=>delete state.collapsedSections[k]);
+      } else {
+        keys.forEach(k=>{ state.collapsedSections[k] = true; });
+      }
       save(); render();
     });
   });
@@ -5399,6 +5742,15 @@ function wireTasks(){
       e.preventDefault();
       const id = btn.dataset.naaPick;
       openNaaAbcMenu(btn, id);
+    });
+  });
+  // Nå-fanen: klikk på 1-2-3-4-merket åpner mini-meny for prioNum
+  document.querySelectorAll('[data-naa-prionum]').forEach(btn=>{
+    btn.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      e.preventDefault();
+      const id = btn.dataset.naaPrionum;
+      openNaaPrioNumMenu(btn, id);
     });
   });
   // Dra-håndtak på iPhone X-rader for å flytte mellom seksjoner
@@ -5567,6 +5919,26 @@ function wireTasks(){
             t.buyFlag = true;
             t.waitFlag = false;
             showToast('Merket for kjøp');
+          }
+          else if(target === 'naa-now'){
+            t.naaNowFlag = true;
+            t.waitFlag = false;
+            showToast('Flyttet til Nå i dag');
+          }
+          else if(target === 'naa-today'){
+            // Drag til I dag-rammen i Nå-fanen
+            t.naaNowFlag = false;
+            t.todayFlag = true;
+            t.buyFlag = false;
+            t.waitFlag = false;
+            showToast('Flyttet til I dag');
+          }
+          else if(target === 'naa-buy'){
+            // Drag til Kjøp-rammen i Nå-fanen
+            t.naaNowFlag = false;
+            t.buyFlag = true;
+            t.waitFlag = false;
+            showToast('Flyttet til Kjøp');
           }
           save();
         }
@@ -5842,7 +6214,7 @@ function wireTasks(){
         iphoneFlag:!!t.iphoneFlag,
         todayFlag:!!t.todayFlag,
         waitFlag:!!t.waitFlag,
-        buyFlag:!!t.buyFlag, newFlag:!!t.newFlag,
+        buyFlag:!!t.buyFlag, newFlag:!!t.newFlag, naaNowFlag:!!t.naaNowFlag, appDevFlag:!!t.appDevFlag, prioNum:t.prioNum||0,
         noteId:t.noteId||'',
         category:t.category||'none',
         activeTab:'title',
@@ -7390,6 +7762,26 @@ function wireForm(){
     state.form.newFlag = !state.form.newFlag;
     save(); render();
   });
+  const naaNowBtn = document.getElementById('f-toggle-naa-now');
+  if(naaNowBtn) naaNowBtn.addEventListener('click',()=>{
+    syncFormInputs();
+    state.form.naaNowFlag = !state.form.naaNowFlag;
+    save(); render();
+  });
+  const appDevBtn = document.getElementById('f-toggle-appdev');
+  if(appDevBtn) appDevBtn.addEventListener('click',()=>{
+    syncFormInputs();
+    state.form.appDevFlag = !state.form.appDevFlag;
+    save(); render();
+  });
+  const wwwOpenBtn = document.getElementById('f-www-open');
+  if(wwwOpenBtn) wwwOpenBtn.addEventListener('click',()=>{
+    syncFormInputs();
+    let url = (state.form.www||'').trim();
+    if(!url){ showToast('Skriv inn en URL først'); return; }
+    if(!/^https?:\/\//i.test(url)) url = 'https://' + url;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  });
   document.querySelectorAll('[data-set-category]').forEach(b=>{
     b.addEventListener('click',()=>{
       syncFormInputs();
@@ -7744,7 +8136,7 @@ function wireForm(){
     const ret = state.returnView || 'today';
     state.view = ret;
     state.returnView = null;
-    state.form={title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,newFlag:false,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
+    state.form={title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,newFlag:false,naaNowFlag:false,appDevFlag:false,prioNum:0,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
     save(); render();
   };
   const doSave = () => {
@@ -7771,6 +8163,9 @@ function wireForm(){
       waitFlag:!!state.form.waitFlag,
       buyFlag:!!state.form.buyFlag,
       newFlag:!!state.form.newFlag,
+      naaNowFlag:!!state.form.naaNowFlag,
+      appDevFlag:!!state.form.appDevFlag,
+      prioNum:state.form.prioNum||0,
       noteId:state.form.noteId||'',
       category:state.form.category||'none'
     };
@@ -7784,7 +8179,7 @@ function wireForm(){
         state.nextTaskNumber++;
         showToast('Lagt til');
       }
-      state.form={title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,newFlag:false,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
+      state.form={title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,newFlag:false,naaNowFlag:false,appDevFlag:false,prioNum:0,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
       const ret = state.returnView || 'today';
       state.view = ret;
       state.returnView = null;
@@ -7846,6 +8241,58 @@ function openNaaAbcMenu(anchor, taskId){
     b.addEventListener('click',(e)=>{
       e.stopPropagation();
       t.category = b.dataset.naaSet;
+      close();
+      saveNow(); render();
+    });
+  });
+}
+
+function openNaaPrioNumMenu(anchor, taskId){
+  const host = document.getElementById('modal-host');
+  const t = state.tasks.find(x=>x.id===taskId);
+  if(!t) return;
+  const cur = (t.prioNum >= 1 && t.prioNum <= 4) ? t.prioNum : 0;
+  const opts = [
+    {key:1, label:'1', desc:'Viktigst',  color:'#E24B4A', text:'#FF8080'},
+    {key:2, label:'2', desc:'Viktig',    color:'#EF9F27', text:'#FAC775'},
+    {key:3, label:'3', desc:'Mindre',    color:'#5DCAA5', text:'#5DCAA5'},
+    {key:4, label:'4', desc:'Sist',      color:'#85B7EB', text:'#85B7EB'},
+    {key:0, label:'·', desc:'Ingen',     color:'#888780', text:'#999'}
+  ];
+
+  // Posisjon under anchor (eller over hvis nær bunnen av skjermen)
+  const rect = anchor.getBoundingClientRect();
+  const menuHeight = opts.length * 36 + 8;
+  const spaceBelow = window.innerHeight - rect.bottom;
+  const top = (spaceBelow >= menuHeight + 10) ? rect.bottom + 4 : rect.top - menuHeight - 4;
+  const right = Math.max(8, window.innerWidth - rect.right);
+
+  // Bygge items med tynn skillelinje mellom hver
+  const itemsHTML = opts.map((o,i)=>{
+    const isLast = i === opts.length - 1;
+    const isIngen = o.key === 0;
+    const sepHTML = !isLast ? `<div class="naa-prionum-sep${isIngen?' before-ingen':''}"></div>` : '';
+    // Tykkere/markant skillelinje før "Ingen"
+    const beforeSep = isIngen ? `<div class="naa-prionum-sep strong"></div>` : '';
+    return beforeSep + `<button class="naa-abc-menu-item ${cur===o.key?'active':''}" data-prionum-set="${o.key}" style="${cur===o.key?`color:${o.text};background:${hexToRgba(o.color,0.18)}`:`color:${o.text}`};display:flex;align-items:center;gap:8px">
+      <span style="font-weight:700;min-width:14px;text-align:center">${o.label}</span>
+      <span style="font-size:10px;color:var(--text-tertiary);font-weight:400">${o.desc}</span>
+    </button>` + (!isLast && !isIngen ? '<div class="naa-prionum-sep"></div>' : '');
+  }).join('');
+
+  host.innerHTML = `<div class="naa-abc-menu-bg" id="naa-prionum-menu-bg" style="position:fixed;inset:0;z-index:9999">
+    <div class="naa-abc-menu" style="position:fixed;top:${top}px;right:${right}px;background:var(--bg-secondary);border:0.5px solid var(--border-secondary);border-radius:8px;padding:4px;box-shadow:0 8px 20px rgba(0,0,0,0.5);min-width:140px">
+      ${itemsHTML}
+    </div>
+  </div>`;
+  const close = ()=>{ host.innerHTML=''; };
+  document.getElementById('naa-prionum-menu-bg').addEventListener('click',(e)=>{
+    if(e.target.id==='naa-prionum-menu-bg') close();
+  });
+  host.querySelectorAll('[data-prionum-set]').forEach(b=>{
+    b.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      t.prioNum = parseInt(b.dataset.prionumSet,10);
       close();
       saveNow(); render();
     });
@@ -8398,6 +8845,10 @@ function openExportModal(){
           todayFlag: !!(t.today_flag || t.todayFlag),
           waitFlag: !!(t.wait_flag || t.waitFlag),
           buyFlag: !!(t.buy_flag || t.buyFlag),
+          newFlag: !!(t.new_flag || t.newFlag),
+          naaNowFlag: !!(t.naa_now_flag || t.naaNowFlag),
+          appDevFlag: !!(t.app_dev_flag || t.appDevFlag),
+          prioNum: (typeof t.prio_num === 'number' && t.prio_num >= 1 && t.prio_num <= 4) ? t.prio_num : ((typeof t.prioNum === 'number' && t.prioNum >= 1 && t.prioNum <= 4) ? t.prioNum : 0),
           noteId: t.note_id || t.noteId || '',
           category: ['none','urgent','a','b','c','d','e'].includes(t.category) ? t.category : 'none',
           order: typeof t.order === 'number' ? t.order : 0,
@@ -8417,6 +8868,10 @@ function openExportModal(){
           todayFlag: !!(t.today_flag || t.todayFlag),
           waitFlag: !!(t.wait_flag || t.waitFlag),
           buyFlag: !!(t.buy_flag || t.buyFlag),
+          newFlag: !!(t.new_flag || t.newFlag),
+          naaNowFlag: !!(t.naa_now_flag || t.naaNowFlag),
+          appDevFlag: !!(t.app_dev_flag || t.appDevFlag),
+          prioNum: (typeof t.prio_num === 'number' && t.prio_num >= 1 && t.prio_num <= 4) ? t.prio_num : ((typeof t.prioNum === 'number' && t.prioNum >= 1 && t.prioNum <= 4) ? t.prioNum : 0),
           noteId: t.note_id || t.noteId || '',
           category: ['none','urgent','a','b','c','d','e'].includes(t.category) ? t.category : 'none',
           order: typeof t.order === 'number' ? t.order : 0,
@@ -8441,8 +8896,36 @@ function openExportModal(){
         if(Array.isArray(data.dividers_iphonex_a)) state.dividersIphoneXA = data.dividers_iphonex_a;
         if(Array.isArray(data.dividers_iphonex_b)) state.dividersIphoneXB = data.dividers_iphonex_b;
         if(Array.isArray(data.dividers_iphonex_c)) state.dividersIphoneXC = data.dividers_iphonex_c;
+        if(Array.isArray(data.dividers_iphonex_d)) state.dividersIphoneXD = data.dividers_iphonex_d;
+        if(Array.isArray(data.dividers_iphonex_e)) state.dividersIphoneXE = data.dividers_iphonex_e;
         if(Array.isArray(data.dividers_iphonex_wait)) state.dividersIphoneXWait = data.dividers_iphonex_wait;
         if(Array.isArray(data.dividers_iphonex_buy)) state.dividersIphoneXBuy = data.dividers_iphonex_buy;
+        if(Array.isArray(data.dividers_nye)) state.dividersNye = data.dividers_nye;
+        if(Array.isArray(data.dividers_naa_now)) state.dividersNaaNow = data.dividers_naa_now;
+        // Brukerinnstillinger fra Oppsett
+        if(data.settings && typeof data.settings === 'object'){
+          const s = data.settings;
+          if(Array.isArray(s.dashboard_shortcuts)) state.dashboardShortcuts = s.dashboard_shortcuts;
+          if(Array.isArray(s.dashboard_today_cats)) state.dashboardTodayCats = s.dashboard_today_cats;
+          if(s.collapsed_sections && typeof s.collapsed_sections === 'object') state.collapsedSections = s.collapsed_sections;
+          if(s.collapsed_groups && typeof s.collapsed_groups === 'object') state.collapsedGroups = s.collapsed_groups;
+          if(s.collapsed_week_days && typeof s.collapsed_week_days === 'object') state.collapsedWeekDays = s.collapsed_week_days;
+          if(Array.isArray(s.iphonex_hidden)) state.iphoneXHidden = s.iphonex_hidden;
+          if(Array.isArray(s.today_hidden)) state.todayHidden = s.today_hidden;
+          if(typeof s.columns_layout === 'boolean') state.columnsLayout = s.columns_layout;
+          if(typeof s.hide_empty_groups1 === 'boolean') state.hideEmptyGroups1 = s.hide_empty_groups1;
+          if(typeof s.hide_empty_groups2 === 'boolean') state.hideEmptyGroups2 = s.hide_empty_groups2;
+          if(typeof s.compact_group1 === 'boolean') state.compactGroup1 = s.compact_group1;
+          if(typeof s.compact_group2 === 'boolean') state.compactGroup2 = s.compact_group2;
+          if(s.column_widths && typeof s.column_widths === 'object') state.columnWidths = s.column_widths;
+          if(typeof s.today_view === 'string') state.todayView = s.today_view;
+          if(typeof s.today_list_filter === 'string') state.todayListFilter = s.today_list_filter;
+          if(typeof s.iphonex_filter === 'string') state.iphoneXFilter = s.iphonex_filter;
+          if(typeof s.alle_filter === 'string') state.alleFilter = s.alle_filter;
+          if(typeof s.alle_linjer_sort === 'string') state.alleLinjerSort = s.alle_linjer_sort;
+          if(Array.isArray(s.group1_filter)) state.group1Filter = s.group1_filter;
+          if(Array.isArray(s.group2_filter)) state.group2Filter = s.group2_filter;
+        }
         if(typeof data.next_task_number === 'number') state.nextTaskNumber = data.next_task_number;
         // Tildele numre til eventuelt oppgaver som mangler det
         const unnumbered = state.tasks.filter(t=>typeof t.number !== 'number');
@@ -8639,10 +9122,37 @@ function exportJSON(){
     dividers_iphonex_a: state.dividersIphoneXA || [],
     dividers_iphonex_b: state.dividersIphoneXB || [],
     dividers_iphonex_c: state.dividersIphoneXC || [],
+    dividers_iphonex_d: state.dividersIphoneXD || [],
+    dividers_iphonex_e: state.dividersIphoneXE || [],
     dividers_iphonex_wait: state.dividersIphoneXWait || [],
     dividers_iphonex_buy: state.dividersIphoneXBuy || [],
+    dividers_nye: state.dividersNye || [],
+    dividers_naa_now: state.dividersNaaNow || [],
     groups1: state.groups1,
     groups2: state.groups2,
+    // Brukerinnstillinger (Oppsett) - videreføres ved import
+    settings: {
+      dashboard_shortcuts: state.dashboardShortcuts || [],
+      dashboard_today_cats: state.dashboardTodayCats || [],
+      collapsed_sections: state.collapsedSections || {},
+      collapsed_groups: state.collapsedGroups || {},
+      collapsed_week_days: state.collapsedWeekDays || {},
+      iphonex_hidden: state.iphoneXHidden || [],
+      today_hidden: state.todayHidden || [],
+      columns_layout: !!state.columnsLayout,
+      hide_empty_groups1: !!state.hideEmptyGroups1,
+      hide_empty_groups2: !!state.hideEmptyGroups2,
+      compact_group1: !!state.compactGroup1,
+      compact_group2: !!state.compactGroup2,
+      column_widths: state.columnWidths || {},
+      today_view: state.todayView || 'group1',
+      today_list_filter: state.todayListFilter || 'all',
+      iphonex_filter: state.iphoneXFilter || 'all',
+      alle_filter: state.alleFilter || 'all',
+      alle_linjer_sort: state.alleLinjerSort || 'number',
+      group1_filter: state.group1Filter || [],
+      group2_filter: state.group2Filter || []
+    },
     tasks: state.tasks.map(t=>({
       id:t.id, title:t.title, notes:t.notes||'',
       subtasks: (t.subtasks||[]).map(s=>({id:s.id,text:s.text,done:s.done})),
@@ -8655,6 +9165,10 @@ function exportJSON(){
       today_flag: !!t.todayFlag,
       wait_flag: !!t.waitFlag,
       buy_flag: !!t.buyFlag,
+      new_flag: !!t.newFlag,
+      naa_now_flag: !!t.naaNowFlag,
+      app_dev_flag: !!t.appDevFlag,
+      prio_num: typeof t.prioNum === 'number' ? t.prioNum : 0,
       category: t.category || 'none',
       note_id: t.noteId || null,
       number: typeof t.number === 'number' ? t.number : null,
@@ -8673,6 +9187,10 @@ function exportJSON(){
       today_flag: !!t.todayFlag,
       wait_flag: !!t.waitFlag,
       buy_flag: !!t.buyFlag,
+      new_flag: !!t.newFlag,
+      naa_now_flag: !!t.naaNowFlag,
+      app_dev_flag: !!t.appDevFlag,
+      prio_num: typeof t.prioNum === 'number' ? t.prioNum : 0,
       category: t.category || 'none',
       note_id: t.noteId || null,
       number: typeof t.number === 'number' ? t.number : null,
@@ -8717,7 +9235,7 @@ document.querySelectorAll('.tab').forEach(t=>{
     let v = t.dataset.view;
     // Klikk på "Hurtig"-fanen → åpne registreringsskjemaet med Ny-flagg, retur til Start
     if(v === 'hurtig'){
-      state.form = {title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,newFlag:true,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
+      state.form = {title:'',notes:'',subtasks:[],priority:'med',date:todayISO(),futureDate:'',group1Id:'',group2Id:'',www:'',contact:'',images:[],pinned:false,iphoneFlag:false,todayFlag:false,category:'none',waitFlag:false,buyFlag:false,newFlag:true,naaNowFlag:false,appDevFlag:false,prioNum:0,noteId:'',activeTab:'title',editingId:null,mode:'notes'};
       state.returnView = 'dashboard';
       state.view = 'form';
       save(); render();
